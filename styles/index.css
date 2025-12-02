@@ -1,8 +1,6 @@
 @import url(https://fonts.bunny.net/css?family=bangers:400);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 [v-cloak] {
     display: none;
