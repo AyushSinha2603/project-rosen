@@ -12,7 +12,7 @@
   # process.managers.process-compose.tui.enable = false;
 
   processes.test = {
-    exec = "pnpm run test:watch";
+    exec = "vitest --watch";
   };
 
   processes.dev = {
