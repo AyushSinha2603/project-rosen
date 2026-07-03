@@ -45,23 +45,7 @@
         </div>
       </div>
 
-      <div class="text-center mt-4">
-        <button
-          @click="cancelDownload"
-          type="button"
-          class="px-8 py-4 mt-8 bg-red-500 text-white font-black text-xl uppercase border-8 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-red-400 active:translate-x-[8px] active:translate-y-[8px] active:shadow-none transition-all rounded-none"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="inline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          Stop Download
-        </button>
-      </div>
+
     </template>
   </div>
 </template>
