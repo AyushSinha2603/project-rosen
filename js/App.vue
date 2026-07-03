@@ -720,7 +720,7 @@
           :overall-rating="futCardRating"
           :trophy-count="trophyCount"
           :completed-percentage="totalAccomplishmentsCompletedPercentage"
-          :total-games="counts.totalGames"
+          :total-games="counts.downloaded"
           :total-positions="counts.totalMoves"
         ></fut-card>
       </div>
@@ -1055,6 +1055,7 @@ export default {
                 // 3. Only finish the download when ALL urls are done
                 if (completedFetches === urls.length) {
                   this.isDownloadComplete = true
+                  this.counts.downloaded = this.counts.totalGames
                 }
               })
               .catch((e: DOMException) => {
