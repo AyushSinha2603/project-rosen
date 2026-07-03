@@ -699,18 +699,39 @@
     </div>
 
     <div class="mt-8 text-center text-sm">
-      <div class="text-slate-200 mb-2" v-if="isDownloadComplete && trophyCount > 0">
-        Download results as
-        <a href="#" @click.prevent="exportAsCsv" class="dotted-underline">CSV</a>
-        or
-        <a href="#" @click.prevent="exportAsJson" class="dotted-underline">JSON</a>
+      <div class="mb-8" v-if="isDownloadComplete && trophyCount > 0">
+        <button
+          @click.prevent="downloadFutCard"
+          class="px-8 py-4 bg-yellow-300 border-8 border-black text-black font-black text-2xl uppercase shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-400 active:translate-x-[8px] active:translate-y-[8px] active:shadow-none transition-all rounded-none inline-block mx-auto"
+        >
+          Download Your Card
+        </button>
       </div>
-      <div class="text-slate-400">
+
+      <div class="text-black mb-4 font-bold" v-if="isDownloadComplete && trophyCount > 0">
+        Download raw data as
+        <a href="#" @click.prevent="exportAsCsv" class="bg-white border-b-4 border-black hover:bg-black hover:text-white px-1 transition-colors">CSV</a>
+        or
+        <a href="#" @click.prevent="exportAsJson" class="bg-white border-b-4 border-black hover:bg-black hover:text-white px-1 transition-colors">JSON</a>
+      </div>
+      <div class="text-black font-bold mt-8">
         Not affiliated with Eric Rosen.
         <br />
         Find a bug? Have a comment? Fill out
-        <a href="https://forms.gle/N1EnqmygRqo3sAMs5" target="_blank" class="dotted-underline">this form</a>
+        <a href="https://forms.gle/N1EnqmygRqo3sAMs5" target="_blank" class="bg-white border-b-4 border-black hover:bg-black hover:text-white px-1 transition-colors">this form</a>
       </div>
+    </div>
+
+    <!-- Hidden FUT Card Container for html2canvas -->
+    <div ref="futCardContainer" class="fixed -top-[9999px] left-0 bg-transparent">
+      <fut-card
+        :username="player.username || username"
+        :overall-rating="totalAccomplishmentsCompletedPercentage"
+        :trophy-count="trophyCount"
+        :completed-percentage="totalAccomplishmentsCompletedPercentage"
+        :total-games="counts.totalGames"
+        :total-positions="counts.totalMoves"
+      ></fut-card>
     </div>
   </div>
 </template>
@@ -720,6 +741,8 @@ import { Chess as ChessJS } from 'chess.js'
 
 import { games, player, Game, Profile, addLichessOauthToken, cancelFetch } from 'chess-fetcher'
 
+import html2canvas from 'html2canvas'
+
 import AccomplishmentScore from './components/AccomplishmentScore.vue'
 import ArrowIcon from './components/ArrowIcon.vue'
 import ChangelogDate from './components/ChangelogDate.vue'
@@ -728,6 +751,7 @@ import LichessLogin from './components/LichessLogin.vue'
 import UsernameFormatter from './components/UsernameFormatter.vue'
 import RecentUpdates from './components/RecentUpdates.vue'
 import TrophyCollection from './components/TrophyCollection.vue'
+import FutCard from './components/FutCard.vue'
 import { smotheredMate, smotheredPorkMate } from './goals/smothered-mate'
 import adoptionMatch from './goals/adoption-match'
 import { blockCheckWithCheckmate } from './goals/block-check-with-checkmate'
@@ -787,6 +811,7 @@ export default {
     UsernameFormatter,
     RecentUpdates,
     TrophyCollection,
+    FutCard,
   },
   data() {
     return {
@@ -887,6 +912,28 @@ export default {
   },
 
   methods: {
+    async downloadFutCard() {
+      const container = this.$refs.futCardContainer as any
+      if (container) {
+        // Find the root element of the FutCard component
+        const el = container.firstElementChild
+        if (el) {
+          try {
+            const canvas = await html2canvas(el, {
+              backgroundColor: null,
+              scale: 2 // High resolution
+            })
+            const link = document.createElement('a')
+            link.download = `rosen-score-card-${this.player.username || this.username}.png`
+            link.href = canvas.toDataURL('image/png')
+            link.click()
+          } catch (e) {
+            console.error('Failed to generate FUT card:', e)
+          }
+        }
+      }
+    },
+
     onRegisterNewTrophy(): void {
       this.trophyTypeCount++
     },
