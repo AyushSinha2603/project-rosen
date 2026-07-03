@@ -699,7 +699,7 @@
     </div>
     <div class="mt-8 text-center text-sm">
       <div v-if="isDownloadComplete && trophyCount > 0" class="mb-6 bg-pink-300 border-4 border-black p-4 inline-block text-xl font-black uppercase shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
-        ✅ Analysis Complete! Scroll down to download your custom FUT Card!
+        ✅ Analysis Complete! Check out your custom FUT Card below!
       </div>
       <div class="mb-8" v-if="isDownloadComplete && trophyCount > 0">
         <button
@@ -718,16 +718,19 @@
       </div>
     </div>
 
-    <!-- Hidden FUT Card Container for html2canvas -->
-    <div ref="futCardContainer" class="fixed -top-[9999px] left-0 bg-transparent opacity-0 pointer-events-none">
-      <fut-card
-        :username="player.username || username"
-        :overall-rating="futCardRating"
-        :trophy-count="trophyCount"
-        :completed-percentage="totalAccomplishmentsCompletedPercentage"
-        :total-games="counts.totalGames"
-        :total-positions="counts.totalMoves"
-      ></fut-card>
+    <!-- FUT Card Preview Container (restored) -->
+    <div class="mt-8 flex justify-center w-full p-8" v-if="isDownloadComplete && trophyCount > 0">
+      <div ref="futCardContainer" class="bg-transparent inline-block transition-transform duration-300 hover:scale-[1.03]">
+        <fut-card
+          :username="player.username || username"
+          :avatar-url="avatarUrl"
+          :overall-rating="futCardRating"
+          :trophy-count="trophyCount"
+          :completed-percentage="totalAccomplishmentsCompletedPercentage"
+          :total-games="counts.totalGames"
+          :total-positions="counts.totalMoves"
+        ></fut-card>
+      </div>
     </div>
   </div>
 </template>
@@ -826,6 +829,7 @@ export default {
         form: '',
         api: <DOMException>{},
       },
+      avatarUrl: '',
 
       trophyTypeCount: 0,
       playerTrophiesByType: <PlayerTrophiesByType>{},
@@ -920,10 +924,13 @@ export default {
           try {
             const canvas = await html2canvas(el, {
               backgroundColor: null,
-              scale: 2 // High resolution
+              scale: 2, // High resolution
+              useCORS: true // Allow loading external images
             })
             const link = document.createElement('a')
-            link.download = `rosen-score-card-${this.player.username || this.username}.png`
+            let filenameUsername = this.player.username || this.username
+            filenameUsername = filenameUsername.replace(/ \(.+\)/g, '')
+            link.download = `rosen-score-card-${filenameUsername}.png`
             link.href = canvas.toDataURL('image/png')
             link.click()
           } catch (e) {
@@ -974,6 +981,21 @@ export default {
 
       this.isDownloading = true
       this.counts.totalGames = 0 // Reset to 0 so we can safely add them together
+
+      // Fetch Avatar from chess.com
+      let avatarSearchUser = this.username
+      if (this.inputs.type === 'both' && this.usernameChesscom) {
+        avatarSearchUser = this.usernameChesscom
+      }
+      try {
+        const avatarRes = await fetch(`https://api.chess.com/pub/player/${avatarSearchUser}`)
+        if (avatarRes.ok) {
+          const avatarData = await avatarRes.json()
+          this.avatarUrl = avatarData.avatar || ''
+        }
+      } catch (e) {
+        this.avatarUrl = ''
+      }
 
       // 1. Build an array of URLs to fetch
       let urls: string[] = []

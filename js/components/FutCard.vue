@@ -1,8 +1,8 @@
 <template>
-  <div class="inline-block relative p-4" ref="futCardElement" id="fut-card-element">
+  <div class="inline-block relative p-4 group" ref="futCardElement" id="fut-card-element">
     <!-- Outer Card Background with massive glowing drop shadow -->
     <div
-      class="w-[320px] h-[480px] relative text-[#422006] flex flex-col shadow-[0_0_40px_rgba(250,204,21,1)]"
+      class="w-[320px] h-[480px] relative text-[#422006] flex flex-col shadow-[0_0_40px_rgba(250,204,21,1)] group-hover:shadow-[0_0_60px_rgba(250,204,21,1)] transition-shadow duration-300"
       style="
         background: linear-gradient(135deg, #fef08a 0%, #ca8a04 25%, #eab308 50%, #854d0e 75%, #fef08a 100%);
         clip-path: polygon(12% 0, 88% 0, 100% 12%, 100% 88%, 50% 100%, 0 88%, 0 12%);
@@ -37,15 +37,21 @@
           </div>
           <!-- Right Portrait -->
           <div class="w-2/3 flex justify-center items-end pb-2 relative z-0">
-            <!-- Glowing behind trophy -->
-            <div class="absolute bottom-10 right-8 w-24 h-24 bg-white rounded-full blur-2xl opacity-70"></div>
-            <span class="text-[120px] leading-none absolute bottom-0 right-0" style="filter: drop-shadow(0 0 15px rgba(255,255,255,0.9));">🏆</span>
+            <!-- Glowing behind avatar -->
+            <div class="absolute bottom-6 right-6 w-24 h-24 bg-white rounded-full blur-2xl opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
+            <img 
+              :src="displayAvatarUrl" 
+              class="absolute bottom-2 right-2 w-32 h-32 object-cover rounded-t-[40%] rounded-b-md border-4 border-[#ca8a04] shadow-[0_10px_20px_rgba(0,0,0,0.4)] z-10"
+              style="filter: drop-shadow(0 0 10px rgba(255,255,255,0.6));"
+              crossorigin="anonymous"
+            />
           </div>
         </div>
 
         <!-- Player Name -->
-        <div class="text-center font-black text-3xl uppercase tracking-wider px-4 mt-2 relative z-10" style="text-shadow: 0 0 12px rgba(255,255,255,0.9);">
-          {{ username || 'UNKNOWN' }}
+        <div class="text-center font-black text-3xl uppercase tracking-wider px-2 mt-2 relative z-10 w-full overflow-hidden" style="text-shadow: 0 0 12px rgba(255,255,255,0.9);">
+          <div class="truncate w-full">{{ cleanUsername || 'UNKNOWN' }}</div>
         </div>
         
         <!-- Divider -->
@@ -79,6 +85,7 @@ export default {
   name: 'FutCard',
   props: {
     username: { type: String, required: true },
+    avatarUrl: { type: String, default: '' },
     overallRating: { type: Number, required: true },
     trophyCount: { type: Number, required: true },
     completedPercentage: { type: Number, required: true },
@@ -86,6 +93,18 @@ export default {
     totalPositions: { type: Number, required: true }
   },
   computed: {
+    cleanUsername() {
+      if (!this.username) return 'UNKNOWN'
+      // Remove " (Both Platforms)" and " (Lichess) & (Chess.com)" suffixes
+      return this.username.replace(/ \(.+\)/g, '')
+    },
+    displayAvatarUrl() {
+      // Use chess.com avatar if available, otherwise default blank SVG silhouette
+      if (this.avatarUrl) {
+        return this.avatarUrl
+      }
+      return 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23713f12"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>'
+    },
     formattedGames() {
       return this.totalGames >= 1000 ? (this.totalGames / 1000).toFixed(1) + 'k' : this.totalGames
     },
