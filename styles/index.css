@@ -2,13 +2,17 @@
 
 @import 'tailwindcss';
 
+html {
+  @apply text-black;
+  background-color: #f0f0f0;
+  background-image: radial-gradient(#000000 2px, transparent 2px);
+  background-size: 32px 32px;
+}
+
 [v-cloak] {
   display: none;
 }
 
-html {
-  @apply bg-white text-black;
-}
 
 body {
   @apply min-h-screen selection:bg-pink-500 selection:text-white font-mono;
