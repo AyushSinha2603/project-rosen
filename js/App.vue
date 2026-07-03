@@ -722,16 +722,21 @@
       </div>
     </div>
 
-    <!-- Hidden FUT Card Container for html2canvas -->
-    <div ref="futCardContainer" class="fixed -top-[9999px] left-0 bg-transparent">
-      <fut-card
-        :username="player.username || username"
-        :overall-rating="totalAccomplishmentsCompletedPercentage"
-        :trophy-count="trophyCount"
-        :completed-percentage="totalAccomplishmentsCompletedPercentage"
-        :total-games="counts.totalGames"
-        :total-positions="counts.totalMoves"
-      ></fut-card>
+    <!-- FUT Card Preview -->
+    <div class="mt-8 flex justify-center w-full bg-black/5 p-8 border-4 border-black border-dashed" v-if="isDownloadComplete && trophyCount > 0">
+      <div class="text-center">
+        <h3 class="text-2xl font-black uppercase mb-6 bg-white border-4 border-black inline-block px-4 py-1">Your Rosen Score Card</h3>
+        <div ref="futCardContainer" class="bg-transparent inline-block">
+          <fut-card
+            :username="player.username || username"
+            :overall-rating="totalAccomplishmentsCompletedPercentage"
+            :trophy-count="trophyCount"
+            :completed-percentage="totalAccomplishmentsCompletedPercentage"
+            :total-games="counts.totalGames"
+            :total-positions="counts.totalMoves"
+          ></fut-card>
+        </div>
+      </div>
     </div>
   </div>
 </template>
