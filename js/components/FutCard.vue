@@ -51,8 +51,8 @@
       </div>
 
       <!-- Username -->
-      <div class="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-3 mb-6 text-center">
-        <h2 class="text-[32px] leading-none font-black text-black uppercase break-words whitespace-normal tracking-tight" style="font-family: 'Arial', sans-serif;">{{ cleanUsername || 'UNKNOWN' }}</h2>
+      <div class="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-3 mb-6 text-center overflow-hidden flex items-center justify-center h-16">
+        <h2 class="leading-none font-black text-black uppercase whitespace-nowrap tracking-tight" :style="{ fontSize: dynamicFontSize, fontFamily: 'Arial, sans-serif' }">{{ cleanUsername || 'UNKNOWN' }}</h2>
       </div>
       
       <!-- Stats Grid -->
@@ -94,6 +94,15 @@ export default {
     cleanUsername() {
       if (!this.username) return 'UNKNOWN'
       return this.username.replace(/ \(.+\)/g, '')
+    },
+    dynamicFontSize() {
+      const len = this.cleanUsername.length
+      if (len <= 10) return '38px'
+      if (len <= 12) return '32px'
+      if (len <= 14) return '28px'
+      if (len <= 16) return '24px'
+      if (len <= 18) return '21px'
+      return '18px'
     },
     displayAvatarUrl() {
       return this.avatarUrl || ''
