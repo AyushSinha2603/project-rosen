@@ -1,12 +1,12 @@
 <template>
-  <div class="my-8 bg-orange-400 drop-shadow-2xl p-4 rounded-lg text-orange-800 mx-auto">
+  <div class="my-8 bg-indigo-950/40 border border-indigo-500/20 shadow-2xl backdrop-blur-lg p-6 rounded-2xl text-indigo-100 mx-auto transition-all">
     <div class="text-lg font-medium text-center">
       Downloading and analyzing
       {{ title }}&rsquo;s games
     </div>
 
     <template v-if="hideProgressBar">
-      <svg class="animate-spin my-2 mx-auto h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <svg class="animate-spin my-4 mx-auto h-12 w-12 text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
         <path
           class="opacity-75"
@@ -16,32 +16,32 @@
       </svg>
     </template>
     <template v-else>
-      <div class="w-full my-2 h-6 bg-orange-200">
-        <div class="h-6 bg-orange-800" :style="`width: ${percentDownloaded}%`"></div>
+      <div class="w-full my-4 h-4 bg-slate-800/80 rounded-full overflow-hidden border border-slate-700/50">
+        <div class="h-4 bg-gradient-to-r from-indigo-500 to-purple-500 shadow-lg shadow-indigo-500/50 transition-all duration-300" :style="`width: ${percentDownloaded}%`"></div>
       </div>
 
       <div class="flex flex-row">
         <div class="basis-1/4 text-center">
-          <h4 class="text-xl md:text-4xl">
+          <h4 class="text-xl md:text-4xl text-indigo-300">
             {{ positions.toLocaleString() }}
           </h4>
-          Positions Analyzed
+          <span class="text-xs uppercase tracking-wider text-slate-400 mt-1 block">Positions Analyzed</span>
         </div>
         <div class="basis-1/4 text-center">
-          <h4 class="text-xl md:text-4xl">
+          <h4 class="text-xl md:text-4xl text-indigo-300">
             {{ downloaded.toLocaleString() }}
           </h4>
-          Games Analyzed
+          <span class="text-xs uppercase tracking-wider text-slate-400 mt-1 block">Games Analyzed</span>
         </div>
         <div class="basis-1/4 text-center">
-          <h4 class="text-xl md:text-4xl">
+          <h4 class="text-xl md:text-4xl text-indigo-300">
             {{ total.toLocaleString() }}
           </h4>
-          Total Games
+          <span class="text-xs uppercase tracking-wider text-slate-400 mt-1 block">Total Games</span>
         </div>
         <div class="basis-1/4 text-center">
-          <h4 class="text-xl md:text-4xl">{{ percentDownloadedDisplay }}%</h4>
-          Complete
+          <h4 class="text-xl md:text-4xl text-emerald-400">{{ percentDownloadedDisplay }}%</h4>
+          <span class="text-xs uppercase tracking-wider text-slate-400 mt-1 block">Complete</span>
         </div>
       </div>
 
@@ -49,7 +49,7 @@
         <button
           @click="cancelDownload"
           type="button"
-          class="px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
+          class="px-6 py-2 bg-red-900/60 border border-red-500/50 text-red-200 font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-red-800 hover:shadow-red-500/20 focus:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 active:bg-red-700 transition-all duration-200 ease-in-out backdrop-blur-sm"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="inline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path

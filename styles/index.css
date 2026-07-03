@@ -7,7 +7,11 @@
 }
 
 html {
-  @apply bg-sky-700 text-white;
+  @apply bg-slate-900 text-slate-100;
+}
+
+body {
+  @apply bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 min-h-screen selection:bg-indigo-500/30;
 }
 
 h1 {
@@ -23,20 +27,13 @@ h1 {
 }
 
 .heading {
-  @apply bg-sky-900
-        text-center
-        text-sm
-        uppercase
-        text-slate-100
-        mb-1
-        mt-2;
+  @apply bg-indigo-900/50 backdrop-blur-sm border border-indigo-500/20 shadow-inner rounded-md text-center text-sm uppercase tracking-widest text-indigo-200 mb-2 mt-4 py-2 font-semibold;
 }
 
 .is-download-complete .accomplishment-does-not-have-games {
-  @apply bg-slate-400
-        text-white;
+  @apply bg-slate-800/80 text-slate-400 border border-slate-700 backdrop-blur-md;
 }
 
 .is-download-complete .accomplishment-does-not-have-games div {
-  @apply bg-[#7c8ca3];
+  @apply bg-slate-800/50;
 }

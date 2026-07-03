@@ -14,7 +14,7 @@
     </div>
 
     <div
-      class="my-8 bg-indigo-100 border border-indigo-200 drop-shadow-2xl mx-auto p-4 rounded-lg shadow-indigo-500/50 shadow-lg text-sky-600 md:w-1/2"
+      class="my-8 bg-slate-800/60 backdrop-blur-xl border border-slate-700/50 drop-shadow-2xl mx-auto p-6 rounded-2xl shadow-indigo-500/20 shadow-2xl text-indigo-100 md:w-1/2 transition-all hover:shadow-indigo-500/30"
       v-if="!isDownloading && !isDownloadComplete"
     >
       <form @submit.prevent="startDownload">
@@ -27,7 +27,7 @@
             <div>
               Select which site:
 
-              <div class="text-sky-900">
+              <div class="text-indigo-200 mt-2">
                 <label class="cursor-pointer">
                   <input type="radio" name="site" value="lichess" v-model="inputs.type" />
                   Lichess
@@ -47,7 +47,7 @@
 
               <input
                 type="text"
-                class="block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                class="block w-full px-4 py-2 text-base font-normal text-slate-200 bg-slate-900/50 bg-clip-padding border border-solid border-slate-700 rounded-lg transition ease-in-out m-0 focus:text-white focus:bg-slate-900 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none placeholder-slate-500 mt-2"
                 :placeholder="inputs.type === 'both' ? 'Lichess username here' : 'Username here'"
                 spellcheck="false"
                 data-lpignore="true"
@@ -57,20 +57,20 @@
                 Enter Chess.com username:
                 <input
                   type="text"
-                  class="block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  class="block w-full px-4 py-2 text-base font-normal text-slate-200 bg-slate-900/50 bg-clip-padding border border-solid border-slate-700 rounded-lg transition ease-in-out m-0 focus:text-white focus:bg-slate-900 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none placeholder-slate-500 mt-2"
                   placeholder="Chess.com Username here"
                   spellcheck="false"
                   data-lpignore="true"
                   v-model="inputs.valueChesscom"
                 />
               </div>
-              <div class="text-sm">
+              <div class="text-sm mt-3 text-slate-400">
                 Or
-                <span class="dotted-underline text-sky-900 cursor-pointer" @click.prevent="formFill('lichess', 'EricRosen')">
+                <span class="dotted-underline text-indigo-400 hover:text-indigo-300 cursor-pointer transition-colors" @click.prevent="formFill('lichess', 'EricRosen')">
                   click here to see EricRosen's on Lichess
                 </span>
                 or
-                <span class="dotted-underline text-sky-900 cursor-pointer" @click.prevent="formFill('chesscom', 'IMRosen')"> his Chess.com </span>
+                <span class="dotted-underline text-indigo-400 hover:text-indigo-300 cursor-pointer transition-colors" @click.prevent="formFill('chesscom', 'IMRosen')"> his Chess.com </span>
               </div>
             </div>
           </div>
@@ -92,11 +92,11 @@
             <ArrowIcon />
           </div>
           <div class="basis-3/4">
-            <div class="text-sm mt-1 mb-2">
+            <div class="text-sm mt-1 mb-4">
               Check games since
               <select
                 v-model.number="inputs.filters.sinceHoursAgo"
-                class="bg-transparent border-b border-dotted border-sky-900 focus:outline-0 hover:border-dashed text-sky-900 md:w-28"
+                class="bg-slate-900/50 border border-slate-700 rounded-md focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-indigo-200 md:w-32 py-1 px-2 ml-2 transition-all cursor-pointer"
               >
                 <option :value="6">6 hours ago</option>
                 <option :value="24">24 hours ago</option>
@@ -111,9 +111,9 @@
 
             <button
               type="submit"
-              class="px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
+              class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold text-sm leading-tight uppercase rounded-lg shadow-lg hover:from-indigo-400 hover:to-purple-500 hover:shadow-indigo-500/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900 active:scale-95 transition-all duration-200 ease-in-out w-full sm:w-auto flex items-center justify-center gap-2"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" class="inline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -152,14 +152,14 @@
       @cancel-download="cancelDownload"
     ></download-progress>
 
-    <div v-if="errors.api.message" class="text-center bg-orange-800 p-3">
+    <div v-if="errors.api.message" class="text-center bg-red-900/40 border border-red-500/50 text-red-200 p-4 rounded-xl shadow-lg mt-4 backdrop-blur-sm">
       There was an error from the {{ inputs.type === 'lichess' ? 'Lichess' : 'Chess.com' }} API:
       <strong>{{ errors.api }}</strong>
 
-      <p>Try only running 1 Rosen Score report at a time. You may have to wait before trying again.</p>
+      <p class="mt-2 text-red-300">Try only running 1 Rosen Score report at a time. You may have to wait before trying again.</p>
     </div>
 
-    <div v-if="player.username" class="mt-8 bg-sky-800 p-4 text-center rounded-lg">
+    <div v-if="player.username" class="mt-8 bg-gradient-to-r from-slate-800 to-indigo-900/40 p-6 text-center rounded-2xl border border-indigo-500/20 shadow-2xl backdrop-blur-xl mb-8">
       <h2 class="text-2xl">
         <username-formatter :title="player.title" :username="player.username"></username-formatter>
         has
@@ -181,9 +181,9 @@
 
       <div class="mb-1" v-if="sinceDateFormatted">since {{ sinceDateFormatted }}</div>
 
-      <trophy-collection :count="trophyCount" size="large"></trophy-collection>
+      <trophy-collection :count="trophyCount" size="large" class="mt-4 mb-4"></trophy-collection>
 
-      <div class="text-sm mt-2">
+      <div class="text-sm mt-4 text-slate-300">
         <strong>{{ counts.totalMoves.toLocaleString() }}</strong>
         positions and
         <strong>{{ counts.downloaded.toLocaleString() }}</strong>

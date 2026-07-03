@@ -11,7 +11,7 @@
         </svg>
         Logged in as
         <strong>{{ username }}</strong>
-        <span class="dotted-underline text-xs text-sky-900 cursor-pointer" @click.prevent="logout"> (Logout) </span>
+        <span class="dotted-underline text-xs text-indigo-400 hover:text-indigo-300 cursor-pointer transition-colors" @click.prevent="logout"> (Logout) </span>
       </div>
     </template>
     <template v-else>
@@ -19,7 +19,7 @@
 
       <button
         type="button"
-        class="block px-4 py-2 bg-slate-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-slate-500 hover:shadow-lg focus:bg-slate-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-600 active:shadow-lg transition duration-150 ease-in-out"
+        class="block px-4 py-2 mt-1 bg-slate-800/80 border border-slate-700 text-slate-200 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-slate-700 hover:shadow-lg focus:bg-slate-700 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-slate-500 active:bg-slate-600 active:shadow-lg transition-all duration-200 ease-in-out backdrop-blur-sm"
         @click="login"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="inline h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,7 +38,7 @@
         <strong>3x</strong> faster when downloading your own games, <strong>1.5x</strong> faster for all others
         <br />
         You can learn more about this
-        <a href="https://lichess.org/api#operation/apiGamesUser" target="_blank" class="text-sky-900 dotted-underline">here</a>
+        <a href="https://lichess.org/api#operation/apiGamesUser" target="_blank" class="text-indigo-400 hover:text-indigo-300 dotted-underline transition-colors">here</a>
       </p>
     </template>
   </div>

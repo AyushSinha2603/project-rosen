@@ -1,9 +1,9 @@
 <template>
   <div
-    class="px-3 py-2 rounded text-center"
+    class="px-4 py-3 rounded-xl text-center border transition-all duration-300"
     :class="{
-      'bg-green-600': hasTrophies,
-      'bg-yellow-300 text-yellow-800  accomplishment-does-not-have-games': !hasTrophies,
+      'bg-emerald-900/40 border-emerald-500/30 text-emerald-100 hover:bg-emerald-800/50 hover:shadow-lg hover:shadow-emerald-500/20': hasTrophies,
+      'bg-slate-800/40 border-slate-700/50 text-slate-400 hover:bg-slate-800/80 accomplishment-does-not-have-games': !hasTrophies,
     }"
   >
     <span @click.prevent="isExpanded = !isExpanded" class="hover:underline cursor-pointer">{{ title }}</span>
@@ -15,10 +15,10 @@
     <template v-if="isExpanded">
       <div
         v-if="hasExpandableContent"
-        class="rounded p-2"
+        class="rounded-lg p-3 mt-3 text-sm backdrop-blur-sm"
         :class="{
-          'bg-green-700': hasTrophies,
-          'bg-yellow-200': !hasTrophies,
+          'bg-emerald-950/60 text-emerald-200 border border-emerald-500/20': hasTrophies,
+          'bg-slate-900/60 text-slate-300 border border-slate-700/50': !hasTrophies,
         }"
       >
         {{ desc }}
@@ -44,7 +44,7 @@
       </div>
 
       <template v-if="hasTrophies">
-        <h4 class="font-bold">
+        <h4 class="font-bold mt-3 text-emerald-300">
           {{ trophyCount }}
           <template v-if="trophyCount === 1"> {{ units[0] }} </template>
           <template v-else> {{ units[1] }} </template>
