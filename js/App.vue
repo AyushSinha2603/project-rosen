@@ -7,8 +7,8 @@
     }"
   >
     <div class="text-center font-black">
-      <h1 class="text-6xl md:text-8xl mb-4 uppercase bg-yellow-300 inline-block px-8 py-4 border-8 border-black shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] -rotate-2">
-        <a href="/" class="hover:text-pink-500 transition-colors">Rosen Score</a>
+      <h1 class="text-5xl md:text-7xl mb-4 uppercase bg-yellow-300 inline-block px-8 py-4 border-8 border-black shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] -rotate-2">
+        <a href="/" class="hover:text-pink-500 transition-colors">Project rosen</a>
       </h1>
       <p class="md:text-2xl mt-8 bg-black text-white inline-block px-4 py-2 border-4 border-black font-bold">How many of these chess accomplishments have you completed?</p>
     </div>
@@ -709,13 +709,6 @@
           Download Your Card
         </button>
       </div>
-
-      <div class="text-black mb-4 font-bold" v-if="isDownloadComplete && trophyCount > 0">
-        Download raw data as
-        <a href="#" @click.prevent="exportAsCsv" class="bg-white border-b-4 border-black hover:bg-black hover:text-white px-1 transition-colors">CSV</a>
-        or
-        <a href="#" @click.prevent="exportAsJson" class="bg-white border-b-4 border-black hover:bg-black hover:text-white px-1 transition-colors">JSON</a>
-      </div>
     </div>
 
     <!-- FUT Card Preview Container (restored) -->
@@ -873,7 +866,7 @@ export default {
         .flat().length
     },
     futCardRating(): number {
-      return Math.min(99, Math.floor(40 + (this.totalAccomplishmentsCompletedPercentage * 0.5) + (this.trophyCount * 0.2)))
+      return Math.min(99, Math.floor(40 + (this.totalAccomplishmentsCompletedPercentage * 0.5) + (this.trophyCount * 0.05)))
     },
   },
 

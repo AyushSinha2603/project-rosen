@@ -51,8 +51,8 @@
       </div>
 
       <!-- Username -->
-      <div class="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-3 mb-6 text-center overflow-hidden">
-        <h2 class="text-4xl font-black text-black uppercase truncate tracking-tight" style="font-family: 'Arial', sans-serif;">{{ cleanUsername || 'UNKNOWN' }}</h2>
+      <div class="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-3 mb-6 text-center">
+        <h2 class="text-[32px] leading-none font-black text-black uppercase break-words whitespace-normal tracking-tight" style="font-family: 'Arial', sans-serif;">{{ cleanUsername || 'UNKNOWN' }}</h2>
       </div>
       
       <!-- Stats Grid -->
