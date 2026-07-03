@@ -1,12 +1,12 @@
 <template>
-  <div class="my-8 bg-indigo-950/40 border border-indigo-500/20 shadow-2xl backdrop-blur-lg p-6 rounded-2xl text-indigo-100 mx-auto transition-all">
+  <div class="my-8 bg-purple-400 border-8 border-black shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] p-8 text-black font-black mx-auto rounded-none transition-all">
     <div class="text-lg font-medium text-center">
       Downloading and analyzing
       {{ title }}&rsquo;s games
     </div>
 
     <template v-if="hideProgressBar">
-      <svg class="animate-spin my-4 mx-auto h-12 w-12 text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <svg class="animate-spin my-4 mx-auto h-16 w-16 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
         <path
           class="opacity-75"
@@ -16,32 +16,32 @@
       </svg>
     </template>
     <template v-else>
-      <div class="w-full my-4 h-4 bg-slate-800/80 rounded-full overflow-hidden border border-slate-700/50">
-        <div class="h-4 bg-gradient-to-r from-indigo-500 to-purple-500 shadow-lg shadow-indigo-500/50 transition-all duration-300" :style="`width: ${percentDownloaded}%`"></div>
+      <div class="w-full my-6 h-8 bg-white border-4 border-black overflow-hidden rounded-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
+        <div class="h-8 bg-green-400 border-r-4 border-black transition-all duration-300 relative z-10" :style="`width: ${percentDownloaded}%`"></div>
       </div>
 
       <div class="flex flex-row">
         <div class="basis-1/4 text-center">
-          <h4 class="text-xl md:text-4xl text-indigo-300">
+          <h4 class="text-2xl md:text-5xl text-black bg-white border-4 border-black px-2 py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block">
             {{ positions.toLocaleString() }}
           </h4>
-          <span class="text-xs uppercase tracking-wider text-slate-400 mt-1 block">Positions Analyzed</span>
+          <span class="text-sm font-black uppercase text-white bg-black mt-4 block p-1 border-2 border-black">Positions Analyzed</span>
         </div>
         <div class="basis-1/4 text-center">
-          <h4 class="text-xl md:text-4xl text-indigo-300">
+          <h4 class="text-2xl md:text-5xl text-black bg-white border-4 border-black px-2 py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block">
             {{ downloaded.toLocaleString() }}
           </h4>
-          <span class="text-xs uppercase tracking-wider text-slate-400 mt-1 block">Games Analyzed</span>
+          <span class="text-sm font-black uppercase text-white bg-black mt-4 block p-1 border-2 border-black">Games Analyzed</span>
         </div>
         <div class="basis-1/4 text-center">
-          <h4 class="text-xl md:text-4xl text-indigo-300">
+          <h4 class="text-2xl md:text-5xl text-black bg-white border-4 border-black px-2 py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block">
             {{ total.toLocaleString() }}
           </h4>
-          <span class="text-xs uppercase tracking-wider text-slate-400 mt-1 block">Total Games</span>
+          <span class="text-sm font-black uppercase text-white bg-black mt-4 block p-1 border-2 border-black">Total Games</span>
         </div>
         <div class="basis-1/4 text-center">
-          <h4 class="text-xl md:text-4xl text-emerald-400">{{ percentDownloadedDisplay }}%</h4>
-          <span class="text-xs uppercase tracking-wider text-slate-400 mt-1 block">Complete</span>
+          <h4 class="text-2xl md:text-5xl text-black bg-yellow-300 border-4 border-black px-2 py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block">{{ percentDownloadedDisplay }}%</h4>
+          <span class="text-sm font-black uppercase text-white bg-black mt-4 block p-1 border-2 border-black">Complete</span>
         </div>
       </div>
 
@@ -49,7 +49,7 @@
         <button
           @click="cancelDownload"
           type="button"
-          class="px-6 py-2 bg-red-900/60 border border-red-500/50 text-red-200 font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-red-800 hover:shadow-red-500/20 focus:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 active:bg-red-700 transition-all duration-200 ease-in-out backdrop-blur-sm"
+          class="px-8 py-4 mt-8 bg-red-500 text-white font-black text-xl uppercase border-8 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-red-400 active:translate-x-[8px] active:translate-y-[8px] active:shadow-none transition-all rounded-none"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="inline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path

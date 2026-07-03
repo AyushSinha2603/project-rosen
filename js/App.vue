@@ -6,15 +6,15 @@
       'is-download-complete': isDownloadComplete,
     }"
   >
-    <div class="text-center">
-      <h1 class="text-6xl md:text-8xl mb-4">
-        <a href="/">Rosen Score</a>
+    <div class="text-center font-black">
+      <h1 class="text-6xl md:text-8xl mb-4 uppercase bg-yellow-300 inline-block px-8 py-4 border-8 border-black shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] -rotate-2">
+        <a href="/" class="hover:text-pink-500 transition-colors">Rosen Score</a>
       </h1>
-      <p class="md:text-2xl">How many of these chess accomplishments have you completed?</p>
+      <p class="md:text-2xl mt-8 bg-black text-white inline-block px-4 py-2 border-4 border-black font-bold">How many of these chess accomplishments have you completed?</p>
     </div>
 
     <div
-      class="my-8 bg-slate-800/60 backdrop-blur-xl border border-slate-700/50 drop-shadow-2xl mx-auto p-6 rounded-2xl shadow-indigo-500/20 shadow-2xl text-indigo-100 md:w-1/2 transition-all hover:shadow-indigo-500/30"
+      class="my-12 bg-blue-400 border-8 border-black mx-auto p-6 md:p-10 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] text-black font-bold md:w-3/4"
       v-if="!isDownloading && !isDownloadComplete"
     >
       <form @submit.prevent="startDownload">
@@ -24,19 +24,19 @@
             <ArrowIcon />
           </div>
           <div class="basis-3/4">
-            <div>
+            <div class="text-xl">
               Select which site:
 
-              <div class="text-indigo-200 mt-2">
-                <label class="cursor-pointer">
+              <div class="text-black mt-2 font-black text-2xl flex gap-4 flex-wrap">
+                <label class="cursor-pointer bg-white px-4 py-2 border-4 border-black hover:bg-yellow-300">
                   <input type="radio" name="site" value="lichess" v-model="inputs.type" />
                   Lichess
                 </label>
-                <label class="cursor-pointer ml-4">
+                <label class="cursor-pointer bg-white px-4 py-2 border-4 border-black hover:bg-yellow-300 ml-0 md:ml-4">
                   <input type="radio" name="site" value="chesscom" v-model="inputs.type" />
                   Chess.com
                 </label>
-                <label class="cursor-pointer ml-4">
+                <label class="cursor-pointer bg-white px-4 py-2 border-4 border-black hover:bg-yellow-300 ml-0 md:ml-4">
                   <input type="radio" name="site" value="both" v-model="inputs.type" />
                   Both
                 </label>
@@ -47,30 +47,30 @@
 
               <input
                 type="text"
-                class="block w-full px-4 py-2 text-base font-normal text-slate-200 bg-slate-900/50 bg-clip-padding border border-solid border-slate-700 rounded-lg transition ease-in-out m-0 focus:text-white focus:bg-slate-900 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none placeholder-slate-500 mt-2"
+                class="block w-full px-6 py-4 text-xl font-black text-black bg-white border-8 border-black focus:bg-pink-300 focus:outline-none placeholder-gray-500 mt-4 rounded-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
                 :placeholder="inputs.type === 'both' ? 'Lichess username here' : 'Username here'"
                 spellcheck="false"
                 data-lpignore="true"
                 v-model="inputs.value"
               />
-              <div class="mt-4" v-if="inputs.type === 'both'">
+              <div class="mt-8" v-if="inputs.type === 'both'">
                 Enter Chess.com username:
                 <input
                   type="text"
-                  class="block w-full px-4 py-2 text-base font-normal text-slate-200 bg-slate-900/50 bg-clip-padding border border-solid border-slate-700 rounded-lg transition ease-in-out m-0 focus:text-white focus:bg-slate-900 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none placeholder-slate-500 mt-2"
+                  class="block w-full px-6 py-4 text-xl font-black text-black bg-white border-8 border-black focus:bg-pink-300 focus:outline-none placeholder-gray-500 mt-4 rounded-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
                   placeholder="Chess.com Username here"
                   spellcheck="false"
                   data-lpignore="true"
                   v-model="inputs.valueChesscom"
                 />
               </div>
-              <div class="text-sm mt-3 text-slate-400">
+              <div class="text-lg mt-6 bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block">
                 Or
-                <span class="dotted-underline text-indigo-400 hover:text-indigo-300 cursor-pointer transition-colors" @click.prevent="formFill('lichess', 'EricRosen')">
+                <span class="bg-yellow-300 border-b-4 border-black text-black font-black hover:bg-black hover:text-white cursor-pointer px-1 transition-colors" @click.prevent="formFill('lichess', 'EricRosen')">
                   click here to see EricRosen's on Lichess
                 </span>
                 or
-                <span class="dotted-underline text-indigo-400 hover:text-indigo-300 cursor-pointer transition-colors" @click.prevent="formFill('chesscom', 'IMRosen')"> his Chess.com </span>
+                <span class="bg-yellow-300 border-b-4 border-black text-black font-black hover:bg-black hover:text-white cursor-pointer px-1 transition-colors" @click.prevent="formFill('chesscom', 'IMRosen')"> his Chess.com </span>
               </div>
             </div>
           </div>
@@ -92,11 +92,11 @@
             <ArrowIcon />
           </div>
           <div class="basis-3/4">
-            <div class="text-sm mt-1 mb-4">
+            <div class="text-xl font-bold mt-1 mb-8 bg-white border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] inline-block">
               Check games since
               <select
                 v-model.number="inputs.filters.sinceHoursAgo"
-                class="bg-slate-900/50 border border-slate-700 rounded-md focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-indigo-200 md:w-32 py-1 px-2 ml-2 transition-all cursor-pointer"
+                class="bg-pink-300 border-4 border-black font-black focus:outline-none text-black py-2 px-4 ml-2 cursor-pointer rounded-none hover:bg-pink-400 transition-colors"
               >
                 <option :value="6">6 hours ago</option>
                 <option :value="24">24 hours ago</option>
@@ -111,13 +111,13 @@
 
             <button
               type="submit"
-              class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold text-sm leading-tight uppercase rounded-lg shadow-lg hover:from-indigo-400 hover:to-purple-500 hover:shadow-indigo-500/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900 active:scale-95 transition-all duration-200 ease-in-out w-full sm:w-auto flex items-center justify-center gap-2"
+              class="px-8 py-6 bg-green-400 text-black font-black text-2xl uppercase border-8 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:bg-green-300 active:translate-x-[12px] active:translate-y-[12px] active:shadow-none transition-all w-full md:w-auto flex items-center justify-center gap-4 rounded-none"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="2"
+                  stroke-width="4"
                   d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
                 />
               </svg>
@@ -152,14 +152,14 @@
       @cancel-download="cancelDownload"
     ></download-progress>
 
-    <div v-if="errors.api.message" class="text-center bg-red-900/40 border border-red-500/50 text-red-200 p-4 rounded-xl shadow-lg mt-4 backdrop-blur-sm">
+    <div v-if="errors.api.message" class="text-center bg-red-500 border-8 border-black text-white font-black text-xl p-8 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] mt-12 uppercase">
       There was an error from the {{ inputs.type === 'lichess' ? 'Lichess' : 'Chess.com' }} API:
-      <strong>{{ errors.api }}</strong>
+      <strong class="bg-black text-white px-2 py-1 ml-2">{{ errors.api }}</strong>
 
-      <p class="mt-2 text-red-300">Try only running 1 Rosen Score report at a time. You may have to wait before trying again.</p>
+      <p class="mt-4 text-black bg-yellow-300 border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] inline-block">Try only running 1 Rosen Score report at a time. You may have to wait before trying again.</p>
     </div>
 
-    <div v-if="player.username" class="mt-8 bg-gradient-to-r from-slate-800 to-indigo-900/40 p-6 text-center rounded-2xl border border-indigo-500/20 shadow-2xl backdrop-blur-xl mb-8">
+    <div v-if="player.username" class="mt-16 bg-pink-400 p-10 text-center border-8 border-black shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] mb-12 font-black text-black">
       <h2 class="text-2xl">
         <username-formatter :title="player.title" :username="player.username"></username-formatter>
         has
@@ -181,9 +181,9 @@
 
       <div class="mb-1" v-if="sinceDateFormatted">since {{ sinceDateFormatted }}</div>
 
-      <trophy-collection :count="trophyCount" size="large" class="mt-4 mb-4"></trophy-collection>
+      <trophy-collection :count="trophyCount" size="large" class="mt-8 mb-8"></trophy-collection>
 
-      <div class="text-sm mt-4 text-slate-300">
+      <div class="text-xl mt-8 font-black bg-white border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] inline-block">
         <strong>{{ counts.totalMoves.toLocaleString() }}</strong>
         positions and
         <strong>{{ counts.downloaded.toLocaleString() }}</strong>

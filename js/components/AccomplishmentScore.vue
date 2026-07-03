@@ -1,9 +1,9 @@
 <template>
   <div
-    class="px-4 py-3 rounded-xl text-center border transition-all duration-300"
+    class="px-4 py-3 text-center border-4 border-black font-bold rounded-none transition-all shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
     :class="{
-      'bg-emerald-900/40 border-emerald-500/30 text-emerald-100 hover:bg-emerald-800/50 hover:shadow-lg hover:shadow-emerald-500/20': hasTrophies,
-      'bg-slate-800/40 border-slate-700/50 text-slate-400 hover:bg-slate-800/80 accomplishment-does-not-have-games': !hasTrophies,
+      'bg-cyan-300 text-black hover:bg-cyan-400 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]': hasTrophies,
+      'bg-gray-100 text-gray-500 hover:bg-gray-200 accomplishment-does-not-have-games': !hasTrophies,
     }"
   >
     <span @click.prevent="isExpanded = !isExpanded" class="hover:underline cursor-pointer">{{ title }}</span>
@@ -15,10 +15,10 @@
     <template v-if="isExpanded">
       <div
         v-if="hasExpandableContent"
-        class="rounded-lg p-3 mt-3 text-sm backdrop-blur-sm"
+        class="p-4 mt-4 text-sm font-bold border-4 border-black text-left rounded-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
         :class="{
-          'bg-emerald-950/60 text-emerald-200 border border-emerald-500/20': hasTrophies,
-          'bg-slate-900/60 text-slate-300 border border-slate-700/50': !hasTrophies,
+          'bg-white text-black': hasTrophies,
+          'bg-gray-50 text-gray-600': !hasTrophies,
         }"
       >
         {{ desc }}
@@ -44,7 +44,7 @@
       </div>
 
       <template v-if="hasTrophies">
-        <h4 class="font-bold mt-3 text-emerald-300">
+        <h4 class="font-black text-2xl mt-6 text-black uppercase bg-yellow-300 border-4 border-black inline-block px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
           {{ trophyCount }}
           <template v-if="trophyCount === 1"> {{ units[0] }} </template>
           <template v-else> {{ units[1] }} </template>

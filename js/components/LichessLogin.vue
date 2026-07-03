@@ -11,7 +11,7 @@
         </svg>
         Logged in as
         <strong>{{ username }}</strong>
-        <span class="dotted-underline text-xs text-indigo-400 hover:text-indigo-300 cursor-pointer transition-colors" @click.prevent="logout"> (Logout) </span>
+        <span class="bg-yellow-300 border-b-4 border-black text-black font-black hover:bg-black hover:text-white cursor-pointer px-1 ml-2 transition-colors" @click.prevent="logout"> Logout </span>
       </div>
     </template>
     <template v-else>
@@ -19,7 +19,7 @@
 
       <button
         type="button"
-        class="block px-4 py-2 mt-1 bg-slate-800/80 border border-slate-700 text-slate-200 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-slate-700 hover:shadow-lg focus:bg-slate-700 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-slate-500 active:bg-slate-600 active:shadow-lg transition-all duration-200 ease-in-out backdrop-blur-sm"
+        class="block px-8 py-4 mt-2 bg-blue-500 border-4 border-black text-white font-black text-xl uppercase shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-blue-400 active:translate-x-[8px] active:translate-y-[8px] active:shadow-none transition-all rounded-none w-full md:w-auto"
         @click="login"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="inline h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,7 +38,7 @@
         <strong>3x</strong> faster when downloading your own games, <strong>1.5x</strong> faster for all others
         <br />
         You can learn more about this
-        <a href="https://lichess.org/api#operation/apiGamesUser" target="_blank" class="text-indigo-400 hover:text-indigo-300 dotted-underline transition-colors">here</a>
+        <a href="https://lichess.org/api#operation/apiGamesUser" target="_blank" class="bg-yellow-300 border-b-4 border-black text-black font-black hover:bg-black hover:text-white px-1 transition-colors">here</a>
       </p>
     </template>
   </div>
