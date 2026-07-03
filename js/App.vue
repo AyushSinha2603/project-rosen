@@ -697,8 +697,10 @@
         </div>
       </div>
     </div>
-
     <div class="mt-8 text-center text-sm">
+      <div v-if="isDownloadComplete && trophyCount > 0" class="mb-6 bg-pink-300 border-4 border-black p-4 inline-block text-xl font-black uppercase shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
+        ✅ Analysis Complete! Scroll down to download your custom FUT Card!
+      </div>
       <div class="mb-8" v-if="isDownloadComplete && trophyCount > 0">
         <button
           @click.prevent="downloadFutCard"
@@ -714,29 +716,18 @@
         or
         <a href="#" @click.prevent="exportAsJson" class="bg-white border-b-4 border-black hover:bg-black hover:text-white px-1 transition-colors">JSON</a>
       </div>
-      <div class="text-black font-bold mt-8">
-        Not affiliated with Eric Rosen.
-        <br />
-        Find a bug? Have a comment? Fill out
-        <a href="https://forms.gle/N1EnqmygRqo3sAMs5" target="_blank" class="bg-white border-b-4 border-black hover:bg-black hover:text-white px-1 transition-colors">this form</a>
-      </div>
     </div>
 
-    <!-- FUT Card Preview -->
-    <div class="mt-8 flex justify-center w-full bg-black/5 p-8 border-4 border-black border-dashed" v-if="isDownloadComplete && trophyCount > 0">
-      <div class="text-center">
-        <h3 class="text-2xl font-black uppercase mb-6 bg-white border-4 border-black inline-block px-4 py-1">Your Rosen Score Card</h3>
-        <div ref="futCardContainer" class="bg-transparent inline-block">
-          <fut-card
-            :username="player.username || username"
-            :overall-rating="totalAccomplishmentsCompletedPercentage"
-            :trophy-count="trophyCount"
-            :completed-percentage="totalAccomplishmentsCompletedPercentage"
-            :total-games="counts.totalGames"
-            :total-positions="counts.totalMoves"
-          ></fut-card>
-        </div>
-      </div>
+    <!-- Hidden FUT Card Container for html2canvas -->
+    <div ref="futCardContainer" class="fixed -top-[9999px] left-0 bg-transparent opacity-0 pointer-events-none">
+      <fut-card
+        :username="player.username || username"
+        :overall-rating="futCardRating"
+        :trophy-count="trophyCount"
+        :completed-percentage="totalAccomplishmentsCompletedPercentage"
+        :total-games="counts.totalGames"
+        :total-positions="counts.totalMoves"
+      ></fut-card>
     </div>
   </div>
 </template>
@@ -876,6 +867,9 @@ export default {
       return Object.values(this.playerTrophiesByType)
         .map((o) => Object.values(o))
         .flat().length
+    },
+    futCardRating(): number {
+      return Math.min(99, Math.floor(40 + (this.totalAccomplishmentsCompletedPercentage * 0.5) + (this.trophyCount * 0.2)))
     },
   },
 
