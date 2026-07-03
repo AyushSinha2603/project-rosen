@@ -1,61 +1,61 @@
-## Rosen Score
+<div align="center">
 
-https://rosenscore.com/
+# 🏆 Project Rosen (Brutalist Edition)
 
-This is entirely a frontend application, so you can run it pretty easily on your own computer.
+[![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D)](https://vuejs.org/)
+[![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-Your browser makes the request directly to the Lichess API to get the games. Then the games are analyzed with javascript (again, in your own browser). Each move from every game is played through and analyzed for specific positions or other criteria.
+**A bold, high-contrast web application to track your unique chess achievements across the internet.**
 
-### Setup
+</div>
 
-```bash
-git clone https://github.com/fitztrev/rosen-score.git
-cd rosen-score
-pnpm install
-pnpm run dev
-```
+---
 
-Will start a local server at http://localhost:5173/
+## 📖 Overview
 
-```bash
-## Run the test suite
-pnpm run test
-## or
-pnpm run test:watch
+**Project Rosen** is a specialized chess statistics tracker inspired by IM Eric Rosen's unique playstyle. It scans your chess games for rare and fun achievements (like the "Mona Lisa Checkmate" or the "Botez Gambit") and calculates your ultimate Rosen Score.
 
-## Check code coverage
-pnpm run coverage
-open coverage/index.html
-```
+**Credit where credit is due:** This project is a heavily customized, neo-brutalist fork of [fitztrev's original rosen-score project](https://github.com/fitztrev/rosen-score). It builds directly upon his excellent foundation by introducing a completely overhauled UI, new cross-platform fetching capabilities, and custom graphic generation.
 
-### Frameworks/Libraries Used
+## ✨ Key Features
 
-- [chess.js](https://github.com/jhlywa/chess.js), [chessops](https://github.com/niklasf/chessops), [pgn-parser](https://github.com/mliebelt/pgn-parser) - JS chess libraries to handle chess logic
-- Vue.js - Framework for building the app
-- Tailwind - CSS framework for the UI
+* 🎨 **Neo-Brutalist UI:** A striking, high-contrast web brutalism design language featuring thick black borders, hard shadows, and vibrant flat colors. 
+* 🔗 **Unified Cross-Platform Fetching:** Why choose one? Seamlessly fetch and combine your game data from both **Lichess** and **Chess.com** simultaneously using the new "Both" option.
+* 🎴 **FUT-Style Chess Cards:** Generate a downloadable, personalized "FIFA Ultimate Team" style chess player card. The card features your username, avatar, and core stats, all wrapped in a sleek brutalist design.
+* ⚡ **Modern Tech Stack:** Built for speed and smooth state management using Vue 3 and Vite.
 
-## Want to contribute?
+## 🚀 Getting Started
 
-I put some ideas of things that could be done in [CONTRIBUTING.md](CONTRIBUTING.md).
+To get a local copy up and running, follow these simple steps.
 
-## Understanding How It Works
+### Prerequisites
+Make sure you have Node.js and a package manager like `npm` or `pnpm` installed.
 
-### Piece Structures
+### Installation
 
-FENs are converted to a 64-character string representing the position:
+1. **Clone the repo**
+   `git clone https://github.com/AyushSinha2603/project-rosen.git`
+2. **Navigate into the directory**
+   `cd project-rosen`
+3. **Install dependencies**
+   `npm install` (or `pnpm install`)
+4. **Start the development server**
+   `npm run dev` (or `pnpm dev`)
+5. **Open your browser** and navigate to `http://localhost:5173`
 
-```js
-// Starting position FEN
-let fen = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR'
+## 🌍 Deployment
 
-// Convert the FEN to a 64-character string that starts at a8 and ends at h1
-let position = fenToPosition(fen)
-// rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR
-```
+This project is optimized for seamless deployment on **Vercel**. 
+Simply connect your GitHub repository to a new Vercel project, and it will automatically detect the Vite + Vue environment and handle the build process.
 
-And now you can do regex to look for pawn/piece structures:
+## 🤝 Acknowledgements
 
-```js
-// To look for a white pawn cube, it is essentially:
-position.match(/PP([A-Za-z\.]{6})PP/) // 2 white pawns, 6 squares, then 2 white pawns
-```
+* Massive thanks to **fitztrev** for the original logic and framework in [rosen-score](https://github.com/fitztrev/rosen-score).
+* Inspired by the entertaining chess content of IM Eric Rosen.
+
+---
+<div align="center">
+<i>Built with caffeine and sharp edges by Ayush Sinha</i>
+</div>
