@@ -1,52 +1,42 @@
 <div align="center">
 
-# ⬛ PROJECT ROSEN 🟨
-### [ BRUTALIST EDITION ]
+# Project Rosen
 
-[![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D)](https://vuejs.org/)
-[![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+**A cross-platform chess achievement tracker with custom stat card generation.**
 
-**Track your wildest chess achievements. No fluff. Just raw stats and sharp edges.**
+[![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=flat-square&logo=vuedotjs&logoColor=4FC08D)](https://vuejs.org/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
 </div>
 
 ---
 
-## 📖 THE VISION
+## Overview
 
-**Project Rosen** is a specialized chess statistics tracker built for players who hunt for rare, chaotic achievements—like the "Mona Lisa Checkmate" or the infamous "Botez Gambit"—inspired by IM Eric Rosen. 
+Project Rosen is a specialized statistics tracker that scans chess games for rare, creative achievements (inspired by IM Eric Rosen) and calculates a definitive "Rosen Score." 
 
-This isn't just a clone; it is a **heavily customized, neo-brutalist evolution** of [fitztrev's original rosen-score](https://github.com/fitztrev/rosen-score). We took his brilliant foundation and injected it with a high-contrast UI, concurrent cross-platform data fetching, and custom graphic generation.
-
----
-
-## ✨ THE UPGRADES
-
-| Feature | Description |
-| :--- | :--- |
-| 🎨 **Neo-Brutalist UI** | Thick black borders, hard shadows, and unapologetically vibrant flat colors. Web design with a punch. |
-| 🔗 **The "Both" Option** | Why choose? Concurrently fetch and aggregate your game data from **Lichess** AND **Chess.com** in a single API sweep. |
-| 🎴 **FUT-Style Stat Cards**| Instantly generate and download a personalized, brutalist-themed "FIFA Ultimate Team" style card showcasing your chess identity and core stats. |
-| ⚡ **Vite + Vue 3 Core** | Engineered for immediate state updates and lightning-fast rendering. |
+**Acknowledgements:** This repository is a custom fork of the excellent [rosen-score](https://github.com/fitztrev/rosen-score) by **[fitztrev](https://github.com/fitztrev)**. Fitztrev engineered the core logic, achievement detection, and foundational framework. This fork builds upon his brilliant work by introducing new cross-platform capabilities and a completely overhauled user interface.
 
 ---
 
-## 🚀 DEPLOYMENT & SETUP
+## Key Features
 
-### Local Development
-Get it running on your local machine in seconds. Requires Node.js and `npm` or `pnpm`.
+* **Unified Data Fetching:** Concurrently aggregates match data from both **Lichess** and **Chess.com** in a single request, providing a holistic view of a player's achievements.
+* **Dynamic Stat Cards:** Automatically generates downloadable, FUT-style player cards featuring the user's avatar, rating, and Rosen Score for seamless sharing.
+* **Neobrutalist Interface:** A complete aesthetic overhaul featuring high-contrast themes, sharp borders, and a modern, responsive design.
+* **Optimized Performance:** Built on Vue 3 and Vite for rapid state management and immediate rendering.
 
-```bash
-# 1. Clone the repository
-git clone [https://github.com/AyushSinha2603/project-rosen.git](https://github.com/AyushSinha2603/project-rosen.git)
+---
 
-# 2. Navigate to the project root
-cd project-rosen
+## Getting Started
 
-# 3. Install dependencies
-npm install  # or pnpm install
+### Prerequisites
+Ensure you have [Node.js](https://nodejs.org/) installed along with a package manager (`npm` or `pnpm`).
 
-# 4. Ignite the dev server
-npm run dev  # or pnpm dev
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/AyushSinha2603/project-rosen.git](https://github.com/AyushSinha2603/project-rosen.git)
