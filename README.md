@@ -26,8 +26,7 @@ Project Rosen is a specialized statistics tracker that scans chess games for rar
 * **Unified Data Fetching:** Concurrently aggregates match data from both **Lichess** and **Chess.com** in a single request, providing a holistic view of a player's achievements.
 * **Dynamic Stat Cards:** Automatically generates downloadable, FUT-style player cards featuring the user's avatar, rating, and Rosen Score for seamless sharing.
 * **Neobrutalist Interface:** A complete aesthetic overhaul featuring high-contrast themes, sharp borders, and a modern, responsive design.
-* **Optimized Performance:** Built on Vue 3 and Vite for rapid state management and immediate rendering.
-
+* 
 ---
 
 ## Getting Started
