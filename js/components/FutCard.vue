@@ -1,7 +1,7 @@
 <template>
   <div 
     class="relative w-[400px] max-w-full mx-auto aspect-[540/820] select-none text-[#1a1a1a]" 
-    style="container-type: inline-size; filter: drop-shadow(0 7cqw 10cqw rgba(0,0,0,0.5))"
+    style="container-type: inline-size; filter: drop-shadow(0 7cqw 10cqw rgba(0,0,0,0.5)) drop-shadow(0 0 6cqw rgba(255,255,255,0.3))"
     ref="futCardElement" 
     id="fut-card-element"
   >
@@ -27,7 +27,7 @@
         >
           <div
             class="relative w-full h-full"
-            style="-webkit-mask-image: linear-gradient(180deg, transparent 1%, #000 22%); mask-image: linear-gradient(180deg, transparent 1%, #000 22%); filter: drop-shadow(0 3cqw 6cqw rgba(0,0,0,.5));"
+            style="-webkit-mask-image: linear-gradient(180deg, transparent 1%, #000 22%); mask-image: linear-gradient(180deg, transparent 1%, #000 22%); filter: drop-shadow(0 3cqw 6cqw rgba(0,0,0,0.5)) drop-shadow(0 0 5cqw rgba(255,255,255,0.5));"
           >
              <img 
                v-if="displayAvatarUrl && !imageError" 
