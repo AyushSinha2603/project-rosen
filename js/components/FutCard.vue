@@ -1,13 +1,13 @@
 <template>
   <div 
-    class="relative w-[400px] max-w-full mx-auto aspect-[540/820] select-none text-[#1a1a1a]" 
-    style="container-type: inline-size; filter: drop-shadow(0 7cqw 10cqw rgba(0,0,0,0.5)) drop-shadow(0 0 6cqw rgba(255,255,255,0.3))"
+    class="relative w-[400px] max-w-full mx-auto aspect-[540/820] select-none transition-all" 
+    :style="`color: ${cardTheme.color}; container-type: inline-size; filter: drop-shadow(0 7cqw 10cqw rgba(0,0,0,0.5)) drop-shadow(0 0 6cqw ${cardTheme.outerGlow})`"
     ref="futCardElement" 
     id="fut-card-element"
   >
     <!-- tier background art -->
     <img
-      src="/cards/silver.png"
+      :src="cardTheme.bg"
       alt=""
       aria-hidden
       class="absolute inset-0 w-full h-full object-fill"
@@ -15,7 +15,7 @@
     
     <div
       class="absolute inset-0"
-      style="-webkit-mask-image: url('/cards/silver.png'); mask-image: url('/cards/silver.png'); -webkit-mask-size: 100% 100%; mask-size: 100% 100%;"
+      :style="`-webkit-mask-image: url('${cardTheme.bg}'); mask-image: url('${cardTheme.bg}'); -webkit-mask-size: 100% 100%; mask-size: 100% 100%;`"
     >
       <div
         class="absolute left-[27cqw] top-[13cqw] w-[68cqw] h-[70cqw]"
@@ -27,7 +27,7 @@
         >
           <div
             class="relative w-full h-full"
-            style="-webkit-mask-image: linear-gradient(180deg, transparent 1%, #000 22%); mask-image: linear-gradient(180deg, transparent 1%, #000 22%); filter: drop-shadow(0 3cqw 6cqw rgba(0,0,0,0.5)) drop-shadow(0 0 5cqw rgba(255,255,255,0.5));"
+            :style="`-webkit-mask-image: linear-gradient(180deg, transparent 1%, #000 22%); mask-image: linear-gradient(180deg, transparent 1%, #000 22%); filter: drop-shadow(0 3cqw 6cqw rgba(0,0,0,0.5)) drop-shadow(0 0 5cqw ${cardTheme.innerGlow});`"
           >
              <img 
                v-if="displayAvatarUrl && !imageError" 
@@ -48,11 +48,11 @@
     </div>
 
     <!-- separator lines -->
-    <div class="absolute left-[19.44%] top-[31.1%] w-[10.19%] h-[0.3cqw] bg-[#1a1a1a] opacity-50"></div>
-    <div class="absolute left-[19.44%] top-[40.85%] w-[10.19%] h-[0.3cqw] bg-[#1a1a1a] opacity-50"></div>
-    <div class="absolute left-[16.67%] top-[64.02%] w-[66.67%] h-[0.3cqw] bg-[#1a1a1a] opacity-50"></div>
-    <div class="absolute left-[44.44%] top-[89.63%] w-[11.11%] h-[0.3cqw] bg-[#1a1a1a] opacity-50"></div>
-    <div class="absolute left-[50%] top-[66.46%] w-[0.3cqw] h-[20.12%] bg-[#1a1a1a] opacity-50"></div>
+    <div class="absolute left-[19.44%] top-[31.1%] w-[10.19%] h-[0.3cqw] bg-current opacity-50"></div>
+    <div class="absolute left-[19.44%] top-[40.85%] w-[10.19%] h-[0.3cqw] bg-current opacity-50"></div>
+    <div class="absolute left-[16.67%] top-[64.02%] w-[66.67%] h-[0.3cqw] bg-current opacity-50"></div>
+    <div class="absolute left-[44.44%] top-[89.63%] w-[11.11%] h-[0.3cqw] bg-current opacity-50"></div>
+    <div class="absolute left-[50%] top-[66.46%] w-[0.3cqw] h-[20.12%] bg-current opacity-50"></div>
 
     <!-- overall -->
     <div class="absolute left-[16.3%] top-[9.76%] font-condensed text-[22.2cqw] font-medium leading-none">
@@ -123,6 +123,30 @@ export default {
     }
   },
   computed: {
+    cardTheme() {
+      if (this.overallRating >= 85) {
+        return {
+          bg: '/cards/gold.png',
+          color: '#3e3012', // Dark gold text
+          outerGlow: 'rgba(255, 215, 0, 0.4)', // Golden aura
+          innerGlow: 'rgba(255, 215, 0, 0.6)'
+        }
+      } else if (this.overallRating >= 65) {
+        return {
+          bg: '/cards/silver.png',
+          color: '#1a1a1a', // Black text
+          outerGlow: 'rgba(255, 255, 255, 0.3)', // Silver/white aura
+          innerGlow: 'rgba(255, 255, 255, 0.5)'
+        }
+      } else {
+        return {
+          bg: '/cards/bronze.png',
+          color: '#2a1a10', // Dark brown text
+          outerGlow: 'rgba(205, 127, 50, 0.4)', // Bronze aura
+          innerGlow: 'rgba(205, 127, 50, 0.5)'
+        }
+      }
+    },
     cleanUsername() {
       if (!this.username) return 'UNKNOWN'
       return this.username.replace(/ \(.+\)/g, '')
