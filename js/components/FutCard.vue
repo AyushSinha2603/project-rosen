@@ -55,12 +55,12 @@
     <div class="absolute left-[50%] top-[66.46%] w-[0.3cqw] h-[20.12%] bg-[#1a1a1a] opacity-50"></div>
 
     <!-- overall -->
-    <div class="absolute left-[16.3%] top-[9.76%] font-sans text-[22.2cqw] font-medium leading-none">
+    <div class="absolute left-[16.3%] top-[9.76%] font-condensed text-[22.2cqw] font-medium leading-none">
       {{ overallRating || 99 }}
     </div>
 
     <!-- position -->
-    <div class="absolute left-[25%] top-[23.78%] -translate-x-1/2 font-sans text-[9.3cqw] font-medium tracking-[.02em]">
+    <div class="absolute left-[25%] top-[23.78%] -translate-x-1/2 font-condensed text-[9.3cqw] font-medium tracking-[.02em]">
       CAM
     </div>
 
@@ -72,30 +72,30 @@
 
     <!-- name -->
     <div 
-      class="absolute left-[50%] top-[53.66%] -translate-x-1/2 font-sans font-bold whitespace-nowrap uppercase"
+      class="absolute left-[50%] top-[53.66%] -translate-x-1/2 font-condensed font-bold whitespace-nowrap uppercase"
       :style="{ fontSize: dynamicFontSize }"
     >
       {{ cleanUsername }}
     </div>
 
     <!-- stats grid -->
-    <span class="absolute left-[21.3%] top-[64.63%] font-sans text-[10.2cqw] font-bold">{{ trophyCount }}</span>
-    <span class="absolute left-[32.41%] top-[65.24%] font-sans text-[9.3cqw] font-medium tracking-[.02em]">PAC</span>
+    <span class="absolute left-[21.3%] top-[64.63%] font-condensed text-[10.2cqw] font-bold">{{ trophyCount }}</span>
+    <span class="absolute left-[32.41%] top-[65.24%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">PAC</span>
     
-    <span class="absolute left-[56.48%] top-[64.63%] font-sans text-[10.2cqw] font-bold">{{ formattedPositions }}</span>
-    <span class="absolute left-[67.59%] top-[65.24%] font-sans text-[9.3cqw] font-medium tracking-[.02em]">DRI</span>
+    <span class="absolute left-[56.48%] top-[64.63%] font-condensed text-[10.2cqw] font-bold">{{ formattedPositions }}</span>
+    <span class="absolute left-[67.59%] top-[65.24%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">DRI</span>
 
-    <span class="absolute left-[21.3%] top-[72.2%] font-sans text-[10.2cqw] font-bold">{{ formattedGames }}</span>
-    <span class="absolute left-[32.41%] top-[72.8%] font-sans text-[9.3cqw] font-medium tracking-[.02em]">SHO</span>
+    <span class="absolute left-[21.3%] top-[72.2%] font-condensed text-[10.2cqw] font-bold">{{ formattedGames }}</span>
+    <span class="absolute left-[32.41%] top-[72.8%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">SHO</span>
 
-    <span class="absolute left-[56.48%] top-[72.2%] font-sans text-[10.2cqw] font-bold">{{ completedPercentage }}</span>
-    <span class="absolute left-[67.59%] top-[72.8%] font-sans text-[9.3cqw] font-medium tracking-[.02em]">DEF</span>
+    <span class="absolute left-[56.48%] top-[72.2%] font-condensed text-[10.2cqw] font-bold">{{ completedPercentage }}</span>
+    <span class="absolute left-[67.59%] top-[72.8%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">DEF</span>
 
-    <span class="absolute left-[21.3%] top-[79.76%] font-sans text-[10.2cqw] font-bold">99</span>
-    <span class="absolute left-[32.41%] top-[80.37%] font-sans text-[9.3cqw] font-medium tracking-[.02em]">PAS</span>
+    <span class="absolute left-[21.3%] top-[79.76%] font-condensed text-[10.2cqw] font-bold">99</span>
+    <span class="absolute left-[32.41%] top-[80.37%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">PAS</span>
 
-    <span class="absolute left-[56.48%] top-[79.76%] font-sans text-[10.2cqw] font-bold">99</span>
-    <span class="absolute left-[67.59%] top-[80.37%] font-sans text-[9.3cqw] font-medium tracking-[.02em]">PHY</span>
+    <span class="absolute left-[56.48%] top-[79.76%] font-condensed text-[10.2cqw] font-bold">99</span>
+    <span class="absolute left-[67.59%] top-[80.37%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">PHY</span>
   </div>
 </template>
 

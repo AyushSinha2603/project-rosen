@@ -1,43 +1,28 @@
-@import url(https://fonts.bunny.net/css?family=bangers:400);
-
 @import 'tailwindcss';
 
-html {
-  @apply text-black;
-  background-color: #f0f0f0;
-  background-image: radial-gradient(#000000 2px, transparent 2px);
-  background-size: 32px 32px;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  @apply min-h-screen text-ink font-sans bg-bg selection:bg-brand selection:text-black;
 }
 
 [v-cloak] {
   display: none;
 }
 
-
-body {
-  @apply min-h-screen selection:bg-pink-500 selection:text-white font-mono;
-}
-
 h1 {
-  font-family: Bangers, system-ui, sans-serif;
-  font-weight: 500;
+  @apply font-display tracking-wide;
 }
 
 .dotted-underline {
-  @apply decoration-dotted
-        hover:decoration-dashed
-        underline
-        underline-offset-1;
+  @apply decoration-dotted hover:decoration-dashed underline underline-offset-1 text-brand hover:text-brand-hi transition-colors;
 }
 
 .heading {
-  @apply bg-black text-white text-center text-xl uppercase font-black border-4 border-black mb-4 mt-6 py-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)];
+  @apply text-ink font-display text-3xl uppercase tracking-widest mb-6 mt-12 pb-2 border-b border-line;
 }
 
 .is-download-complete .accomplishment-does-not-have-games {
-  @apply bg-gray-200 text-gray-500 border-4 border-gray-400 opacity-60;
-}
-
-.is-download-complete .accomplishment-does-not-have-games div {
-  @apply bg-gray-300;
+  @apply opacity-60 grayscale;
 }

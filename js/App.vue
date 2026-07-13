@@ -6,15 +6,15 @@
       'is-download-complete': isDownloadComplete,
     }"
   >
-    <div class="text-center font-black">
-      <h1 class="text-5xl md:text-7xl mb-4 uppercase bg-yellow-300 inline-block px-8 py-4 border-8 border-black shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] -rotate-2">
+    <div class="text-center">
+      <h1 class="text-6xl md:text-8xl mb-4 text-ink font-display tracking-widest uppercase inline-block text-shadow-sm">
         <a href="/" class="hover:text-pink-500 transition-colors">Project rosen</a>
       </h1>
-      <p class="md:text-2xl mt-8 bg-black text-white inline-block px-4 py-2 border-4 border-black font-bold">How many of these chess accomplishments have you completed?</p>
+      <p class="md:text-2xl mt-8 text-ink-soft inline-block font-light">How many of these chess accomplishments have you completed?</p>
     </div>
 
     <div
-      class="my-12 bg-blue-400 border-8 border-black mx-auto p-6 md:p-10 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] text-black font-bold md:w-3/4"
+      class="my-12 bg-surface/80 backdrop-blur-md border border-line rounded-2xl mx-auto p-6 md:p-10 shadow-2xl text-ink font-light md:w-3/4"
       v-if="!isDownloading && !isDownloadComplete"
     >
       <form @submit.prevent="startDownload">
@@ -28,15 +28,15 @@
               Select which site:
 
               <div class="text-black mt-2 font-black text-2xl flex gap-4 flex-wrap">
-                <label class="cursor-pointer bg-white px-4 py-2 border-4 border-black hover:bg-yellow-300">
+                <label class="cursor-pointer bg-surface-2 px-6 py-3 rounded-xl border border-line hover:border-brand hover:text-brand transition-colors">
                   <input type="radio" name="site" value="lichess" v-model="inputs.type" />
                   Lichess
                 </label>
-                <label class="cursor-pointer bg-white px-4 py-2 border-4 border-black hover:bg-yellow-300 ml-0 md:ml-4">
+                <label class="cursor-pointer bg-surface-2 px-6 py-3 rounded-xl border border-line hover:border-brand hover:text-brand transition-colors ml-0 md:ml-4">
                   <input type="radio" name="site" value="chesscom" v-model="inputs.type" />
                   Chess.com
                 </label>
-                <label class="cursor-pointer bg-white px-4 py-2 border-4 border-black hover:bg-yellow-300 ml-0 md:ml-4">
+                <label class="cursor-pointer bg-surface-2 px-6 py-3 rounded-xl border border-line hover:border-brand hover:text-brand transition-colors ml-0 md:ml-4">
                   <input type="radio" name="site" value="both" v-model="inputs.type" />
                   Both
                 </label>
@@ -47,7 +47,7 @@
 
               <input
                 type="text"
-                class="block w-full px-6 py-4 text-xl font-black text-black bg-white border-8 border-black focus:bg-pink-300 focus:outline-none placeholder-gray-500 mt-4 rounded-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+                class="block w-full px-6 py-4 text-xl text-ink bg-surface-2 border border-line focus:border-brand focus:ring-1 focus:ring-brand focus:outline-none placeholder-ink-mute mt-4 rounded-xl shadow-inner transition-all"
                 :placeholder="inputs.type === 'both' ? 'Lichess username here' : 'Username here'"
                 spellcheck="false"
                 data-lpignore="true"
@@ -57,20 +57,20 @@
                 Enter Chess.com username:
                 <input
                   type="text"
-                  class="block w-full px-6 py-4 text-xl font-black text-black bg-white border-8 border-black focus:bg-pink-300 focus:outline-none placeholder-gray-500 mt-4 rounded-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+                  class="block w-full px-6 py-4 text-xl text-ink bg-surface-2 border border-line focus:border-brand focus:ring-1 focus:ring-brand focus:outline-none placeholder-ink-mute mt-4 rounded-xl shadow-inner transition-all"
                   placeholder="Chess.com Username here"
                   spellcheck="false"
                   data-lpignore="true"
                   v-model="inputs.valueChesscom"
                 />
               </div>
-              <div class="text-lg mt-6 bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block">
+              <div class="text-lg mt-6 bg-surface-2 border border-line rounded-xl p-4 inline-block text-ink-soft">
                 Or
-                <span class="bg-yellow-300 border-b-4 border-black text-black font-black hover:bg-black hover:text-white cursor-pointer px-1 transition-colors" @click.prevent="formFill('lichess', 'EricRosen')">
+                <span class="text-brand hover:text-brand-hi cursor-pointer transition-colors font-medium" @click.prevent="formFill('lichess', 'EricRosen')">
                   click here to see EricRosen's on Lichess
                 </span>
                 or
-                <span class="bg-yellow-300 border-b-4 border-black text-black font-black hover:bg-black hover:text-white cursor-pointer px-1 transition-colors" @click.prevent="formFill('chesscom', 'IMRosen')"> his Chess.com </span>
+                <span class="text-brand hover:text-brand-hi cursor-pointer transition-colors font-medium" @click.prevent="formFill('chesscom', 'IMRosen')"> his Chess.com </span>
               </div>
             </div>
           </div>
@@ -92,11 +92,11 @@
             <ArrowIcon />
           </div>
           <div class="basis-3/4">
-            <div class="text-xl font-bold mt-1 mb-8 bg-white border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] inline-block">
+            <div class="text-xl mt-1 mb-8 bg-surface-2 border border-line rounded-xl p-4 inline-block">
               Check games since
               <select
                 v-model.number="inputs.filters.sinceHoursAgo"
-                class="bg-pink-300 border-4 border-black font-black focus:outline-none text-black py-2 px-4 ml-2 cursor-pointer rounded-none hover:bg-pink-400 transition-colors"
+                class="bg-surface border border-line text-brand py-2 px-4 ml-2 cursor-pointer rounded-lg focus:outline-none hover:border-brand-hi transition-colors font-bold"
               >
                 <option :value="6">6 hours ago</option>
                 <option :value="24">24 hours ago</option>
@@ -111,7 +111,7 @@
 
             <button
               type="submit"
-              class="px-8 py-6 bg-green-400 text-black font-black text-2xl uppercase border-8 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:bg-green-300 active:translate-x-[12px] active:translate-y-[12px] active:shadow-none transition-all w-full md:w-auto flex items-center justify-center gap-4 rounded-none"
+              class="px-8 py-6 bg-brand text-bg font-display tracking-wider text-2xl uppercase rounded-xl hover:bg-brand-hi hover:shadow-[0_0_20px_rgba(57,211,83,0.4)] active:scale-95 transition-all w-full md:w-auto flex items-center justify-center gap-4"
             >
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
@@ -152,14 +152,14 @@
       @cancel-download="cancelDownload"
     ></download-progress>
 
-    <div v-if="errors.api.message" class="text-center bg-red-500 border-8 border-black text-white font-black text-xl p-8 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] mt-12 uppercase">
+    <div v-if="errors.api.message" class="text-center bg-red-900/50 border border-red-500 text-red-200 text-xl rounded-2xl p-8 mt-12">
       There was an error from the {{ inputs.type === 'lichess' ? 'Lichess' : 'Chess.com' }} API:
       <strong class="bg-black text-white px-2 py-1 ml-2">{{ errors.api }}</strong>
 
-      <p class="mt-4 text-black bg-yellow-300 border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] inline-block">Try only running 1 Rosen Score report at a time. You may have to wait before trying again.</p>
+      <p class="mt-4 text-red-100 bg-red-950 border border-red-800 rounded-xl p-4 inline-block">Try only running 1 Rosen Score report at a time. You may have to wait before trying again.</p>
     </div>
 
-    <div v-if="player.username" class="mt-16 bg-pink-400 p-10 text-center border-8 border-black shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] mb-12 font-black text-black">
+    <div v-if="player.username" class="mt-16 bg-surface-2 border border-line rounded-2xl p-10 text-center shadow-xl mb-12 text-ink">
       <h2 class="text-2xl">
         <username-formatter :title="player.title" :username="player.username"></username-formatter>
         has
@@ -183,7 +183,7 @@
 
       <trophy-collection :count="trophyCount" size="large" class="mt-8 mb-8"></trophy-collection>
 
-      <div class="text-xl mt-8 font-black bg-white border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] inline-block">
+      <div class="text-xl mt-8 bg-surface border border-line rounded-xl p-4 inline-block text-ink-soft">
         <strong>{{ counts.totalMoves.toLocaleString() }}</strong>
         positions and
         <strong>{{ counts.downloaded.toLocaleString() }}</strong>
@@ -698,13 +698,13 @@
       </div>
     </div>
     <div class="mt-8 text-center text-sm">
-      <div v-if="isDownloadComplete && trophyCount > 0" class="mb-6 bg-pink-300 border-4 border-black p-4 inline-block text-xl font-black uppercase shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
+      <div v-if="isDownloadComplete && trophyCount > 0" class="mb-6 bg-brand/20 border border-brand text-brand rounded-xl p-4 inline-block text-xl font-display tracking-wider uppercase shadow-[0_0_15px_rgba(57,211,83,0.2)]">
         ✅ Analysis Complete! Check out your custom FUT Card below!
       </div>
       <div class="mb-8" v-if="isDownloadComplete && trophyCount > 0">
         <button
           @click.prevent="downloadFutCard"
-          class="px-8 py-4 bg-yellow-300 border-8 border-black text-black font-black text-2xl uppercase shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-400 active:translate-x-[8px] active:translate-y-[8px] active:shadow-none transition-all rounded-none inline-block mx-auto"
+          class="px-8 py-4 bg-gold text-bg font-display tracking-wider text-2xl uppercase rounded-xl hover:bg-gold-hi hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] active:scale-95 transition-all inline-block mx-auto"
         >
           Download Your Card
         </button>

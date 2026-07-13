@@ -1,9 +1,9 @@
 <template>
   <div
-    class="px-4 py-3 text-center border-4 border-black font-bold rounded-none transition-all shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+    class="px-4 py-3 text-center border border-line font-medium rounded-xl transition-all shadow-lg backdrop-blur-sm"
     :class="{
-      'bg-cyan-300 text-black hover:bg-cyan-400 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]': hasTrophies,
-      'bg-gray-100 text-gray-500 hover:bg-gray-200 accomplishment-does-not-have-games': !hasTrophies,
+      'bg-surface/80 text-brand hover:border-brand hover:bg-surface hover:shadow-[0_0_15px_rgba(57,211,83,0.15)]': hasTrophies,
+      'bg-transparent text-ink-mute hover:bg-surface-2 accomplishment-does-not-have-games': !hasTrophies,
     }"
   >
     <span @click.prevent="isExpanded = !isExpanded" class="hover:underline cursor-pointer">{{ title }}</span>
@@ -15,10 +15,10 @@
     <template v-if="isExpanded">
       <div
         v-if="hasExpandableContent"
-        class="p-4 mt-4 text-sm font-bold border-4 border-black text-left rounded-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+        class="p-4 mt-4 text-sm font-normal border border-line text-left rounded-xl shadow-inner"
         :class="{
-          'bg-white text-black': hasTrophies,
-          'bg-gray-50 text-gray-600': !hasTrophies,
+          'bg-surface text-ink': hasTrophies,
+          'bg-surface/50 text-ink-mute': !hasTrophies,
         }"
       >
         {{ desc }}
@@ -44,7 +44,7 @@
       </div>
 
       <template v-if="hasTrophies">
-        <h4 class="font-black text-2xl mt-6 text-black uppercase bg-yellow-300 border-4 border-black inline-block px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <h4 class="font-display tracking-widest text-2xl mt-6 text-gold uppercase bg-surface border border-line inline-block px-4 py-2 rounded-xl shadow-md">
           {{ trophyCount }}
           <template v-if="trophyCount === 1"> {{ units[0] }} </template>
           <template v-else> {{ units[1] }} </template>
