@@ -79,22 +79,22 @@
     </div>
 
     <!-- stats grid -->
-    <span class="absolute left-[21.3%] top-[64.63%] font-condensed text-[10.2cqw] font-bold">{{ trophyCount }}</span>
+    <span class="absolute left-[21.3%] top-[64.63%] font-condensed text-[10.2cqw] font-bold">{{ statPac }}</span>
     <span class="absolute left-[32.41%] top-[65.24%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">PAC</span>
     
-    <span class="absolute left-[56.48%] top-[64.63%] font-condensed text-[10.2cqw] font-bold">{{ formattedPositions }}</span>
+    <span class="absolute left-[56.48%] top-[64.63%] font-condensed text-[10.2cqw] font-bold">{{ statDri }}</span>
     <span class="absolute left-[67.59%] top-[65.24%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">DRI</span>
 
-    <span class="absolute left-[21.3%] top-[72.2%] font-condensed text-[10.2cqw] font-bold">{{ formattedGames }}</span>
+    <span class="absolute left-[21.3%] top-[72.2%] font-condensed text-[10.2cqw] font-bold">{{ statSho }}</span>
     <span class="absolute left-[32.41%] top-[72.8%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">SHO</span>
 
-    <span class="absolute left-[56.48%] top-[72.2%] font-condensed text-[10.2cqw] font-bold">{{ completedPercentage }}</span>
+    <span class="absolute left-[56.48%] top-[72.2%] font-condensed text-[10.2cqw] font-bold">{{ statDef }}</span>
     <span class="absolute left-[67.59%] top-[72.8%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">DEF</span>
 
-    <span class="absolute left-[21.3%] top-[79.76%] font-condensed text-[10.2cqw] font-bold">99</span>
+    <span class="absolute left-[21.3%] top-[79.76%] font-condensed text-[10.2cqw] font-bold">{{ statPas }}</span>
     <span class="absolute left-[32.41%] top-[80.37%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">PAS</span>
 
-    <span class="absolute left-[56.48%] top-[79.76%] font-condensed text-[10.2cqw] font-bold">99</span>
+    <span class="absolute left-[56.48%] top-[79.76%] font-condensed text-[10.2cqw] font-bold">{{ statPhy }}</span>
     <span class="absolute left-[67.59%] top-[80.37%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">PHY</span>
   </div>
 </template>
@@ -133,15 +133,32 @@ export default {
     displayAvatarUrl() {
       return this.avatarUrl || ''
     },
-    formattedGames() {
-      return this.totalGames >= 1000 ? (this.totalGames / 1000).toFixed(1) + 'k' : this.totalGames
+    // Normalize stats to be between 1 and 99
+    statPac() {
+      // Pace: Based on volume of games played (5000 games = 99 Pace)
+      return Math.min(99, Math.max(1, Math.round((this.totalGames / 5000) * 99))) || 1
     },
-    formattedPositions() {
-      return this.totalPositions >= 1000000 
-        ? (this.totalPositions / 1000000).toFixed(1) + 'M' 
-        : this.totalPositions >= 1000 
-          ? (this.totalPositions / 1000).toFixed(1) + 'k' 
-          : this.totalPositions
+    statSho() {
+      // Shooting: Based on tactical trophies earned (20 trophies = 99 Shooting)
+      return Math.min(99, Math.max(1, Math.round((this.trophyCount / 20) * 99))) || 1
+    },
+    statPas() {
+      // Passing: Based on accomplishment completion percentage
+      return Math.min(99, Math.max(1, Math.round(this.completedPercentage))) || 1
+    },
+    statDri() {
+      // Dribbling: Based on average moves per game (longer/more complex games = higher Dribbling)
+      const avgMoves = this.totalGames > 0 ? this.totalPositions / this.totalGames : 0
+      return Math.min(99, Math.max(1, Math.round((avgMoves / 40) * 99))) || 1
+    },
+    statDef() {
+      // Defending: Based on total positions analyzed (250,000 positions = 99 Defending)
+      return Math.min(99, Math.max(1, Math.round((this.totalPositions / 250000) * 99))) || 1
+    },
+    statPhy() {
+      // Physical: Composite of total games and completion
+      const score = (this.totalGames / 10000) * 50 + (this.completedPercentage / 100) * 50
+      return Math.min(99, Math.max(1, Math.round(score))) || 1
     }
   },
   methods: {
