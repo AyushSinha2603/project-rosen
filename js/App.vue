@@ -731,7 +731,7 @@
       <header class="relative mx-auto mt-4 mb-12 flex max-w-2xl items-start gap-6">
         <div class="relative flex h-24 w-24 flex-col items-center justify-center rounded-2xl border border-white/20 bg-[#0b0930] shadow-2xl shrink-0">
           <span class="font-display text-4xl font-black leading-none text-ink drop-shadow-md">{{ futCardRating }}</span>
-          <span class="font-display mt-1 text-[10px] font-bold tracking-widest text-ink-faint">SILVER</span>
+          <span class="font-display mt-1 text-[10px] font-bold tracking-widest text-ink-faint">{{ cardTier }}</span>
         </div>
         <div class="min-w-0 flex-1 text-left">
           <h2 class="font-display truncate text-5xl font-black leading-tight text-transparent bg-clip-text bg-gradient-to-r from-ink to-ink-dim">
@@ -1027,6 +1027,11 @@ export default {
       
       // OVR is the true average of the 6 core stats + an 8 point boost for fun
       return Math.min(99, Math.max(40, Math.floor(average + 8)))
+    },
+    cardTier(): string {
+      if (this.futCardRating >= 85) return 'GOLD'
+      if (this.futCardRating >= 65) return 'SILVER'
+      return 'BRONZE'
     },
   },
 
