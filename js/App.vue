@@ -1071,7 +1071,7 @@ export default {
         if (el) {
           try {
             const dataUrl = await toPng(el, {
-              backgroundColor: null,
+              backgroundColor: 'transparent',
               pixelRatio: 2 // High resolution
             })
             const link = document.createElement('a')
