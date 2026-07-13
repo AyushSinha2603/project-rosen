@@ -66,10 +66,10 @@
 
     <!-- country flag -->
     <img
-      v-if="countryCode"
+      v-if="countryCode && !flagError"
       :src="`/badges/flags/${countryCode}.png`"
       class="absolute left-[17.59%] top-[33.17%] w-[14.81%] h-[5.73%] object-contain"
-      @error="$event.target.style.display = 'none'"
+      @error="flagError = true"
     />
 
     <!-- language logo -->
@@ -122,7 +122,8 @@ export default {
   },
   data() {
     return {
-      imageError: false
+      imageError: false,
+      flagError: false
     }
   },
   computed: {

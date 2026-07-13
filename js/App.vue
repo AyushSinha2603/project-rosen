@@ -954,7 +954,7 @@ export default {
   data() {
     return {
       inputs: {
-        type: 'lichess' as ReportSource,
+        type: 'lichess' as ReportSource | 'both',
         value: '',
         valueChesscom: '',
         countryCode: '',
