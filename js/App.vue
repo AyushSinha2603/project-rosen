@@ -36,17 +36,17 @@
             <div class="text-xl">
               Select which site:
 
-              <div class="text-black mt-2 font-black text-2xl flex gap-4 flex-wrap">
-                <label class="cursor-pointer bg-surface-2 px-6 py-3 rounded-xl border border-line hover:border-brand hover:text-brand transition-colors">
-                  <input type="radio" name="site" value="lichess" v-model="inputs.type" />
+              <div class="text-ink mt-2 font-black text-2xl flex gap-4 flex-wrap">
+                <label class="cursor-pointer bg-surface-2 px-6 py-3 rounded-xl border border-line hover:border-brand hover:text-brand transition-colors flex items-center gap-2">
+                  <input type="radio" name="site" value="lichess" v-model="inputs.type" class="accent-brand" />
                   Lichess
                 </label>
-                <label class="cursor-pointer bg-surface-2 px-6 py-3 rounded-xl border border-line hover:border-brand hover:text-brand transition-colors ml-0 md:ml-4">
-                  <input type="radio" name="site" value="chesscom" v-model="inputs.type" />
+                <label class="cursor-pointer bg-surface-2 px-6 py-3 rounded-xl border border-line hover:border-brand hover:text-brand transition-colors ml-0 md:ml-4 flex items-center gap-2">
+                  <input type="radio" name="site" value="chesscom" v-model="inputs.type" class="accent-brand" />
                   Chess.com
                 </label>
-                <label class="cursor-pointer bg-surface-2 px-6 py-3 rounded-xl border border-line hover:border-brand hover:text-brand transition-colors ml-0 md:ml-4">
-                  <input type="radio" name="site" value="both" v-model="inputs.type" />
+                <label class="cursor-pointer bg-surface-2 px-6 py-3 rounded-xl border border-line hover:border-brand hover:text-brand transition-colors ml-0 md:ml-4 flex items-center gap-2">
+                  <input type="radio" name="site" value="both" v-model="inputs.type" class="accent-brand" />
                   Both
                 </label>
               </div>
