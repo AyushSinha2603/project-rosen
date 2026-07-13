@@ -1,8 +1,8 @@
 <div align="center">
 
-# Project Rosen
+# Project Rosen: Ultimate Team
 
-**A cross-platform chess achievement tracker with custom stat card generation.**
+**A sleek, cross-platform chess achievement tracker that generates dynamic FIFA-style stat cards.**
 
 [![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=flat-square&logo=vuedotjs&logoColor=4FC08D)](https://vuejs.org/)
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
@@ -13,29 +13,61 @@
 
 ---
 
-## Overview
+## ♟️ Overview
 
-Project Rosen is a specialized statistics tracker that scans chess games for rare, creative achievements (inspired by IM Eric Rosen) and calculates a definitive "Rosen Score." 
+Project Rosen is a specialized statistics tracker that scans your chess games for rare, creative achievements (inspired by IM Eric Rosen). We've taken the core accomplishment-tracking engine and wrapped it in a **premium, sleek, dark-mode interface**. 
 
-**Acknowledgements:** This repository is a custom fork of the excellent [rosen-score](https://github.com/fitztrev/rosen-score) by **[fitztrev](https://github.com/fitztrev)**. Fitztrev engineered the core logic, achievement detection, and foundational framework. This fork builds upon his brilliant work by introducing new cross-platform capabilities and a completely overhauled user interface.
+The highlight? We calculate your unique stats and generate a **downloadable, FIFA Ultimate Team (FUT) style stat card** that evolves based on your chess career!
 
----
-
-## Key Features
-
-* **Unified Data Fetching:** Concurrently aggregates match data from both **Lichess** and **Chess.com** in a single request, providing a holistic view of a player's achievements.
-* **Dynamic Stat Cards:** Automatically generates downloadable, FUT-style player cards featuring the user's avatar, rating, and Rosen Score for seamless sharing.
-* **Neobrutalist Interface:** A complete aesthetic overhaul featuring high-contrast themes, sharp borders, and a modern, responsive design.
+**Acknowledgements:** This repository is a custom fork of the excellent [rosen-score](https://github.com/fitztrev/rosen-score) by **[fitztrev](https://github.com/fitztrev)**. Fitztrev engineered the core logic and achievement detection framework. This fork builds upon his brilliant work by introducing cross-platform capabilities, a new UI, and advanced stat-card generation algorithms.
 
 ---
 
-## Getting Started
+## ✨ Key Features
+
+* **Dual Platform Fetching:** Seamlessly aggregates match data from both **Lichess** and **Chess.com**.
+* **Dynamic FUT Cards:** Generates a stunning, downloadable player card featuring your avatar, country, rating, and core attributes (PAC, SHO, PAS, DRI, DEF, PHY).
+* **Tiered Card System:** Your card visually upgrades (Bronze → Silver → Gold) complete with glowing visual effects as your Overall Rating (OVR) increases.
+* **Realistic Stat Curves:** Advanced math curves ensure that while beginners can track their progress, maxing out your card (99 OVR) requires true dedication and tens of thousands of analyzed games.
+* **Premium Aesthetics:** A complete UI overhaul featuring sleek dark themes, glassmorphism, glowing micro-animations, and dynamic data visualization.
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
-Ensure you have [Node.js](https://nodejs.org/) installed along with a package manager (`npm` or `pnpm`).
+Ensure you have [Node.js](https://nodejs.org/) installed along with a package manager like `pnpm` or `npm`.
 
-### Installation
+### Installation & Running Locally
 
-1. Clone the repository:
+1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/AyushSinha2603/project-rosen.git](https://github.com/AyushSinha2603/project-rosen.git)
+   git clone https://github.com/AyushSinha2603/project-rosen.git
+   cd project-rosen
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   pnpm install
+   ```
+
+3. **Start the development server:**
+   ```bash
+   pnpm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173`.
+
+### Building for Production
+```bash
+pnpm run build
+```
+
+---
+
+## 🛠️ Tech Stack
+* **Vue 3** (Composition API)
+* **Vite**
+* **Tailwind CSS**
+* **TypeScript**
+* **html-to-image** (For flawless card rendering and SVG mask support)
