@@ -879,7 +879,7 @@ import { Chess as ChessJS } from 'chess.js'
 
 import { games, player, Game, Profile, addLichessOauthToken, cancelFetch } from 'chess-fetcher'
 
-import html2canvas from 'html2canvas'
+import { toPng } from 'html-to-image'
 
 import AccomplishmentScore from './components/AccomplishmentScore.vue'
 import ArrowIcon from './components/ArrowIcon.vue'
@@ -1062,16 +1062,15 @@ export default {
         const el = container.firstElementChild
         if (el) {
           try {
-            const canvas = await html2canvas(el, {
+            const dataUrl = await toPng(el, {
               backgroundColor: null,
-              scale: 2, // High resolution
-              useCORS: true // Allow loading external images
+              pixelRatio: 2 // High resolution
             })
             const link = document.createElement('a')
             let filenameUsername = this.player.username || this.username
             filenameUsername = filenameUsername.replace(/ \(.+\)/g, '')
             link.download = `rosen-score-card-${filenameUsername}.png`
-            link.href = canvas.toDataURL('image/png')
+            link.href = dataUrl
             link.click()
           } catch (e) {
             console.error('Failed to generate FUT card:', e)
