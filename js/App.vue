@@ -697,32 +697,118 @@
         </div>
       </div>
     </div>
-    <div class="mt-8 text-center text-sm">
-      <div v-if="isDownloadComplete && trophyCount > 0" class="mb-6 bg-brand/20 border border-brand text-brand rounded-xl p-4 inline-block text-xl font-display tracking-wider uppercase shadow-[0_0_15px_rgba(57,211,83,0.2)]">
-        ✅ Analysis Complete! Check out your custom FUT Card below!
-      </div>
-      <div class="mb-8" v-if="isDownloadComplete && trophyCount > 0">
-        <button
-          @click.prevent="downloadFutCard"
-          class="px-8 py-4 bg-gold text-bg font-display tracking-wider text-2xl uppercase rounded-xl hover:bg-gold-hi hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] active:scale-95 transition-all inline-block mx-auto"
-        >
-          Download Your Card
-        </button>
-      </div>
-    </div>
+    <!-- GitFut Scout Report Layout -->
+    <div class="max-w-[1100px] mx-auto my-16 px-4" v-if="isDownloadComplete && trophyCount > 0">
+      <header class="relative mx-auto mt-4 mb-12 flex max-w-2xl items-start gap-6">
+        <div class="relative flex h-24 w-24 flex-col items-center justify-center rounded-2xl border border-white/20 bg-[#0b0930] shadow-2xl shrink-0">
+          <span class="font-display text-4xl font-black leading-none text-ink drop-shadow-md">{{ futCardRating }}</span>
+          <span class="font-display mt-1 text-[10px] font-bold tracking-widest text-ink-faint">SILVER</span>
+        </div>
+        <div class="min-w-0 flex-1 text-left">
+          <h2 class="font-display truncate text-5xl font-black leading-tight text-transparent bg-clip-text bg-gradient-to-r from-ink to-ink-dim">
+            {{ player.username || username }}
+          </h2>
+          <div class="mt-2 flex flex-wrap items-center gap-3">
+            <span class="font-display inline-flex items-center rounded-md border border-brand/40 bg-brand/15 px-2 py-1 text-xs font-bold tracking-widest text-brand">CAM</span>
+            <span class="text-sm font-medium text-ink-dim">Chess Prodigy</span>
+          </div>
+          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+            <span class="font-display mr-2 text-xs font-bold tracking-widest text-brand">FIRST-TEAM READY</span>
+            A tactician exploring unique chess positions and accomplishments.
+          </p>
+        </div>
+      </header>
 
-    <!-- FUT Card Preview Container (restored) -->
-    <div class="mt-8 flex justify-center w-full p-8" v-if="isDownloadComplete && trophyCount > 0">
-      <div ref="futCardContainer" class="bg-transparent inline-block transition-transform duration-300 hover:scale-[1.03]">
-        <fut-card
-          :username="player.username || username"
-          :avatar-url="avatarUrl"
-          :overall-rating="futCardRating"
-          :trophy-count="trophyCount"
-          :completed-percentage="totalAccomplishmentsCompletedPercentage"
-          :total-games="counts.downloaded"
-          :total-positions="counts.totalMoves"
-        ></fut-card>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Left Column: Attributes -->
+        <div class="lg:col-span-4 flex flex-col gap-6">
+          <section class="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5">
+            <div class="mb-3 flex items-center gap-2">
+              <span class="h-[2px] w-4 rounded-full bg-brand"></span>
+              <h3 class="font-display text-xs font-bold tracking-widest text-ink-faint">ATTRIBUTES</h3>
+            </div>
+            <div class="flex items-center justify-between border-b border-white/[0.06] py-3">
+              <span class="text-[13.5px] text-ink-dim">Games Analyzed</span>
+              <span class="font-display text-sm font-bold tracking-wide text-ink-soft">{{ counts.downloaded }}</span>
+            </div>
+            <div class="flex items-center justify-between border-b border-white/[0.06] py-3">
+              <span class="text-[13.5px] text-ink-dim">Total Moves</span>
+              <span class="font-display text-sm font-bold tracking-wide text-ink-soft">{{ counts.totalMoves }}</span>
+            </div>
+            <div class="flex items-center justify-between border-b border-white/[0.06] py-3">
+              <span class="text-[13.5px] text-ink-dim">Trophies Earned</span>
+              <span class="font-display text-sm font-bold tracking-wide text-ink-soft">{{ trophyCount }}</span>
+            </div>
+            <div class="flex items-center justify-between py-3">
+              <span class="text-[13.5px] text-ink-dim">Completion</span>
+              <span class="font-display text-sm font-bold tracking-wide text-ink-soft">{{ totalAccomplishmentsCompletedPercentage }}%</span>
+            </div>
+          </section>
+        </div>
+
+        <!-- Center Column: FutCard -->
+        <div class="lg:col-span-4 flex justify-center flex-col items-center">
+          <div ref="futCardContainer" class="bg-transparent inline-block transition-transform duration-300 hover:scale-[1.03]">
+            <fut-card
+              :username="player.username || username"
+              :avatar-url="avatarUrl"
+              :overall-rating="futCardRating"
+              :trophy-count="trophyCount"
+              :completed-percentage="totalAccomplishmentsCompletedPercentage"
+              :total-games="counts.downloaded"
+              :total-positions="counts.totalMoves"
+            ></fut-card>
+          </div>
+          <button
+            @click.prevent="downloadFutCard"
+            class="mt-8 px-6 py-3 w-full bg-brand text-bg font-display tracking-widest text-xl uppercase rounded-xl hover:bg-brand-hi hover:shadow-[0_0_20px_rgba(57,211,83,0.4)] active:scale-95 transition-all"
+          >
+            Download Card
+          </button>
+        </div>
+
+        <!-- Right Column: Metrics -->
+        <div class="lg:col-span-4 flex flex-col gap-6">
+          <section class="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 w-full">
+            <div class="mb-4 flex items-center gap-2">
+              <span class="h-[2px] w-4 rounded-full bg-brand"></span>
+              <h3 class="font-display text-xs font-bold tracking-widest text-ink-faint">SCOUTING METRICS</h3>
+            </div>
+            
+            <div class="flex flex-col gap-5 pt-2">
+              <!-- Bar 1 -->
+              <div>
+                <div class="flex items-baseline justify-between gap-3 mb-2">
+                  <span class="text-[13px] text-ink-dim">Tactical Vision</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, trophyCount * 5) }}</span>
+                </div>
+                <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, trophyCount * 5)}%`"></div>
+                </div>
+              </div>
+              <!-- Bar 2 -->
+              <div>
+                <div class="flex items-baseline justify-between gap-3 mb-2">
+                  <span class="text-[13px] text-ink-dim">Aggression</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ counts.downloaded ? Math.min(99, Math.round(counts.totalMoves / counts.downloaded)) : 0 }}</span>
+                </div>
+                <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${counts.downloaded ? Math.min(100, Math.round(counts.totalMoves / counts.downloaded)) : 0}%`"></div>
+                </div>
+              </div>
+              <!-- Bar 3 -->
+              <div>
+                <div class="flex items-baseline justify-between gap-3 mb-2">
+                  <span class="text-[13px] text-ink-dim">Completion</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ totalAccomplishmentsCompletedPercentage }}</span>
+                </div>
+                <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${totalAccomplishmentsCompletedPercentage}%`"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   </div>
