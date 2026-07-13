@@ -850,10 +850,10 @@
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
                   <span class="text-[13px] text-ink-dim">Activity</span>
-                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round(Math.sqrt(counts.downloaded) * 0.65)) || 0 }}</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round(Math.sqrt(counts.downloaded) * 0.55)) || 0 }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
-                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round(Math.sqrt(counts.downloaded) * 0.65)) || 0}%`"></div>
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round(Math.sqrt(counts.downloaded) * 0.55)) || 0}%`"></div>
                 </div>
               </div>
               <!-- Bar 6 -->
@@ -1013,15 +1013,20 @@ export default {
         .flat().length
     },
     futCardRating(): number {
-      // Base rating starts at 45
-      // Completion gives the biggest boost (up to +40)
-      const completionBoost = this.totalAccomplishmentsCompletedPercentage * 0.4
-      // Games played gives a small bonus (capped at +10)
-      const gamesBoost = Math.min(10, Math.sqrt(this.counts.totalGames || 0) * 0.1)
-      // Trophies give a small bonus (capped at +5)
-      const trophyBoost = Math.min(5, this.trophyCount * 0.02)
+      const pac = Math.min(99, Math.round(Math.sqrt(this.counts.totalGames || 0) * 0.55))
+      const sho = Math.min(99, Math.round(Math.sqrt(this.trophyCount) * 3.8))
+      const pas = Math.min(99, Math.round(this.totalAccomplishmentsCompletedPercentage * 1.0 + 20))
       
-      return Math.min(99, Math.floor(45 + completionBoost + gamesBoost + trophyBoost))
+      const avgMoves = (this.counts.totalGames || 0) > 0 ? (this.counts.totalMoves || 0) / this.counts.totalGames : 0
+      const dri = Math.min(99, Math.round(avgMoves * 1.1 + 10))
+      const def = Math.min(99, Math.round(Math.sqrt(this.counts.totalMoves || 0) / 14.5))
+      
+      const phy = Math.min(99, Math.round(Math.sqrt(this.counts.totalGames || 0) * 0.35 + this.totalAccomplishmentsCompletedPercentage * 0.6))
+      
+      const average = (pac + sho + pas + dri + def + phy) / 6
+      
+      // OVR is the true average of the 6 core stats + an 8 point boost for fun
+      return Math.min(99, Math.max(40, Math.floor(average + 8)))
     },
   },
 

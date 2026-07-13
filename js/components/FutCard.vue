@@ -166,28 +166,28 @@ export default {
     // Normalize stats to be between 1 and 99 using square root curves to prevent inflation
     statPac() {
       // Pace: Based on volume of games played
-      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalGames) * 0.75))) || 1
+      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalGames) * 0.55))) || 1
     },
     statSho() {
       // Shooting: Based on tactical trophies earned
-      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.trophyCount) * 5.5))) || 1
+      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.trophyCount) * 3.8))) || 1
     },
     statPas() {
       // Passing: Based on accomplishment completion percentage
-      return Math.min(99, Math.max(1, Math.round(this.completedPercentage * 1.3 + 12))) || 1
+      return Math.min(99, Math.max(1, Math.round(this.completedPercentage * 1.0 + 20))) || 1
     },
     statDri() {
       // Dribbling: Based on average moves per game
       const avgMoves = this.totalGames > 0 ? this.totalPositions / this.totalGames : 0
-      return Math.min(99, Math.max(1, Math.round(avgMoves * 1.3 + 10))) || 1
+      return Math.min(99, Math.max(1, Math.round(avgMoves * 1.1 + 10))) || 1
     },
     statDef() {
       // Defending: Based on total positions analyzed
-      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalPositions) / 11))) || 1
+      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalPositions) / 14.5))) || 1
     },
     statPhy() {
       // Physical: Composite of total games and completion
-      const score = Math.sqrt(this.totalGames) * 0.4 + (this.completedPercentage * 0.7)
+      const score = Math.sqrt(this.totalGames) * 0.35 + (this.completedPercentage * 0.6)
       return Math.min(99, Math.max(1, Math.round(score))) || 1
     }
   },
