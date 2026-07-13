@@ -1,75 +1,101 @@
 <template>
-  <!-- Main Downloadable Area with Cyan Background and Dot Grid -->
   <div 
-    class="inline-block relative p-12 bg-[#06b6d4] pb-16" 
-    style="background-image: radial-gradient(#000 3px, transparent 3px); background-size: 24px 24px;" 
+    class="relative w-full max-w-[400px] mx-auto aspect-[540/820] select-none text-[#1a1a1a]" 
+    style="container-type: inline-size; filter: drop-shadow(0 7cqw 10cqw rgba(0,0,0,0.5))"
     ref="futCardElement" 
     id="fut-card-element"
   >
+    <!-- tier background art -->
+    <img
+      src="/cards/silver.png"
+      alt=""
+      aria-hidden
+      class="absolute inset-0 w-full h-full object-fill"
+    />
     
-    <!-- Hot Pink Card Body -->
-    <div class="w-[360px] bg-[#ec4899] border-8 border-black shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] p-6 flex flex-col relative z-10 rounded-none">
-      
-      <!-- Top Section -->
-      <div class="flex justify-between items-start mb-6">
-        
-        <!-- Left Side: Avatar & Rating -->
-        <div class="flex flex-col items-center">
-          <!-- Avatar Circle -->
-          <div class="w-24 h-24 bg-white border-4 border-black rounded-full overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] mb-3 flex justify-center items-center">
+    <div
+      class="absolute inset-0"
+      style="-webkit-mask-image: url('/cards/silver.png'); mask-image: url('/cards/silver.png'); -webkit-mask-size: 100% 100%; mask-size: 100% 100%;"
+    >
+      <div
+        class="absolute left-[27cqw] top-[13cqw] w-[68cqw] h-[70cqw]"
+        style="-webkit-mask-image: radial-gradient(ellipse 66% 88% at 52% 40%, #000 56%, transparent 80%); mask-image: radial-gradient(ellipse 66% 88% at 52% 40%, #000 56%, transparent 80%);"
+      >
+        <div
+          class="w-full h-full"
+          style="-webkit-mask-image: linear-gradient(220deg, #000 70%, transparent 100%); mask-image: linear-gradient(220deg, #000 70%, transparent 100%);"
+        >
+          <div
+            class="relative w-full h-full"
+            style="-webkit-mask-image: linear-gradient(180deg, transparent 1%, #000 22%); mask-image: linear-gradient(180deg, transparent 1%, #000 22%); filter: drop-shadow(0 3cqw 6cqw rgba(0,0,0,.5));"
+          >
              <img 
                v-if="displayAvatarUrl && !imageError" 
                :src="displayAvatarUrl" 
-               class="w-full h-full object-cover" 
+               :alt="username"
+               class="w-full h-full object-cover object-[center_20%]" 
                crossorigin="anonymous" 
                @error="handleImageError"
              />
-             <!-- Flat Pawn Fallback -->
-             <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-14 h-14 fill-black">
-               <path d="M12 2C10.34 2 9 3.34 9 5C9 6.2 9.7 7.23 10.74 7.74L8.14 11.23C7.45 10.46 6.3 10 5 10C3.34 10 2 11.34 2 13C2 14.28 2.8 15.35 3.96 15.77L2 22H22L20.04 15.77C21.2 15.35 22 14.28 22 13C22 11.34 20.66 10 19 10C17.7 10 16.55 10.46 15.86 11.23L13.26 7.74C14.3 7.23 15 6.2 15 5C15 3.34 13.66 2 12 2Z"/>
-             </svg>
-          </div>
-          
-          <!-- Rating -->
-          <div class="text-center">
-            <span class="text-5xl font-black text-black leading-none block tracking-tighter" style="font-family: 'Arial', sans-serif;">{{ overallRating || 99 }}</span>
-            <span class="text-2xl font-black text-black uppercase block border-b-4 border-black pb-1 mb-1 tracking-widest">GM</span>
-            <div class="flex justify-center gap-2 mt-2">
-              <span class="text-2xl">🏁</span>
-              <span class="text-2xl">👑</span>
-            </div>
+             <div v-else class="w-full h-full bg-black/10 flex items-center justify-center">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-1/2 h-1/2 fill-black/30">
+                 <path d="M12 2C10.34 2 9 3.34 9 5C9 6.2 9.7 7.23 10.74 7.74L8.14 11.23C7.45 10.46 6.3 10 5 10C3.34 10 2 11.34 2 13C2 14.28 2.8 15.35 3.96 15.77L2 22H22L20.04 15.77C21.2 15.35 22 14.28 22 13C22 11.34 20.66 10 19 10C17.7 10 16.55 10.46 15.86 11.23L13.26 7.74C14.3 7.23 15 6.2 15 5C15 3.34 13.66 2 12 2Z"/>
+               </svg>
+             </div>
           </div>
         </div>
-
-        <!-- Right Side: Flat 2D Trophy -->
-        <div class="w-36 h-36 bg-[#fde047] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex justify-center items-center mt-2 rounded-none relative">
-           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-24 h-24 fill-[#ec4899] stroke-black" stroke-width="1.5">
-             <path d="M19,2H5C3.89,2 3,2.9 3,4V6C3,8.21 4.79,10 7,10C7,11.93 8.35,13.59 10.16,14.12C10.6,15.68 12.08,16.88 13.84,16.88C15.6,16.88 17.08,15.68 17.52,14.12C19.33,13.59 20.68,11.93 20.68,10V6C20.68,2.9 19.79,2 18.68,2H19ZM7,8C5.9,8 5,7.1 5,6V4H7V8ZM19,6C19,7.1 18.1,8 17,8V4H19V6ZM17,19H7V21H17V19Z"/>
-           </svg>
-           <div class="absolute bottom-2 w-16 h-2 bg-black opacity-20"></div>
-        </div>
-      </div>
-
-      <!-- Username -->
-      <div class="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-3 mb-6 text-center overflow-hidden flex items-center justify-center h-16">
-        <h2 class="leading-none font-black text-black uppercase whitespace-nowrap tracking-tight" :style="{ fontSize: dynamicFontSize, fontFamily: 'Arial, sans-serif' }">{{ cleanUsername || 'UNKNOWN' }}</h2>
-      </div>
-      
-      <!-- Stats Grid -->
-      <div class="grid grid-cols-2 gap-x-4 gap-y-3 bg-[#fde047] border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] font-mono font-black text-xl text-black">
-        <div class="flex justify-between border-b-4 border-black pb-1"><span>{{ trophyCount }}</span> <span>TRO</span></div>
-        <div class="flex justify-between border-b-4 border-black pb-1"><span>{{ formattedPositions }}</span> <span>POS</span></div>
-        <div class="flex justify-between border-b-4 border-black pb-1"><span>{{ formattedGames }}</span> <span>GMS</span></div>
-        <div class="flex justify-between border-b-4 border-black pb-1"><span>{{ completedPercentage }}</span> <span>PCT</span></div>
-        <div class="flex justify-between"><span>99</span> <span>TAC</span></div>
-        <div class="flex justify-between"><span>99</span> <span>END</span></div>
       </div>
     </div>
 
-    <!-- Badge below card -->
-    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#fde047] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] py-3 px-8 text-center z-20 whitespace-nowrap rounded-none">
-      <span class="font-black text-black text-2xl uppercase tracking-widest" style="font-family: 'Arial', sans-serif;">YOUR ROSEN SCORE CARD</span>
+    <!-- separator lines -->
+    <div class="absolute left-[19.44%] top-[31.1%] w-[10.19%] h-[0.3cqw] bg-[#1a1a1a] opacity-50"></div>
+    <div class="absolute left-[19.44%] top-[40.85%] w-[10.19%] h-[0.3cqw] bg-[#1a1a1a] opacity-50"></div>
+    <div class="absolute left-[16.67%] top-[64.02%] w-[66.67%] h-[0.3cqw] bg-[#1a1a1a] opacity-50"></div>
+    <div class="absolute left-[44.44%] top-[89.63%] w-[11.11%] h-[0.3cqw] bg-[#1a1a1a] opacity-50"></div>
+    <div class="absolute left-[50%] top-[66.46%] w-[0.3cqw] h-[20.12%] bg-[#1a1a1a] opacity-50"></div>
+
+    <!-- overall -->
+    <div class="absolute left-[16.3%] top-[9.76%] font-sans text-[22.2cqw] font-medium leading-none">
+      {{ overallRating || 99 }}
     </div>
+
+    <!-- position -->
+    <div class="absolute left-[25%] top-[23.78%] -translate-x-1/2 font-sans text-[9.3cqw] font-medium tracking-[.02em]">
+      CAM
+    </div>
+
+    <!-- language logo -->
+    <img
+      src="/badges/languages/javascript.png"
+      class="absolute left-[19.06%] top-[42.25%] w-[11.875%] h-[7.5%] object-contain"
+    />
+
+    <!-- name -->
+    <div 
+      class="absolute left-[50%] top-[53.66%] -translate-x-1/2 font-sans font-bold whitespace-nowrap uppercase"
+      :style="{ fontSize: dynamicFontSize }"
+    >
+      {{ cleanUsername }}
+    </div>
+
+    <!-- stats grid -->
+    <span class="absolute left-[21.3%] top-[64.63%] font-sans text-[10.2cqw] font-bold">{{ trophyCount }}</span>
+    <span class="absolute left-[32.41%] top-[65.24%] font-sans text-[9.3cqw] font-medium tracking-[.02em]">PAC</span>
+    
+    <span class="absolute left-[56.48%] top-[64.63%] font-sans text-[10.2cqw] font-bold">{{ formattedPositions }}</span>
+    <span class="absolute left-[67.59%] top-[65.24%] font-sans text-[9.3cqw] font-medium tracking-[.02em]">DRI</span>
+
+    <span class="absolute left-[21.3%] top-[72.2%] font-sans text-[10.2cqw] font-bold">{{ formattedGames }}</span>
+    <span class="absolute left-[32.41%] top-[72.8%] font-sans text-[9.3cqw] font-medium tracking-[.02em]">SHO</span>
+
+    <span class="absolute left-[56.48%] top-[72.2%] font-sans text-[10.2cqw] font-bold">{{ completedPercentage }}</span>
+    <span class="absolute left-[67.59%] top-[72.8%] font-sans text-[9.3cqw] font-medium tracking-[.02em]">DEF</span>
+
+    <span class="absolute left-[21.3%] top-[79.76%] font-sans text-[10.2cqw] font-bold">99</span>
+    <span class="absolute left-[32.41%] top-[80.37%] font-sans text-[9.3cqw] font-medium tracking-[.02em]">PAS</span>
+
+    <span class="absolute left-[56.48%] top-[79.76%] font-sans text-[10.2cqw] font-bold">99</span>
+    <span class="absolute left-[67.59%] top-[80.37%] font-sans text-[9.3cqw] font-medium tracking-[.02em]">PHY</span>
   </div>
 </template>
 
@@ -97,12 +123,12 @@ export default {
     },
     dynamicFontSize() {
       const len = this.cleanUsername.length
-      if (len <= 10) return '38px'
-      if (len <= 12) return '32px'
-      if (len <= 14) return '28px'
-      if (len <= 16) return '24px'
-      if (len <= 18) return '21px'
-      return '18px'
+      if (len <= 10) return '13cqw'
+      if (len <= 12) return '11cqw'
+      if (len <= 14) return '9cqw'
+      if (len <= 16) return '8cqw'
+      if (len <= 18) return '7cqw'
+      return '6cqw'
     },
     displayAvatarUrl() {
       return this.avatarUrl || ''
