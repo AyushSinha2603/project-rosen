@@ -66,7 +66,7 @@
 
     <!-- language logo -->
     <img
-      src="/badges/languages/javascript.png"
+      src="https://cdn.jsdelivr.net/gh/PKief/vscode-material-icon-theme@main/icons/javascript.svg"
       class="absolute left-[19.06%] top-[42.25%] w-[11.875%] h-[7.5%] object-contain"
     />
 
