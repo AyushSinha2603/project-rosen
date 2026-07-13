@@ -142,31 +142,31 @@ export default {
     displayAvatarUrl() {
       return this.avatarUrl || ''
     },
-    // Normalize stats to be between 1 and 99
+    // Normalize stats to be between 1 and 99 using square root curves to prevent inflation
     statPac() {
-      // Pace: Based on volume of games played (5000 games = 99 Pace)
-      return Math.min(99, Math.max(1, Math.round((this.totalGames / 5000) * 99))) || 1
+      // Pace: Based on volume of games played (curve maxes around 8000 games)
+      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalGames) * 1.1))) || 1
     },
     statSho() {
-      // Shooting: Based on tactical trophies earned (20 trophies = 99 Shooting)
-      return Math.min(99, Math.max(1, Math.round((this.trophyCount / 20) * 99))) || 1
+      // Shooting: Based on tactical trophies earned (curve maxes around 200 trophies)
+      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.trophyCount) * 7))) || 1
     },
     statPas() {
-      // Passing: Based on accomplishment completion percentage
-      return Math.min(99, Math.max(1, Math.round(this.completedPercentage))) || 1
+      // Passing: Based on accomplishment completion percentage (boosted curve)
+      return Math.min(99, Math.max(1, Math.round(this.completedPercentage * 1.5 + 15))) || 1
     },
     statDri() {
-      // Dribbling: Based on average moves per game (longer/more complex games = higher Dribbling)
+      // Dribbling: Based on average moves per game (curve maxes around 75 moves)
       const avgMoves = this.totalGames > 0 ? this.totalPositions / this.totalGames : 0
-      return Math.min(99, Math.max(1, Math.round((avgMoves / 40) * 99))) || 1
+      return Math.min(99, Math.max(1, Math.round(avgMoves * 1.2 + 10))) || 1
     },
     statDef() {
-      // Defending: Based on total positions analyzed (250,000 positions = 99 Defending)
-      return Math.min(99, Math.max(1, Math.round((this.totalPositions / 250000) * 99))) || 1
+      // Defending: Based on total positions analyzed (curve maxes around 600k positions)
+      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalPositions) / 8))) || 1
     },
     statPhy() {
       // Physical: Composite of total games and completion
-      const score = (this.totalGames / 10000) * 50 + (this.completedPercentage / 100) * 50
+      const score = Math.sqrt(this.totalGames) * 0.5 + (this.completedPercentage * 1.2)
       return Math.min(99, Math.max(1, Math.round(score))) || 1
     }
   },

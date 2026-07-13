@@ -801,20 +801,20 @@
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
                   <span class="text-[13px] text-ink-dim">Tactical Vision</span>
-                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, trophyCount * 5) }}</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round(Math.sqrt(trophyCount) * 8)) }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
-                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, trophyCount * 5)}%`"></div>
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round(Math.sqrt(trophyCount) * 8))}%`"></div>
                 </div>
               </div>
               <!-- Bar 2 -->
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
                   <span class="text-[13px] text-ink-dim">Aggression</span>
-                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ counts.downloaded ? Math.min(99, Math.round(counts.totalMoves / counts.downloaded)) : 0 }}</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ counts.downloaded ? Math.min(99, Math.round((counts.totalMoves / counts.downloaded) * 1.2)) : 0 }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
-                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${counts.downloaded ? Math.min(100, Math.round(counts.totalMoves / counts.downloaded)) : 0}%`"></div>
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${counts.downloaded ? Math.min(100, Math.round((counts.totalMoves / counts.downloaded) * 1.2)) : 0}%`"></div>
                 </div>
               </div>
               <!-- Bar 3 -->
