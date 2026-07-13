@@ -64,6 +64,14 @@
       CAM
     </div>
 
+    <!-- country flag -->
+    <img
+      v-if="countryCode"
+      :src="`/badges/flags/${countryCode}.png`"
+      class="absolute left-[17.59%] top-[33.17%] w-[14.81%] h-[5.73%] object-contain"
+      @error="$event.target.style.display = 'none'"
+    />
+
     <!-- language logo -->
     <img
       src="https://cdn.jsdelivr.net/gh/PKief/vscode-material-icon-theme@main/icons/javascript.svg"
@@ -105,6 +113,7 @@ export default {
   props: {
     username: { type: String, required: true },
     avatarUrl: { type: String, default: '' },
+    countryCode: { type: String, default: '' },
     overallRating: { type: Number, required: true },
     trophyCount: { type: Number, required: true },
     completedPercentage: { type: Number, required: true },

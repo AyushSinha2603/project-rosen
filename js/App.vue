@@ -64,6 +64,26 @@
                   v-model="inputs.valueChesscom"
                 />
               </div>
+              <div class="mt-8">
+                Choose Nationality (Optional):
+                <select v-model="inputs.countryCode" class="block w-full px-6 py-4 text-xl text-ink bg-surface-2 border border-line focus:border-brand focus:ring-1 focus:ring-brand focus:outline-none mt-4 rounded-xl shadow-inner transition-all">
+                  <option value="">None</option>
+                  <option value="ar">Argentina</option>
+                  <option value="br">Brazil</option>
+                  <option value="ca">Canada</option>
+                  <option value="de">Germany</option>
+                  <option value="es">Spain</option>
+                  <option value="fr">France</option>
+                  <option value="gb">United Kingdom</option>
+                  <option value="in">India</option>
+                  <option value="it">Italy</option>
+                  <option value="jp">Japan</option>
+                  <option value="mx">Mexico</option>
+                  <option value="nl">Netherlands</option>
+                  <option value="pt">Portugal</option>
+                  <option value="us">United States</option>
+                </select>
+              </div>
               <div class="text-lg mt-6 bg-surface-2 border border-line rounded-xl p-4 inline-block text-ink-soft">
                 Or
                 <span class="text-brand hover:text-brand-hi cursor-pointer transition-colors font-medium" @click.prevent="formFill('lichess', 'EricRosen')">
@@ -752,6 +772,7 @@
             <fut-card
               :username="player.username || username"
               :avatar-url="avatarUrl"
+              :country-code="inputs.countryCode"
               :overall-rating="futCardRating"
               :trophy-count="trophyCount"
               :completed-percentage="totalAccomplishmentsCompletedPercentage"
@@ -894,9 +915,10 @@ export default {
   data() {
     return {
       inputs: {
-        type: <ReportSource | 'both'>'lichess',
+        type: 'lichess' as ReportSource,
         value: '',
         valueChesscom: '',
+        countryCode: '',
         filters: {
           sinceHoursAgo: 0,
         },
@@ -1061,18 +1083,24 @@ export default {
       this.isDownloading = true
       this.counts.totalGames = 0 // Reset to 0 so we can safely add them together
 
-      // Fetch Avatar from chess.com
-      let avatarSearchUser = this.username
-      if (this.inputs.type === 'both' && this.usernameChesscom) {
-        avatarSearchUser = this.usernameChesscom
-      }
-      try {
-        const avatarRes = await fetch(`https://api.chess.com/pub/player/${avatarSearchUser}`)
-        if (avatarRes.ok) {
-          const avatarData = await avatarRes.json()
-          this.avatarUrl = avatarData.avatar || ''
+      // Fetch Avatar from chess.com if not purely Lichess
+      if (this.inputs.type !== 'lichess') {
+        let avatarSearchUser = this.username
+        if (this.inputs.type === 'both' && this.usernameChesscom) {
+          avatarSearchUser = this.usernameChesscom
         }
-      } catch (e) {
+        try {
+          const avatarRes = await fetch(`https://api.chess.com/pub/player/${avatarSearchUser}`)
+          if (avatarRes.ok) {
+            const avatarData = await avatarRes.json()
+            this.avatarUrl = avatarData.avatar || ''
+          } else {
+            this.avatarUrl = ''
+          }
+        } catch (e) {
+          this.avatarUrl = ''
+        }
+      } else {
         this.avatarUrl = ''
       }
 
