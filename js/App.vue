@@ -974,7 +974,7 @@ export default {
 
       trophyTypeCount: 0,
       githubStars: null as number | null,
-      playerTrophiesByType: {} as Record<string, Record<string, boolean>>,
+      playerTrophiesByType: {} as PlayerTrophiesByType,
 
       isDownloading: false,
       isDownloadComplete: false,
