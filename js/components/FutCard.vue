@@ -72,11 +72,7 @@
       @error="flagError = true"
     />
 
-    <!-- language logo -->
-    <img
-      src="https://cdn.jsdelivr.net/gh/PKief/vscode-material-icon-theme@main/icons/javascript.svg"
-      class="absolute left-[19.06%] top-[42.25%] w-[11.875%] h-[7.5%] object-contain"
-    />
+
 
     <!-- name -->
     <div 
@@ -145,29 +141,29 @@ export default {
     },
     // Normalize stats to be between 1 and 99 using square root curves to prevent inflation
     statPac() {
-      // Pace: Based on volume of games played (curve maxes around 30,000 games)
-      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalGames) * 0.6))) || 1
+      // Pace: Based on volume of games played
+      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalGames) * 0.75))) || 1
     },
     statSho() {
-      // Shooting: Based on tactical trophies earned (curve maxes around 600 trophies)
-      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.trophyCount) * 4))) || 1
+      // Shooting: Based on tactical trophies earned
+      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.trophyCount) * 5.5))) || 1
     },
     statPas() {
       // Passing: Based on accomplishment completion percentage
-      return Math.min(99, Math.max(1, Math.round(this.completedPercentage * 1.2 + 10))) || 1
+      return Math.min(99, Math.max(1, Math.round(this.completedPercentage * 1.3 + 12))) || 1
     },
     statDri() {
-      // Dribbling: Based on average moves per game (curve maxes around 75 moves)
+      // Dribbling: Based on average moves per game
       const avgMoves = this.totalGames > 0 ? this.totalPositions / this.totalGames : 0
-      return Math.min(99, Math.max(1, Math.round(avgMoves * 1.2 + 10))) || 1
+      return Math.min(99, Math.max(1, Math.round(avgMoves * 1.3 + 10))) || 1
     },
     statDef() {
-      // Defending: Based on total positions analyzed (curve maxes around 2 million positions)
-      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalPositions) / 14))) || 1
+      // Defending: Based on total positions analyzed
+      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalPositions) / 11))) || 1
     },
     statPhy() {
       // Physical: Composite of total games and completion
-      const score = Math.sqrt(this.totalGames) * 0.3 + (this.completedPercentage * 0.6)
+      const score = Math.sqrt(this.totalGames) * 0.4 + (this.completedPercentage * 0.7)
       return Math.min(99, Math.max(1, Math.round(score))) || 1
     }
   },

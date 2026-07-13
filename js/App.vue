@@ -1013,7 +1013,15 @@ export default {
         .flat().length
     },
     futCardRating(): number {
-      return Math.min(99, Math.floor(40 + (this.totalAccomplishmentsCompletedPercentage * 0.5) + (this.trophyCount * 0.05)))
+      // Base rating starts at 40
+      // Games played gives a massive boost (up to +35)
+      const gamesBoost = Math.min(35, Math.sqrt(this.counts.totalGames || 0) * 0.35)
+      // Trophies gives a boost (up to +15)
+      const trophyBoost = Math.min(15, this.trophyCount * 0.08)
+      // Completion gives a boost (up to +15)
+      const completionBoost = Math.min(15, this.totalAccomplishmentsCompletedPercentage * 0.25)
+      
+      return Math.min(99, Math.floor(40 + gamesBoost + trophyBoost + completionBoost))
     },
   },
 
