@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="relative w-full max-w-[400px] mx-auto aspect-[540/820] select-none text-[#1a1a1a]" 
+    class="relative w-[400px] max-w-full mx-auto aspect-[540/820] select-none text-[#1a1a1a]" 
     style="container-type: inline-size; filter: drop-shadow(0 7cqw 10cqw rgba(0,0,0,0.5))"
     ref="futCardElement" 
     id="fut-card-element"
