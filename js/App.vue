@@ -821,10 +821,40 @@
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
                   <span class="text-[13px] text-ink-dim">Completion</span>
-                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ totalAccomplishmentsCompletedPercentage }}</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.round(totalAccomplishmentsCompletedPercentage) }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
-                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${totalAccomplishmentsCompletedPercentage}%`"></div>
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.round(totalAccomplishmentsCompletedPercentage)}%`"></div>
+                </div>
+              </div>
+              <!-- Bar 4 -->
+              <div>
+                <div class="flex items-baseline justify-between gap-3 mb-2">
+                  <span class="text-[13px] text-ink-dim">Resilience</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round(Math.sqrt(counts.totalMoves) / 9)) || 0 }}</span>
+                </div>
+                <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round(Math.sqrt(counts.totalMoves) / 9)) || 0}%`"></div>
+                </div>
+              </div>
+              <!-- Bar 5 -->
+              <div>
+                <div class="flex items-baseline justify-between gap-3 mb-2">
+                  <span class="text-[13px] text-ink-dim">Activity</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round(Math.sqrt(counts.downloaded) * 1.3)) || 0 }}</span>
+                </div>
+                <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round(Math.sqrt(counts.downloaded) * 1.3)) || 0}%`"></div>
+                </div>
+              </div>
+              <!-- Bar 6 -->
+              <div>
+                <div class="flex items-baseline justify-between gap-3 mb-2">
+                  <span class="text-[13px] text-ink-dim">Precision</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round((totalAccomplishmentsCompletedPercentage * 1.3) + (trophyCount * 0.2))) || 0 }}</span>
+                </div>
+                <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round((totalAccomplishmentsCompletedPercentage * 1.3) + (trophyCount * 0.2))) || 0}%`"></div>
                 </div>
               </div>
             </div>
