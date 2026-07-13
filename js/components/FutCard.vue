@@ -144,16 +144,16 @@ export default {
     },
     // Normalize stats to be between 1 and 99 using square root curves to prevent inflation
     statPac() {
-      // Pace: Based on volume of games played (curve maxes around 8000 games)
-      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalGames) * 1.1))) || 1
+      // Pace: Based on volume of games played (curve maxes around 30,000 games)
+      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalGames) * 0.6))) || 1
     },
     statSho() {
-      // Shooting: Based on tactical trophies earned (curve maxes around 200 trophies)
-      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.trophyCount) * 7))) || 1
+      // Shooting: Based on tactical trophies earned (curve maxes around 600 trophies)
+      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.trophyCount) * 4))) || 1
     },
     statPas() {
-      // Passing: Based on accomplishment completion percentage (boosted curve)
-      return Math.min(99, Math.max(1, Math.round(this.completedPercentage * 1.5 + 15))) || 1
+      // Passing: Based on accomplishment completion percentage
+      return Math.min(99, Math.max(1, Math.round(this.completedPercentage * 1.2 + 10))) || 1
     },
     statDri() {
       // Dribbling: Based on average moves per game (curve maxes around 75 moves)
@@ -161,12 +161,12 @@ export default {
       return Math.min(99, Math.max(1, Math.round(avgMoves * 1.2 + 10))) || 1
     },
     statDef() {
-      // Defending: Based on total positions analyzed (curve maxes around 600k positions)
-      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalPositions) / 8))) || 1
+      // Defending: Based on total positions analyzed (curve maxes around 2 million positions)
+      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalPositions) / 14))) || 1
     },
     statPhy() {
       // Physical: Composite of total games and completion
-      const score = Math.sqrt(this.totalGames) * 0.5 + (this.completedPercentage * 1.2)
+      const score = Math.sqrt(this.totalGames) * 0.3 + (this.completedPercentage * 0.6)
       return Math.min(99, Math.max(1, Math.round(score))) || 1
     }
   },

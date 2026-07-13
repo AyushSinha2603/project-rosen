@@ -801,10 +801,10 @@
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
                   <span class="text-[13px] text-ink-dim">Tactical Vision</span>
-                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round(Math.sqrt(trophyCount) * 8)) }}</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round(Math.sqrt(trophyCount) * 4.2)) }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
-                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round(Math.sqrt(trophyCount) * 8))}%`"></div>
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round(Math.sqrt(trophyCount) * 4.2))}%`"></div>
                 </div>
               </div>
               <!-- Bar 2 -->
@@ -831,30 +831,30 @@
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
                   <span class="text-[13px] text-ink-dim">Resilience</span>
-                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round(Math.sqrt(counts.totalMoves) / 9)) || 0 }}</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round(Math.sqrt(counts.totalMoves) / 14)) || 0 }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
-                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round(Math.sqrt(counts.totalMoves) / 9)) || 0}%`"></div>
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round(Math.sqrt(counts.totalMoves) / 14)) || 0}%`"></div>
                 </div>
               </div>
               <!-- Bar 5 -->
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
                   <span class="text-[13px] text-ink-dim">Activity</span>
-                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round(Math.sqrt(counts.downloaded) * 1.3)) || 0 }}</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round(Math.sqrt(counts.downloaded) * 0.65)) || 0 }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
-                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round(Math.sqrt(counts.downloaded) * 1.3)) || 0}%`"></div>
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round(Math.sqrt(counts.downloaded) * 0.65)) || 0}%`"></div>
                 </div>
               </div>
               <!-- Bar 6 -->
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
                   <span class="text-[13px] text-ink-dim">Precision</span>
-                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round((totalAccomplishmentsCompletedPercentage * 1.3) + (trophyCount * 0.2))) || 0 }}</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round((totalAccomplishmentsCompletedPercentage * 0.8) + (trophyCount * 0.08))) || 0 }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
-                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round((totalAccomplishmentsCompletedPercentage * 1.3) + (trophyCount * 0.2))) || 0}%`"></div>
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round((totalAccomplishmentsCompletedPercentage * 0.8) + (trophyCount * 0.08))) || 0}%`"></div>
                 </div>
               </div>
             </div>
