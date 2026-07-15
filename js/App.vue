@@ -1,7 +1,15 @@
 <template>
-  <div
-    v-cloak
-    class="container mx-auto my-8 w-11/12"
+  <div class="relative min-h-screen">
+    <!-- Background glowing orbs -->
+    <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+      <div class="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] max-w-[800px] max-h-[800px] rounded-full bg-brand/20 blur-[120px] mix-blend-screen opacity-70"></div>
+      <div class="absolute top-[30%] -right-[20%] w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] rounded-full bg-brand/15 blur-[120px] mix-blend-screen opacity-60"></div>
+      <div class="absolute -bottom-[20%] left-[10%] w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] rounded-full bg-brand/10 blur-[150px] mix-blend-screen opacity-50"></div>
+    </div>
+
+    <div
+      v-cloak
+      class="container mx-auto my-8 w-11/12 relative z-10"
     :class="{
       'is-download-complete': isDownloadComplete,
     }"
@@ -872,6 +880,7 @@
           </section>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </template>
