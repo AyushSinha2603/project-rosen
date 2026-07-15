@@ -165,31 +165,23 @@ export default {
       return this.avatarUrl || ''
     },
     statPac() {
-      // Pace: Based on volume of games played
-      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalGames) * 0.9 + 25))) || 1
+      return Math.min(99, Math.round(40 + Math.min(45, Math.pow(this.totalGames, 0.4) * 1.5) + (this.completedPercentage * 0.14))) || 1
     },
     statSho() {
-      // Shooting: Trophies / accomplishments
-      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.trophyCount) * 6 + 20))) || 1
+      return Math.min(99, Math.round(35 + Math.min(45, Math.sqrt(this.trophyCount) * 2.5) + (this.completedPercentage * 0.2))) || 1
     },
     statPas() {
-      // Passing: Completion percentage
-      const gamesFactor = Math.min(20, Math.sqrt(this.totalGames) * 0.3)
-      return Math.min(99, Math.max(1, Math.round(this.completedPercentage * 0.6 + gamesFactor + 30))) || 1
+      return Math.min(99, Math.round(30 + (this.completedPercentage * 0.6) + Math.min(10, Math.sqrt(this.totalGames) * 0.1))) || 1
     },
     statDri() {
-      // Dribbling: Average moves per game
       const avgMoves = this.totalGames > 0 ? this.totalPositions / this.totalGames : 0
-      return Math.min(99, Math.max(1, Math.round(avgMoves * 1.5 + 25))) || 1
+      return Math.min(99, Math.round(35 + Math.min(45, avgMoves * 1.1) + (this.completedPercentage * 0.19))) || 1
     },
     statDef() {
-      // Defending: Total volume of positions reached
-      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalPositions) / 8 + 20))) || 1
+      return Math.min(99, Math.round(35 + Math.min(45, Math.pow(this.totalPositions, 0.3) * 0.6) + (this.completedPercentage * 0.2))) || 1
     },
     statPhy() {
-      // Physical: Endurance (games + completion)
-      const score = Math.sqrt(this.totalGames) * 0.6 + this.completedPercentage * 0.4 + 25
-      return Math.min(99, Math.max(1, Math.round(score))) || 1
+      return Math.min(99, Math.round(35 + Math.min(40, Math.sqrt(this.totalGames) * 0.5) + (this.completedPercentage * 0.25))) || 1
     }
   },
   methods: {

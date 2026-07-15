@@ -1126,14 +1126,13 @@ export default {
       const trophies = this.trophyCount || 0
       const comp = this.totalAccomplishmentsCompletedPercentage || 0
       
-      const pac = Math.min(99, Math.max(1, Math.round(Math.sqrt(games) * 0.9 + 25)))
-      const sho = Math.min(99, Math.max(1, Math.round(Math.sqrt(trophies) * 6 + 20)))
-      const gamesFactor = Math.min(20, Math.sqrt(games) * 0.3)
-      const pas = Math.min(99, Math.max(1, Math.round(comp * 0.6 + gamesFactor + 30)))
+      const pac = Math.min(99, Math.round(40 + Math.min(45, Math.pow(games, 0.4) * 1.5) + (comp * 0.14)))
+      const sho = Math.min(99, Math.round(35 + Math.min(45, Math.sqrt(trophies) * 2.5) + (comp * 0.2)))
+      const pas = Math.min(99, Math.round(30 + (comp * 0.6) + Math.min(10, Math.sqrt(games) * 0.1)))
       const avgMoves = games > 0 ? moves / games : 0
-      const dri = Math.min(99, Math.max(1, Math.round(avgMoves * 1.5 + 25)))
-      const def = Math.min(99, Math.max(1, Math.round(Math.sqrt(moves) / 8 + 20)))
-      const phy = Math.min(99, Math.max(1, Math.round(Math.sqrt(games) * 0.6 + comp * 0.4 + 25)))
+      const dri = Math.min(99, Math.round(35 + Math.min(45, avgMoves * 1.1) + (comp * 0.19)))
+      const def = Math.min(99, Math.round(35 + Math.min(45, Math.pow(moves, 0.3) * 0.6) + (comp * 0.2)))
+      const phy = Math.min(99, Math.round(35 + Math.min(40, Math.sqrt(games) * 0.5) + (comp * 0.25)))
       
       return { pac, sho, pas, dri, def, phy }
     },
@@ -1165,7 +1164,7 @@ export default {
     futCardRating(): number {
       const { pac, sho, pas, dri, def, phy } = this.computedStats
       const average = (pac + sho + pas + dri + def + phy) / 6
-      const boost = Math.max(0, 24 - (average * 0.2))
+      const boost = Math.max(0, 15 - (average * 0.15))
       return Math.min(99, Math.max(40, Math.floor(average + boost)))
     },
     cardTier(): string {
