@@ -7,6 +7,32 @@
       <div class="absolute -bottom-[20%] left-[10%] w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] rounded-full bg-brand/10 blur-[150px] mix-blend-screen opacity-50"></div>
     </div>
 
+    <!-- Top Right Nav -->
+    <div class="absolute top-4 right-4 md:top-8 md:right-8 z-50 flex items-center gap-4 md:gap-6">
+      <a href="#about" class="text-ink-soft hover:text-ink border-b border-ink-soft/40 hover:border-ink/60 transition-colors font-sans text-xs md:text-sm font-medium flex items-center gap-1 pb-0.5">
+        how it works <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+      </a>
+      
+      <a href="https://github.com/AyushSinha2603/project-rosen" target="_blank" class="group flex items-center gap-3 bg-surface-2 hover:bg-surface border border-line p-1.5 md:pr-2.5 rounded-full transition-all duration-300 shadow-sm scale-90 md:scale-100 origin-right">
+        <div class="flex items-center gap-2 pl-2 hidden md:flex">
+          <svg class="text-ink-dim" viewBox="0 0 16 16" width="18" height="18" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span class="font-bold tracking-wide text-sm font-sans text-ink flex items-center">
+            <span class="bg-brand text-black px-1.5 py-0.5 mr-1 leading-none">Star on</span> GitHub
+          </span>
+        </div>
+        <!-- Mobile icon fallback -->
+        <div class="flex items-center gap-2 pl-2 md:hidden">
+          <svg class="text-ink-dim" viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        </div>
+        
+        <div class="flex items-center gap-1.5 bg-bg group-hover:bg-bg-deep transition-colors border border-line px-3 py-1 rounded-full text-[13px] font-bold font-sans text-ink">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#e3b341" stroke="#e3b341" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <span v-if="githubStars !== null">{{ githubStars > 999 ? (githubStars/1000).toFixed(1) + 'k' : githubStars }}</span>
+          <span v-else class="text-ink-mute">...</span>
+        </div>
+      </a>
+    </div>
+
     <div
       v-cloak
       class="container mx-auto my-8 w-11/12 relative z-10"
@@ -19,28 +45,9 @@
         <a href="/" class="hover:text-brand transition-colors">Project rosen</a>
       </h1>
       
-      <div class="flex items-center justify-center gap-6 mt-6 mb-8">
-        <a href="#about" class="text-ink-soft hover:text-ink border-b border-ink-soft/40 hover:border-ink/60 transition-colors font-sans text-sm font-medium flex items-center gap-1 pb-0.5">
-          how it works <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-        </a>
-        
-        <a href="https://github.com/AyushSinha2603/project-rosen" target="_blank" class="group flex items-center gap-4 bg-surface-2 hover:bg-surface border border-line p-1.5 pr-2.5 rounded-full transition-all duration-300 shadow-sm">
-          <div class="flex items-center gap-2 pl-2">
-            <svg class="text-ink-dim" viewBox="0 0 16 16" width="18" height="18" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-            <span class="font-bold tracking-wide text-sm font-sans text-ink flex items-center">
-              <span class="bg-brand text-black px-1.5 py-0.5 mr-1 leading-none">Star on</span> GitHub
-            </span>
-          </div>
-          
-          <div class="flex items-center gap-1.5 bg-bg group-hover:bg-bg-deep transition-colors border border-line px-3 py-1 rounded-full text-[13px] font-bold font-sans text-ink">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#e3b341" stroke="#e3b341" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            <span v-if="githubStars !== null">{{ githubStars > 999 ? (githubStars/1000).toFixed(1) + 'k' : githubStars }}</span>
-            <span v-else class="text-ink-mute">...</span>
-          </div>
-        </a>
+      <div class="mt-8 mb-4">
+        <p id="about" class="md:text-2xl mt-4 text-ink-soft inline-block font-light">How many of these chess accomplishments have you completed?</p>
       </div>
-
-      <p id="about" class="md:text-2xl mt-4 text-ink-soft inline-block font-light">How many of these chess accomplishments have you completed?</p>
     </div>
 
     <div
