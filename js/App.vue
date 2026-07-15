@@ -913,39 +913,39 @@
         <div class="space-y-12">
           <!-- Intro -->
           <div>
-            <div class="text-brand text-xs font-bold tracking-[0.2em] mb-2 uppercase">The Scout's Eye</div>
-            <h2 class="font-display text-5xl md:text-6xl text-ink leading-[0.85] uppercase mb-6 tracking-wide">We don't rate you.<br/>We read you<span class="text-brand">.</span></h2>
-            <p class="text-ink-dim font-sans text-[15px] leading-relaxed max-w-xl">Six signals off your live chess data, weighed against each other to find your shape. That shape is your card — so two players with the same numbers still walk out different. Here's how to read yours.</p>
+            <div class="text-brand text-xs font-bold tracking-[0.2em] mb-2 uppercase">Your Tactical Identity</div>
+            <h2 class="font-display text-5xl md:text-6xl text-ink leading-[0.85] uppercase mb-6 tracking-wide">Data, not opinions.<br/>Your raw stats<span class="text-brand">.</span></h2>
+            <p class="text-ink-dim font-sans text-[15px] leading-relaxed max-w-xl">We analyze six core dimensions from your live chess data to build your ultimate player card. Your playstyle emerges naturally from the numbers — meaning your card is as unique as your opening repertoire.</p>
           </div>
 
           <!-- Section 1 -->
           <div>
             <div class="flex items-center gap-3 mb-2">
               <div class="h-px w-6 bg-brand"></div>
-              <div class="text-brand text-xs font-bold tracking-[0.2em] uppercase">Measured against you</div>
+              <div class="text-brand text-xs font-bold tracking-[0.2em] uppercase">Dynamic Scaling</div>
             </div>
-            <h3 class="font-display text-2xl text-ink uppercase mb-3 tracking-wide">Your own curve, not the world's.</h3>
-            <p class="text-ink-soft font-sans text-sm leading-relaxed pb-6 border-b border-[#262358]">Each stat is weighed against the rest of your profile, so a high one marks where you stand out and a low one where you don't. That's why your weakest area can read lower than the raw number suggests — the card grades you on you.</p>
+            <h3 class="font-display text-2xl text-ink uppercase mb-3 tracking-wide">Graded on your own curve.</h3>
+            <p class="text-ink-soft font-sans text-sm leading-relaxed pb-6 border-b border-[#262358]">Every attribute is weighed against the context of your overall profile. Your highest stats emphasize where you truly excel, creating a balanced and realistic card that reflects your personal journey on the board.</p>
           </div>
 
           <!-- Section 2 -->
           <div>
             <div class="flex items-center gap-3 mb-2">
               <div class="h-px w-6 bg-brand"></div>
-              <div class="text-brand text-xs font-bold tracking-[0.2em] uppercase">Every card has a shape</div>
+              <div class="text-brand text-xs font-bold tracking-[0.2em] uppercase">Playstyle Archetypes</div>
             </div>
-            <h3 class="font-display text-2xl text-ink uppercase mb-3 tracking-wide">Nobody's elite at everything.</h3>
-            <p class="text-ink-soft font-sans text-sm leading-relaxed pb-6 border-b border-[#262358]">Your strongest signals get pushed up and your weakest pulled down, so the card leans instead of sitting flat. That lean is what decides your position and archetype — read off your stats, never picked.</p>
+            <h3 class="font-display text-2xl text-ink uppercase mb-3 tracking-wide">Everyone leans somewhere.</h3>
+            <p class="text-ink-soft font-sans text-sm leading-relaxed pb-6 border-b border-[#262358]">Whether you are a relentless Speed Demon or a tactical Maestro, your dominant stats dictate your position on the pitch and your assigned archetype. The system reads your tendencies, you don't pick them.</p>
           </div>
 
           <!-- Section 3 -->
           <div>
             <div class="flex items-center gap-3 mb-2">
               <div class="h-px w-6 bg-brand"></div>
-              <div class="text-brand text-xs font-bold tracking-[0.2em] uppercase">The 90s are earned</div>
+              <div class="text-brand text-xs font-bold tracking-[0.2em] uppercase">The road to 90+</div>
             </div>
-            <h3 class="font-display text-2xl text-ink uppercase mb-3 tracking-wide">One big year won't crown you.</h3>
-            <p class="text-ink-soft font-sans text-sm leading-relaxed pb-8 border-b border-[#262358]">Stats top out at 88 on their own. The 90s take thousands of games on the clock and mastery of unique accomplishments, so a legend rating is a track record, not a hot streak.</p>
+            <h3 class="font-display text-2xl text-ink uppercase mb-3 tracking-wide">Consistency is king.</h3>
+            <p class="text-ink-soft font-sans text-sm leading-relaxed pb-8 border-b border-[#262358]">Reaching the elite 90+ overall tiers requires thousands of games and the mastery of multiple unique accomplishments. A legend rating is built on a massive track record, not just a weekend winning streak.</p>
           </div>
 
           <!-- Grid Section -->
@@ -989,7 +989,15 @@
               <div class="text-ink-mute">→</div>
               <div class="bg-[#332709] text-[#e3b341] px-3 py-1 rounded">GOLD</div>
             </div>
-            <p class="text-ink-mute text-sm font-sans mt-6">Read live from your public chess profiles. No inputs, no edits — just the tape.</p>
+            <div class="mt-8 p-5 bg-brand/5 border border-brand/20 rounded-xl">
+              <div class="flex items-center gap-2 mb-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#39d353" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <h4 class="text-brand font-bold text-sm uppercase tracking-wider">Privacy & Security</h4>
+              </div>
+              <p class="text-ink-dim text-[13px] font-sans leading-relaxed">
+                Project Rosen strictly reads publicly available game data from the Lichess and Chess.com APIs. We do <strong>not</strong> require you to authenticate, we do <strong>not</strong> access any private account information, and we do <strong>not</strong> store your data on our servers. Your stats are generated purely on-the-fly directly in your browser.
+              </p>
+            </div>
           </div>
         </div>
       </div>
