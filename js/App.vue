@@ -9,9 +9,9 @@
 
     <!-- Top Right Nav -->
     <div class="absolute top-3 right-3 md:top-4 md:right-6 z-50 flex items-center gap-4 md:gap-6">
-      <a href="#about" class="text-ink-soft hover:text-ink border-b border-ink-soft/40 hover:border-ink/60 transition-colors font-sans text-xs md:text-sm font-medium flex items-center gap-1 pb-0.5">
+      <button @click="showHowItWorks = true" class="text-ink-soft hover:text-ink border-b border-ink-soft/40 hover:border-ink/60 transition-colors font-sans text-xs md:text-sm font-medium flex items-center gap-1 pb-0.5 cursor-pointer bg-transparent">
         how it works <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-      </a>
+      </button>
       
       <a href="https://github.com/AyushSinha2603/project-rosen" target="_blank" class="group flex items-center gap-3 bg-surface-2 hover:bg-surface border border-line p-1.5 md:pr-2.5 rounded-full transition-all duration-300 shadow-sm scale-90 md:scale-100 origin-right">
         <div class="flex items-center gap-2 pl-2 hidden md:flex">
@@ -900,6 +900,47 @@
       </div>
     </div>
     </div>
+
+    <!-- How it works modal -->
+    <div v-if="showHowItWorks" class="fixed inset-0 z-[100] flex items-center justify-center p-4" v-cloak>
+      <!-- Backdrop -->
+      <div @click="showHowItWorks = false" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+      
+      <!-- Modal Content -->
+      <div class="relative w-full max-w-lg bg-surface-2 border border-line rounded-2xl shadow-2xl p-6 md:p-8 transform transition-all">
+        <button @click="showHowItWorks = false" class="absolute top-4 right-4 text-ink-mute hover:text-ink transition-colors cursor-pointer bg-transparent border-none">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        
+        <h2 class="font-display text-3xl text-brand mb-4">How It Works</h2>
+        <div class="text-ink-soft text-sm space-y-4 font-sans leading-relaxed">
+          <p>Your Project Rosen Ultimate Team card is dynamically generated based on your real chess accomplishments and statistics.</p>
+          
+          <div class="space-y-2">
+            <h3 class="text-ink font-bold">⭐ Card Tiers</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li><strong class="text-gold">Gold (85+ OVR):</strong> Unlocked by mastering a high percentage of accomplishments.</li>
+              <li><strong class="text-ink-dim">Silver (65-84 OVR):</strong> The standard tier for active players.</li>
+              <li><strong class="text-[#cd7f32]">Bronze (&lt; 65 OVR):</strong> For players just starting their journey.</li>
+            </ul>
+          </div>
+          
+          <div class="space-y-2">
+            <h3 class="text-ink font-bold">🔥 Dynamic Playstyles</h3>
+            <p>Your position on the card (e.g., ST, CAM, CB) and your title are determined by your most dominant attribute. Whether you are a relentless <strong class="text-ink">Speed Demon</strong> or a <strong class="text-ink">Lethal Finisher</strong>, your card reflects your unique playstyle.</p>
+          </div>
+          
+          <div class="space-y-2">
+            <h3 class="text-ink font-bold">📊 The Attributes</h3>
+            <p>Every attribute (Pace, Shooting, Passing, Dribbling, Defending, Physical) scales realistically based on your games played, trophies earned, and play accuracy.</p>
+          </div>
+        </div>
+        
+        <div class="mt-8 flex justify-end">
+          <button @click="showHowItWorks = false" class="bg-brand text-black px-5 py-2 rounded-lg font-bold hover:bg-brand-hi transition-colors cursor-pointer border-none shadow-md">Got it</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -982,6 +1023,7 @@ export default {
   },
   data() {
     return {
+      showHowItWorks: false,
       inputs: {
         type: 'lichess' as ReportSource | 'both',
         value: '',
