@@ -738,13 +738,12 @@
           <h2 class="font-display truncate text-5xl font-black leading-tight text-transparent bg-clip-text bg-gradient-to-r from-ink to-ink-dim">
             {{ player.username || username }}
           </h2>
-          <div class="mt-2 flex flex-wrap items-center gap-3">
-            <span class="font-display inline-flex items-center rounded-md border border-brand/40 bg-brand/15 px-2 py-1 text-xs font-bold tracking-widest text-brand">CAM</span>
-            <span class="text-sm font-medium text-ink-dim">Chess Prodigy</span>
+          <div class="flex items-center gap-3 mt-2">
+            <span class="font-display inline-flex items-center rounded-md border border-brand/40 bg-brand/15 px-2 py-1 text-xs font-bold tracking-widest text-brand">{{ playerStyle.pos }}</span>
+            <span class="text-sm font-medium text-ink-dim">{{ playerStyle.title }}</span>
           </div>
-          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
-            <span class="font-display mr-2 text-xs font-bold tracking-widest text-brand">FIRST-TEAM READY</span>
-            A tactician exploring unique chess positions and accomplishments.
+          <p class="mt-2 text-sm text-ink-faint">
+            <span class="font-display mr-2 text-xs font-bold tracking-widest text-brand">{{ playerStyle.status }}</span> {{ playerStyle.desc }}
           </p>
         </div>
       </header>
@@ -781,10 +780,11 @@
           <div ref="futCardContainer" class="bg-transparent inline-block transition-transform duration-300 hover:scale-[1.03]">
             <fut-card
               :username="player.username || username"
-              :avatar-url="avatarUrl"
-              :country-code="inputs.countryCode"
-              :overall-rating="futCardRating"
-              :trophy-count="trophyCount"
+              :avatarUrl="avatarUrl"
+              :countryCode="inputs.countryCode"
+              :overallRating="futCardRating"
+              :position="playerStyle.pos"
+              :trophyCount="trophyCount"
               :completed-percentage="totalAccomplishmentsCompletedPercentage"
               :total-games="counts.downloaded"
               :total-positions="counts.totalMoves"
@@ -1037,6 +1037,34 @@ export default {
       if (this.futCardRating >= 85) return 'GOLD'
       if (this.futCardRating >= 65) return 'SILVER'
       return 'BRONZE'
+    },
+    playerStyle(): any {
+      if (!this.counts.totalGames) return { pos: 'CAM', title: 'Chess Prodigy', status: 'FIRST-TEAM READY', desc: 'A tactician exploring unique chess positions and accomplishments.' }
+      
+      const pac = Math.min(99, Math.round(Math.sqrt(this.counts.totalGames || 0) * 0.55))
+      const sho = Math.min(99, Math.round(Math.sqrt(this.trophyCount) * 3.8))
+      const gamesFactor = Math.min(20, Math.sqrt(this.counts.totalGames || 0) * 0.15)
+      const pas = Math.min(99, Math.round(this.totalAccomplishmentsCompletedPercentage * 0.8 + gamesFactor + 15))
+      const avgMoves = (this.counts.totalGames || 0) > 0 ? (this.counts.totalMoves || 0) / this.counts.totalGames : 0
+      const dri = Math.min(99, Math.round(avgMoves * 1.1 + 10))
+      const def = Math.min(99, Math.round(Math.sqrt(this.counts.totalMoves || 0) / 14.5))
+      const phy = Math.min(99, Math.round(Math.sqrt(this.counts.totalGames || 0) * 0.4 + this.totalAccomplishmentsCompletedPercentage * 0.5))
+      
+      const stats = [
+        { name: 'PAC', value: pac, pos: 'ST', title: 'Speed Demon', status: 'PACE MERCHANT', desc: 'A relentless player who grinds out games at lightning speed.' },
+        { name: 'SHO', value: sho, pos: 'CF', title: 'Trophy Hunter', status: 'LETHAL FINISHER', desc: 'A sharp tactician who easily secures rare accomplishments.' },
+        { name: 'PAS', value: pas, pos: 'CM', title: 'Completionist', status: 'MAESTRO', desc: 'A well-rounded player focused on mastering all accomplishments.' },
+        { name: 'DRI', value: dri, pos: 'CAM', title: 'Tactical Prodigy', status: 'CREATIVE FORCE', desc: 'A creative tactician exploring deep and unique chess positions.' },
+        { name: 'DEF', value: def, pos: 'CB', title: 'Defensive Anchor', status: 'BRICK WALL', desc: 'A solid defender who grinds out long, grueling chess matches.' },
+        { name: 'PHY', value: phy, pos: 'CDM', title: 'Endurance King', status: 'BOX-TO-BOX', desc: 'An absolute unit who grinds chess games relentlessly.' }
+      ]
+      
+      let highest = stats[0]
+      for (const stat of stats) {
+        if (stat.value > highest.value) highest = stat
+      }
+      
+      return highest
     },
   },
 

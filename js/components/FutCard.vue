@@ -61,7 +61,7 @@
 
     <!-- position -->
     <div class="absolute left-[25%] top-[23.78%] -translate-x-1/2 font-condensed text-[9.3cqw] font-medium tracking-[.02em]">
-      CAM
+      {{ position }}
     </div>
 
     <!-- country flag -->
@@ -111,6 +111,7 @@ export default {
     avatarUrl: { type: String, default: '' },
     countryCode: { type: String, default: '' },
     overallRating: { type: Number, required: true },
+    position: { type: String, default: 'CAM' },
     trophyCount: { type: Number, required: true },
     completedPercentage: { type: Number, required: true },
     totalGames: { type: Number, required: true },
