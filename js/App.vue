@@ -1017,18 +1017,21 @@ export default {
     futCardRating(): number {
       const pac = Math.min(99, Math.round(Math.sqrt(this.counts.totalGames || 0) * 0.55))
       const sho = Math.min(99, Math.round(Math.sqrt(this.trophyCount) * 3.8))
-      const pas = Math.min(99, Math.round(this.totalAccomplishmentsCompletedPercentage * 1.0 + 20))
+      const gamesFactor = Math.min(20, Math.sqrt(this.counts.totalGames || 0) * 0.15)
+      const pas = Math.min(99, Math.round(this.totalAccomplishmentsCompletedPercentage * 0.8 + gamesFactor + 15))
       
       const avgMoves = (this.counts.totalGames || 0) > 0 ? (this.counts.totalMoves || 0) / this.counts.totalGames : 0
       const dri = Math.min(99, Math.round(avgMoves * 1.1 + 10))
       const def = Math.min(99, Math.round(Math.sqrt(this.counts.totalMoves || 0) / 14.5))
       
-      const phy = Math.min(99, Math.round(Math.sqrt(this.counts.totalGames || 0) * 0.35 + this.totalAccomplishmentsCompletedPercentage * 0.6))
+      const phy = Math.min(99, Math.round(Math.sqrt(this.counts.totalGames || 0) * 0.4 + this.totalAccomplishmentsCompletedPercentage * 0.5))
       
       const average = (pac + sho + pas + dri + def + phy) / 6
       
-      // OVR is the true average of the 6 core stats + an 8 point boost for fun
-      return Math.min(99, Math.max(40, Math.floor(average + 8)))
+      // Dynamic boost helps mid-tier cards (like high-games/low-completion) reach realistic ratings (e.g. 70s)
+      // while preventing top-tier cards from inflating beyond 90s.
+      const boost = Math.max(0, 24 - (average * 0.2))
+      return Math.min(99, Math.max(40, Math.floor(average + boost)))
     },
     cardTier(): string {
       if (this.futCardRating >= 85) return 'GOLD'
