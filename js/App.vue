@@ -902,11 +902,11 @@
     </div>
 
     <!-- How it works modal -->
-    <div v-if="showHowItWorks" class="fixed inset-0 z-[100] flex items-center justify-center p-4 overflow-y-auto" v-cloak>
-      <div @click="showHowItWorks = false" class="fixed inset-0 bg-[#02001e]/80 backdrop-blur-sm"></div>
+    <div v-if="showHowItWorks" class="fixed inset-0 z-[100] flex items-center justify-center p-4" v-cloak>
+      <div @click="showHowItWorks = false" class="absolute inset-0 bg-[#02001e]/80 backdrop-blur-sm"></div>
       
-      <div class="relative w-full max-w-2xl bg-[#0b0930] border border-[#262358] rounded-2xl shadow-2xl p-8 md:p-10 my-8">
-        <button @click="showHowItWorks = false" class="absolute top-4 right-4 bg-[#130f3d] border border-[#262358] text-ink-soft hover:text-ink w-8 h-8 flex items-center justify-center rounded-lg transition-colors cursor-pointer">
+      <div class="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto scrollbar-thin bg-[#0b0930] border border-[#262358] rounded-2xl shadow-2xl p-8 md:p-10">
+        <button @click="showHowItWorks = false" class="absolute top-4 right-4 bg-[#130f3d] border border-[#262358] text-ink-soft hover:text-ink w-8 h-8 flex items-center justify-center rounded-lg transition-colors cursor-pointer z-10">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
         
