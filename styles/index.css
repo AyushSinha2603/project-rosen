@@ -33,7 +33,11 @@ html,
 body {
   margin: 0;
   padding: 0;
-  @apply min-h-screen text-ink font-sans bg-bg selection:bg-brand selection:text-black;
+  @apply min-h-screen text-ink font-sans selection:bg-brand selection:text-black;
+  background-color: var(--color-bg-deep);
+  background-image: radial-gradient(circle at top center, rgba(57, 211, 83, 0.12) 0%, transparent 50%),
+                    radial-gradient(circle at bottom center, rgba(57, 211, 83, 0.05) 0%, transparent 40%);
+  background-attachment: fixed;
 }
 
 [v-cloak] {
