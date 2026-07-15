@@ -8,7 +8,7 @@
     </div>
 
     <!-- Top Right Nav -->
-    <div class="absolute top-4 right-4 md:top-8 md:right-8 z-50 flex items-center gap-4 md:gap-6">
+    <div class="absolute top-3 right-3 md:top-4 md:right-6 z-50 flex items-center gap-4 md:gap-6">
       <a href="#about" class="text-ink-soft hover:text-ink border-b border-ink-soft/40 hover:border-ink/60 transition-colors font-sans text-xs md:text-sm font-medium flex items-center gap-1 pb-0.5">
         how it works <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
       </a>
