@@ -164,32 +164,31 @@ export default {
     displayAvatarUrl() {
       return this.avatarUrl || ''
     },
-    // Normalize stats to be between 1 and 99 using square root curves to prevent inflation
     statPac() {
       // Pace: Based on volume of games played
-      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalGames) * 0.55))) || 1
+      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalGames) * 0.9 + 25))) || 1
     },
     statSho() {
-      // Shooting: Based on tactical trophies earned
-      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.trophyCount) * 3.8))) || 1
+      // Shooting: Trophies / accomplishments
+      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.trophyCount) * 6 + 20))) || 1
     },
     statPas() {
-      // Passing: Based on completion with a slight bump for games played
-      const gamesFactor = Math.min(20, Math.sqrt(this.totalGames) * 0.15)
-      return Math.min(99, Math.max(1, Math.round(this.completedPercentage * 0.8 + gamesFactor + 15))) || 1
+      // Passing: Completion percentage
+      const gamesFactor = Math.min(20, Math.sqrt(this.totalGames) * 0.3)
+      return Math.min(99, Math.max(1, Math.round(this.completedPercentage * 0.6 + gamesFactor + 30))) || 1
     },
     statDri() {
-      // Dribbling: Based on average moves per game
+      // Dribbling: Average moves per game
       const avgMoves = this.totalGames > 0 ? this.totalPositions / this.totalGames : 0
-      return Math.min(99, Math.max(1, Math.round(avgMoves * 1.1 + 10))) || 1
+      return Math.min(99, Math.max(1, Math.round(avgMoves * 1.5 + 25))) || 1
     },
     statDef() {
-      // Defending: Based on total positions analyzed
-      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalPositions) / 14.5))) || 1
+      // Defending: Total volume of positions reached
+      return Math.min(99, Math.max(1, Math.round(Math.sqrt(this.totalPositions) / 8 + 20))) || 1
     },
     statPhy() {
-      // Physical: Composite of total games and completion
-      const score = Math.sqrt(this.totalGames) * 0.4 + (this.completedPercentage * 0.5)
+      // Physical: Endurance (games + completion)
+      const score = Math.sqrt(this.totalGames) * 0.6 + this.completedPercentage * 0.4 + 25
       return Math.min(99, Math.max(1, Math.round(score))) || 1
     }
   },

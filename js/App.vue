@@ -837,61 +837,61 @@
               <!-- Bar 1 -->
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
-                  <span class="text-[13px] text-ink-dim">Tactical Vision</span>
-                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round(Math.sqrt(trophyCount) * 4.2)) }}</span>
+                  <span class="text-[13px] text-ink-dim">Pace (Games Volume)</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ computedStats.pac }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
-                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round(Math.sqrt(trophyCount) * 4.2))}%`"></div>
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${computedStats.pac}%`"></div>
                 </div>
               </div>
               <!-- Bar 2 -->
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
-                  <span class="text-[13px] text-ink-dim">Aggression</span>
-                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ counts.downloaded ? Math.min(99, Math.round((counts.totalMoves / counts.downloaded) * 1.2)) : 0 }}</span>
+                  <span class="text-[13px] text-ink-dim">Shooting (Trophies)</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ computedStats.sho }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
-                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${counts.downloaded ? Math.min(100, Math.round((counts.totalMoves / counts.downloaded) * 1.2)) : 0}%`"></div>
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${computedStats.sho}%`"></div>
                 </div>
               </div>
               <!-- Bar 3 -->
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
-                  <span class="text-[13px] text-ink-dim">Completion</span>
-                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.round(totalAccomplishmentsCompletedPercentage) }}</span>
+                  <span class="text-[13px] text-ink-dim">Passing (Completion)</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ computedStats.pas }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
-                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.round(totalAccomplishmentsCompletedPercentage)}%`"></div>
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${computedStats.pas}%`"></div>
                 </div>
               </div>
               <!-- Bar 4 -->
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
-                  <span class="text-[13px] text-ink-dim">Resilience</span>
-                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round(Math.sqrt(counts.totalMoves) / 14)) || 0 }}</span>
+                  <span class="text-[13px] text-ink-dim">Dribbling (Tactics)</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ computedStats.dri }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
-                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round(Math.sqrt(counts.totalMoves) / 14)) || 0}%`"></div>
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${computedStats.dri}%`"></div>
                 </div>
               </div>
               <!-- Bar 5 -->
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
-                  <span class="text-[13px] text-ink-dim">Activity</span>
-                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round(Math.sqrt(counts.downloaded) * 0.55)) || 0 }}</span>
+                  <span class="text-[13px] text-ink-dim">Defending (Total Moves)</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ computedStats.def }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
-                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round(Math.sqrt(counts.downloaded) * 0.55)) || 0}%`"></div>
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${computedStats.def}%`"></div>
                 </div>
               </div>
               <!-- Bar 6 -->
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
-                  <span class="text-[13px] text-ink-dim">Precision</span>
-                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ Math.min(99, Math.round((totalAccomplishmentsCompletedPercentage * 0.8) + (trophyCount * 0.08))) || 0 }}</span>
+                  <span class="text-[13px] text-ink-dim">Physical (Endurance)</span>
+                  <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ computedStats.phy }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
-                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${Math.min(100, Math.round((totalAccomplishmentsCompletedPercentage * 0.8) + (trophyCount * 0.08))) || 0}%`"></div>
+                  <div class="h-full rounded-full bg-gradient-to-r from-brand/50 to-brand" :style="`width: ${computedStats.phy}%`"></div>
                 </div>
               </div>
             </div>
@@ -902,42 +902,95 @@
     </div>
 
     <!-- How it works modal -->
-    <div v-if="showHowItWorks" class="fixed inset-0 z-[100] flex items-center justify-center p-4" v-cloak>
-      <!-- Backdrop -->
-      <div @click="showHowItWorks = false" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div v-if="showHowItWorks" class="fixed inset-0 z-[100] flex items-center justify-center p-4 overflow-y-auto" v-cloak>
+      <div @click="showHowItWorks = false" class="fixed inset-0 bg-[#02001e]/80 backdrop-blur-sm"></div>
       
-      <!-- Modal Content -->
-      <div class="relative w-full max-w-lg bg-surface-2 border border-line rounded-2xl shadow-2xl p-6 md:p-8 transform transition-all">
-        <button @click="showHowItWorks = false" class="absolute top-4 right-4 text-ink-mute hover:text-ink transition-colors cursor-pointer bg-transparent border-none">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      <div class="relative w-full max-w-2xl bg-[#0b0930] border border-[#262358] rounded-2xl shadow-2xl p-8 md:p-10 my-8">
+        <button @click="showHowItWorks = false" class="absolute top-4 right-4 bg-[#130f3d] border border-[#262358] text-ink-soft hover:text-ink w-8 h-8 flex items-center justify-center rounded-lg transition-colors cursor-pointer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
         
-        <h2 class="font-display text-3xl text-brand mb-4">How It Works</h2>
-        <div class="text-ink-soft text-sm space-y-4 font-sans leading-relaxed">
-          <p>Your Project Rosen Ultimate Team card is dynamically generated based on your real chess accomplishments and statistics.</p>
-          
-          <div class="space-y-2">
-            <h3 class="text-ink font-bold">⭐ Card Tiers</h3>
-            <ul class="list-disc pl-5 space-y-1">
-              <li><strong class="text-gold">Gold (85+ OVR):</strong> Unlocked by mastering a high percentage of accomplishments.</li>
-              <li><strong class="text-ink-dim">Silver (65-84 OVR):</strong> The standard tier for active players.</li>
-              <li><strong class="text-[#cd7f32]">Bronze (&lt; 65 OVR):</strong> For players just starting their journey.</li>
-            </ul>
+        <div class="space-y-12">
+          <!-- Intro -->
+          <div>
+            <div class="text-brand text-xs font-bold tracking-[0.2em] mb-2 uppercase">The Scout's Eye</div>
+            <h2 class="font-display text-5xl md:text-6xl text-ink leading-[0.85] uppercase mb-6 tracking-wide">We don't rate you.<br/>We read you<span class="text-brand">.</span></h2>
+            <p class="text-ink-dim font-sans text-[15px] leading-relaxed max-w-xl">Six signals off your live chess data, weighed against each other to find your shape. That shape is your card — so two players with the same numbers still walk out different. Here's how to read yours.</p>
           </div>
-          
-          <div class="space-y-2">
-            <h3 class="text-ink font-bold">🔥 Dynamic Playstyles</h3>
-            <p>Your position on the card (e.g., ST, CAM, CB) and your title are determined by your most dominant attribute. Whether you are a relentless <strong class="text-ink">Speed Demon</strong> or a <strong class="text-ink">Lethal Finisher</strong>, your card reflects your unique playstyle.</p>
+
+          <!-- Section 1 -->
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <div class="h-px w-6 bg-brand"></div>
+              <div class="text-brand text-xs font-bold tracking-[0.2em] uppercase">Measured against you</div>
+            </div>
+            <h3 class="font-display text-2xl text-ink uppercase mb-3 tracking-wide">Your own curve, not the world's.</h3>
+            <p class="text-ink-soft font-sans text-sm leading-relaxed pb-6 border-b border-[#262358]">Each stat is weighed against the rest of your profile, so a high one marks where you stand out and a low one where you don't. That's why your weakest area can read lower than the raw number suggests — the card grades you on you.</p>
           </div>
-          
-          <div class="space-y-2">
-            <h3 class="text-ink font-bold">📊 The Attributes</h3>
-            <p>Every attribute (Pace, Shooting, Passing, Dribbling, Defending, Physical) scales realistically based on your games played, trophies earned, and play accuracy.</p>
+
+          <!-- Section 2 -->
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <div class="h-px w-6 bg-brand"></div>
+              <div class="text-brand text-xs font-bold tracking-[0.2em] uppercase">Every card has a shape</div>
+            </div>
+            <h3 class="font-display text-2xl text-ink uppercase mb-3 tracking-wide">Nobody's elite at everything.</h3>
+            <p class="text-ink-soft font-sans text-sm leading-relaxed pb-6 border-b border-[#262358]">Your strongest signals get pushed up and your weakest pulled down, so the card leans instead of sitting flat. That lean is what decides your position and archetype — read off your stats, never picked.</p>
           </div>
-        </div>
-        
-        <div class="mt-8 flex justify-end">
-          <button @click="showHowItWorks = false" class="bg-brand text-black px-5 py-2 rounded-lg font-bold hover:bg-brand-hi transition-colors cursor-pointer border-none shadow-md">Got it</button>
+
+          <!-- Section 3 -->
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <div class="h-px w-6 bg-brand"></div>
+              <div class="text-brand text-xs font-bold tracking-[0.2em] uppercase">The 90s are earned</div>
+            </div>
+            <h3 class="font-display text-2xl text-ink uppercase mb-3 tracking-wide">One big year won't crown you.</h3>
+            <p class="text-ink-soft font-sans text-sm leading-relaxed pb-8 border-b border-[#262358]">Stats top out at 88 on their own. The 90s take thousands of games on the clock and mastery of unique accomplishments, so a legend rating is a track record, not a hot streak.</p>
+          </div>
+
+          <!-- Grid Section -->
+          <div>
+            <div class="text-ink-soft text-xs font-bold tracking-[0.2em] mb-6 uppercase">What feeds the six</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-8 border-b border-[#262358]">
+              <div class="flex gap-4">
+                <div class="bg-[#131d20] border border-[#1b2b2b] text-[#39d353] font-display text-sm px-2 py-1 h-fit rounded font-bold">PAC</div>
+                <div class="text-ink-dim text-sm font-sans leading-snug">The sheer volume of games played at lightning speed.</div>
+              </div>
+              <div class="flex gap-4">
+                <div class="bg-[#131d20] border border-[#1b2b2b] text-[#39d353] font-display text-sm px-2 py-1 h-fit rounded font-bold">SHO</div>
+                <div class="text-ink-dim text-sm font-sans leading-snug">Rare trophies earned and your biggest tactical hits.</div>
+              </div>
+              <div class="flex gap-4">
+                <div class="bg-[#131d20] border border-[#1b2b2b] text-[#39d353] font-display text-sm px-2 py-1 h-fit rounded font-bold">PAS</div>
+                <div class="text-ink-dim text-sm font-sans leading-snug">Overall accomplishment completion percentage.</div>
+              </div>
+              <div class="flex gap-4">
+                <div class="bg-[#131d20] border border-[#1b2b2b] text-[#39d353] font-display text-sm px-2 py-1 h-fit rounded font-bold">DRI</div>
+                <div class="text-ink-dim text-sm font-sans leading-snug">Average moves per game — deep tactical maneuvering.</div>
+              </div>
+              <div class="flex gap-4">
+                <div class="bg-[#131d20] border border-[#1b2b2b] text-[#39d353] font-display text-sm px-2 py-1 h-fit rounded font-bold">DEF</div>
+                <div class="text-ink-dim text-sm font-sans leading-snug">Total volume of moves across all your games.</div>
+              </div>
+              <div class="flex gap-4">
+                <div class="bg-[#131d20] border border-[#1b2b2b] text-[#39d353] font-display text-sm px-2 py-1 h-fit rounded font-bold">PHY</div>
+                <div class="text-ink-dim text-sm font-sans leading-snug">A lifetime of endurance across thousands of matches.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- The Ladder -->
+          <div>
+            <div class="text-ink-soft text-xs font-bold tracking-[0.2em] mb-6 uppercase">The Ladder</div>
+            <div class="flex flex-wrap items-center gap-3 font-display tracking-widest text-sm font-bold">
+              <div class="bg-[#2a1b13] text-[#cd7f32] px-3 py-1 rounded">BRONZE</div>
+              <div class="text-ink-mute">→</div>
+              <div class="bg-[#242b32] text-[#c9d1d9] px-3 py-1 rounded">SILVER</div>
+              <div class="text-ink-mute">→</div>
+              <div class="bg-[#332709] text-[#e3b341] px-3 py-1 rounded">GOLD</div>
+            </div>
+            <p class="text-ink-mute text-sm font-sans mt-6">Read live from your public chess profiles. No inputs, no edits — just the tape.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1059,6 +1112,23 @@ export default {
   },
 
   computed: {
+    computedStats() {
+      const games = this.counts.totalGames || 0
+      const moves = this.counts.totalMoves || 0
+      const trophies = this.trophyCount || 0
+      const comp = this.totalAccomplishmentsCompletedPercentage || 0
+      
+      const pac = Math.min(99, Math.max(1, Math.round(Math.sqrt(games) * 0.9 + 25)))
+      const sho = Math.min(99, Math.max(1, Math.round(Math.sqrt(trophies) * 6 + 20)))
+      const gamesFactor = Math.min(20, Math.sqrt(games) * 0.3)
+      const pas = Math.min(99, Math.max(1, Math.round(comp * 0.6 + gamesFactor + 30)))
+      const avgMoves = games > 0 ? moves / games : 0
+      const dri = Math.min(99, Math.max(1, Math.round(avgMoves * 1.5 + 25)))
+      const def = Math.min(99, Math.max(1, Math.round(Math.sqrt(moves) / 8 + 20)))
+      const phy = Math.min(99, Math.max(1, Math.round(Math.sqrt(games) * 0.6 + comp * 0.4 + 25)))
+      
+      return { pac, sho, pas, dri, def, phy }
+    },
     username(): string {
       return this.inputs.value.trim().toLowerCase()
     },
@@ -1085,21 +1155,8 @@ export default {
         .flat().length
     },
     futCardRating(): number {
-      const pac = Math.min(99, Math.round(Math.sqrt(this.counts.totalGames || 0) * 0.55))
-      const sho = Math.min(99, Math.round(Math.sqrt(this.trophyCount) * 3.8))
-      const gamesFactor = Math.min(20, Math.sqrt(this.counts.totalGames || 0) * 0.15)
-      const pas = Math.min(99, Math.round(this.totalAccomplishmentsCompletedPercentage * 0.8 + gamesFactor + 15))
-      
-      const avgMoves = (this.counts.totalGames || 0) > 0 ? (this.counts.totalMoves || 0) / this.counts.totalGames : 0
-      const dri = Math.min(99, Math.round(avgMoves * 1.1 + 10))
-      const def = Math.min(99, Math.round(Math.sqrt(this.counts.totalMoves || 0) / 14.5))
-      
-      const phy = Math.min(99, Math.round(Math.sqrt(this.counts.totalGames || 0) * 0.4 + this.totalAccomplishmentsCompletedPercentage * 0.5))
-      
+      const { pac, sho, pas, dri, def, phy } = this.computedStats
       const average = (pac + sho + pas + dri + def + phy) / 6
-      
-      // Dynamic boost helps mid-tier cards (like high-games/low-completion) reach realistic ratings (e.g. 70s)
-      // while preventing top-tier cards from inflating beyond 90s.
       const boost = Math.max(0, 24 - (average * 0.2))
       return Math.min(99, Math.max(40, Math.floor(average + boost)))
     },
@@ -1111,15 +1168,7 @@ export default {
     playerStyle(): any {
       if (!this.counts.totalGames) return { pos: 'CAM', title: 'Chess Prodigy', status: 'FIRST-TEAM READY', desc: 'A tactician exploring unique chess positions and accomplishments.' }
       
-      const pac = Math.min(99, Math.round(Math.sqrt(this.counts.totalGames || 0) * 0.55))
-      const sho = Math.min(99, Math.round(Math.sqrt(this.trophyCount) * 3.8))
-      const gamesFactor = Math.min(20, Math.sqrt(this.counts.totalGames || 0) * 0.15)
-      const pas = Math.min(99, Math.round(this.totalAccomplishmentsCompletedPercentage * 0.8 + gamesFactor + 15))
-      const avgMoves = (this.counts.totalGames || 0) > 0 ? (this.counts.totalMoves || 0) / this.counts.totalGames : 0
-      const dri = Math.min(99, Math.round(avgMoves * 1.1 + 10))
-      const def = Math.min(99, Math.round(Math.sqrt(this.counts.totalMoves || 0) / 14.5))
-      const phy = Math.min(99, Math.round(Math.sqrt(this.counts.totalGames || 0) * 0.4 + this.totalAccomplishmentsCompletedPercentage * 0.5))
-      
+      const { pac, sho, pas, dri, def, phy } = this.computedStats
       const stats = [
         { name: 'PAC', value: pac, pos: 'ST', title: 'Speed Demon', status: 'PACE MERCHANT', desc: 'A relentless player who grinds out games at lightning speed.' },
         { name: 'SHO', value: sho, pos: 'CF', title: 'Trophy Hunter', status: 'LETHAL FINISHER', desc: 'A sharp tactician who easily secures rare accomplishments.' },
