@@ -1104,7 +1104,7 @@ export default {
       avatarUrl: '',
 
       trophyTypeCount: 0,
-      githubStars: null as number | null,
+      githubStars: 1 as number | null,
       playerTrophiesByType: {} as PlayerTrophiesByType,
 
       isDownloading: false,
