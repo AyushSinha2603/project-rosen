@@ -837,7 +837,7 @@
               <!-- Bar 1 -->
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
-                  <span class="text-[13px] text-ink-dim">Pace (Games Volume)</span>
+                  <span class="text-[13px] text-ink-dim">Pace</span>
                   <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ computedStats.pac }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
@@ -847,7 +847,7 @@
               <!-- Bar 2 -->
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
-                  <span class="text-[13px] text-ink-dim">Shooting (Trophies)</span>
+                  <span class="text-[13px] text-ink-dim">Shooting</span>
                   <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ computedStats.sho }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
@@ -857,7 +857,7 @@
               <!-- Bar 3 -->
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
-                  <span class="text-[13px] text-ink-dim">Passing (Completion)</span>
+                  <span class="text-[13px] text-ink-dim">Passing</span>
                   <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ computedStats.pas }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
@@ -867,7 +867,7 @@
               <!-- Bar 4 -->
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
-                  <span class="text-[13px] text-ink-dim">Dribbling (Tactics)</span>
+                  <span class="text-[13px] text-ink-dim">Dribbling</span>
                   <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ computedStats.dri }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
@@ -877,7 +877,7 @@
               <!-- Bar 5 -->
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
-                  <span class="text-[13px] text-ink-dim">Defending (Total Moves)</span>
+                  <span class="text-[13px] text-ink-dim">Defending</span>
                   <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ computedStats.def }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
@@ -887,7 +887,7 @@
               <!-- Bar 6 -->
               <div>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
-                  <span class="text-[13px] text-ink-dim">Physical (Endurance)</span>
+                  <span class="text-[13px] text-ink-dim">Physical</span>
                   <span class="font-display text-lg font-bold leading-none tabular-nums text-ink-soft">{{ computedStats.phy }}</span>
                 </div>
                 <div class="h-1 overflow-hidden rounded-full bg-white/[0.07]">
