@@ -9,20 +9,25 @@
     <div
       v-if="cardTheme.borderGradient"
       class="absolute inset-0 scale-x-[1.018] scale-y-[1.012]"
-      :style="`background: ${cardTheme.borderGradient}; -webkit-mask-image: url('${cardTheme.bg}'); mask-image: url('${cardTheme.bg}'); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; z-index: -1;`"
+      :style="`background: ${cardTheme.borderGradient}; -webkit-mask-image: url('${cardTheme.shapeMask || cardTheme.bg}'); mask-image: url('${cardTheme.shapeMask || cardTheme.bg}'); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; z-index: -1;`"
     ></div>
 
-    <!-- tier background art -->
-    <img
-      :src="cardTheme.bg"
-      alt=""
-      aria-hidden
-      class="absolute inset-0 w-full h-full object-fill"
-    />
+    <!-- tier background art wrapper for reshaping -->
+    <div
+      class="absolute inset-0"
+      :style="cardTheme.shapeMask ? `-webkit-mask-image: url('${cardTheme.shapeMask}'); mask-image: url('${cardTheme.shapeMask}'); -webkit-mask-size: 100% 100%; mask-size: 100% 100%;` : ''"
+    >
+      <img
+        :src="cardTheme.bg"
+        alt=""
+        aria-hidden
+        :class="['absolute inset-0 w-full h-full object-fill', cardTheme.shapeMask ? 'scale-[1.15] origin-center' : '']"
+      />
+    </div>
     
     <div
       class="absolute inset-0"
-      :style="`-webkit-mask-image: url('${cardTheme.bg}'); mask-image: url('${cardTheme.bg}'); -webkit-mask-size: 100% 100%; mask-size: 100% 100%;`"
+      :style="`-webkit-mask-image: url('${cardTheme.shapeMask || cardTheme.bg}'); mask-image: url('${cardTheme.shapeMask || cardTheme.bg}'); -webkit-mask-size: 100% 100%; mask-size: 100% 100%;`"
     >
       <div
         class="absolute left-[27cqw] top-[13cqw] w-[68cqw] h-[70cqw]"
@@ -172,6 +177,7 @@ export default {
       } else if (this.overallRating >= 75) {
         return { // Gold
           bg: '/cards/gold.png',
+          shapeMask: '/cards/legend.png',
           color: '#3e3012', 
           outerGlow: 'rgba(255, 215, 0, 0.4)', 
           innerGlow: 'rgba(255, 215, 0, 0.6)',
@@ -180,6 +186,7 @@ export default {
       } else if (this.overallRating >= 65) {
         return { // Silver
           bg: '/cards/silver.png',
+          shapeMask: '/cards/legend.png',
           color: '#1a1a1a', 
           outerGlow: 'rgba(255, 255, 255, 0.3)', 
           innerGlow: 'rgba(255, 255, 255, 0.5)',
@@ -188,6 +195,7 @@ export default {
       } else {
         return { // Bronze
           bg: '/cards/bronze.png',
+          shapeMask: '/cards/legend.png',
           color: '#2a1a10', 
           outerGlow: 'rgba(205, 127, 50, 0.4)', 
           innerGlow: 'rgba(205, 127, 50, 0.5)',
