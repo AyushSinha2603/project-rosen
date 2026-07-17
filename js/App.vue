@@ -2,9 +2,9 @@
   <div class="relative min-h-screen">
     <!-- Background glowing orbs -->
     <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-      <div class="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] max-w-[800px] max-h-[800px] rounded-full bg-brand/20 blur-[120px] mix-blend-screen opacity-70"></div>
-      <div class="absolute top-[30%] -right-[20%] w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] rounded-full bg-brand/15 blur-[120px] mix-blend-screen opacity-60"></div>
-      <div class="absolute -bottom-[20%] left-[10%] w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] rounded-full bg-brand/10 blur-[150px] mix-blend-screen opacity-50"></div>
+      <div class="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] max-w-[800px] max-h-[800px] rounded-full bg-brand/10 blur-[120px] mix-blend-screen opacity-50"></div>
+      <div class="absolute top-[30%] -right-[20%] w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] rounded-full bg-brand/5 blur-[120px] mix-blend-screen opacity-40"></div>
+      <div class="absolute -bottom-[20%] left-[10%] w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] rounded-full bg-brand/5 blur-[150px] mix-blend-screen opacity-30"></div>
     </div>
 
     <!-- Top Nav -->
@@ -58,7 +58,7 @@
       <form @submit.prevent="startDownload">
         <div class="flex flex-row mb-12">
           <div class="mr-6 md:mr-10 flex-shrink-0 pt-1">
-            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-brand/10 border-2 border-brand text-brand flex items-center justify-center font-display font-bold text-2xl md:text-3xl shadow-[0_0_15px_rgba(57,211,83,0.2)]">
+            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-brand/10 border-2 border-brand text-brand flex items-center justify-center font-display font-bold text-2xl md:text-3xl shadow-[0_0_15px_rgba(227,179,65,0.2)]">
               1
             </div>
           </div>
@@ -137,7 +137,7 @@
 
         <div class="flex flex-row mb-12">
           <div class="mr-6 md:mr-10 flex-shrink-0 pt-1">
-            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-brand/10 border-2 border-brand text-brand flex items-center justify-center font-display font-bold text-2xl md:text-3xl shadow-[0_0_15px_rgba(57,211,83,0.2)]">
+            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-brand/10 border-2 border-brand text-brand flex items-center justify-center font-display font-bold text-2xl md:text-3xl shadow-[0_0_15px_rgba(227,179,65,0.2)]">
               2
             </div>
           </div>
@@ -148,7 +148,7 @@
 
         <div class="flex flex-row mb-12">
           <div class="mr-6 md:mr-10 flex-shrink-0 pt-1">
-            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-brand/10 border-2 border-brand text-brand flex items-center justify-center font-display font-bold text-2xl md:text-3xl shadow-[0_0_15px_rgba(57,211,83,0.2)]">
+            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-brand/10 border-2 border-brand text-brand flex items-center justify-center font-display font-bold text-2xl md:text-3xl shadow-[0_0_15px_rgba(227,179,65,0.2)]">
               3
             </div>
           </div>
@@ -172,7 +172,7 @@
 
             <button
               type="submit"
-              class="px-8 py-6 bg-brand text-bg font-display tracking-wider text-2xl uppercase rounded-xl hover:bg-brand-hi hover:shadow-[0_0_20px_rgba(57,211,83,0.4)] active:scale-95 transition-all w-full md:w-auto flex items-center justify-center gap-4"
+              class="px-8 py-6 bg-brand text-bg font-display tracking-wider text-2xl uppercase rounded-xl hover:bg-brand-hi hover:shadow-[0_0_20px_rgba(227,179,65,0.4)] active:scale-95 transition-all w-full md:w-auto flex items-center justify-center gap-4"
             >
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
@@ -823,7 +823,7 @@
           </div>
           <button
             @click.prevent="downloadFutCard"
-            class="mt-8 px-6 py-3 w-full bg-brand text-bg font-display tracking-widest text-xl uppercase rounded-xl hover:bg-brand-hi hover:shadow-[0_0_20px_rgba(57,211,83,0.4)] active:scale-95 transition-all"
+            class="mt-8 px-6 py-3 w-full bg-brand text-bg font-display tracking-widest text-xl uppercase rounded-xl hover:bg-brand-hi hover:shadow-[0_0_20px_rgba(227,179,65,0.4)] active:scale-95 transition-all"
           >
             Download Card
           </button>

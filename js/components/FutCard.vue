@@ -67,12 +67,12 @@
     <div class="absolute left-[50%] top-[66.46%] w-[0.3cqw] h-[20.12%] bg-current opacity-50"></div>
 
     <!-- overall -->
-    <div class="absolute left-[12%] top-[10%] w-[26%] text-center font-condensed text-[22cqw] font-medium leading-none">
+    <div class="absolute left-[12%] top-[10%] w-[26%] text-center font-condensed text-[clamp(2.5rem,22cqw,88px)] font-medium leading-none">
       {{ overallRating || 99 }}
     </div>
 
     <!-- position -->
-    <div class="absolute left-[12%] top-[24%] w-[26%] text-center font-condensed text-[9cqw] font-medium tracking-[.02em]">
+    <div class="absolute left-[12%] top-[24%] w-[26%] text-center font-condensed text-[clamp(1rem,9cqw,36px)] font-medium tracking-[.02em]">
       {{ position }}
     </div>
 
@@ -96,33 +96,33 @@
 
     <!-- stats grid -->
     <div class="absolute left-[15%] top-[64.5%] w-[33%] flex items-end justify-center gap-1.5">
-      <span class="font-condensed text-[10cqw] font-bold leading-none">{{ statPac }}</span>
-      <span class="font-condensed text-[8.5cqw] font-medium tracking-[.02em] leading-none">PAC</span>
+      <span class="font-condensed text-[clamp(1.2rem,10cqw,40px)] font-bold leading-none">{{ statPac }}</span>
+      <span class="font-condensed text-[clamp(1rem,8.5cqw,34px)] font-medium tracking-[.02em] leading-none">PAC</span>
     </div>
     
     <div class="absolute left-[52%] top-[64.5%] w-[33%] flex items-end justify-center gap-1.5">
-      <span class="font-condensed text-[10cqw] font-bold leading-none">{{ statDri }}</span>
-      <span class="font-condensed text-[8.5cqw] font-medium tracking-[.02em] leading-none">DRI</span>
+      <span class="font-condensed text-[clamp(1.2rem,10cqw,40px)] font-bold leading-none">{{ statDri }}</span>
+      <span class="font-condensed text-[clamp(1rem,8.5cqw,34px)] font-medium tracking-[.02em] leading-none">DRI</span>
     </div>
 
     <div class="absolute left-[15%] top-[72%] w-[33%] flex items-end justify-center gap-1.5">
-      <span class="font-condensed text-[10cqw] font-bold leading-none">{{ statSho }}</span>
-      <span class="font-condensed text-[8.5cqw] font-medium tracking-[.02em] leading-none">SHO</span>
+      <span class="font-condensed text-[clamp(1.2rem,10cqw,40px)] font-bold leading-none">{{ statSho }}</span>
+      <span class="font-condensed text-[clamp(1rem,8.5cqw,34px)] font-medium tracking-[.02em] leading-none">SHO</span>
     </div>
 
     <div class="absolute left-[52%] top-[72%] w-[33%] flex items-end justify-center gap-1.5">
-      <span class="font-condensed text-[10cqw] font-bold leading-none">{{ statDef }}</span>
-      <span class="font-condensed text-[8.5cqw] font-medium tracking-[.02em] leading-none">DEF</span>
+      <span class="font-condensed text-[clamp(1.2rem,10cqw,40px)] font-bold leading-none">{{ statDef }}</span>
+      <span class="font-condensed text-[clamp(1rem,8.5cqw,34px)] font-medium tracking-[.02em] leading-none">DEF</span>
     </div>
 
     <div class="absolute left-[15%] top-[79.5%] w-[33%] flex items-end justify-center gap-1.5">
-      <span class="font-condensed text-[10cqw] font-bold leading-none">{{ statPas }}</span>
-      <span class="font-condensed text-[8.5cqw] font-medium tracking-[.02em] leading-none">PAS</span>
+      <span class="font-condensed text-[clamp(1.2rem,10cqw,40px)] font-bold leading-none">{{ statPas }}</span>
+      <span class="font-condensed text-[clamp(1rem,8.5cqw,34px)] font-medium tracking-[.02em] leading-none">PAS</span>
     </div>
 
     <div class="absolute left-[52%] top-[79.5%] w-[33%] flex items-end justify-center gap-1.5">
-      <span class="font-condensed text-[10cqw] font-bold leading-none">{{ statPhy }}</span>
-      <span class="font-condensed text-[8.5cqw] font-medium tracking-[.02em] leading-none">PHY</span>
+      <span class="font-condensed text-[clamp(1.2rem,10cqw,40px)] font-bold leading-none">{{ statPhy }}</span>
+      <span class="font-condensed text-[clamp(1rem,8.5cqw,34px)] font-medium tracking-[.02em] leading-none">PHY</span>
     </div>
   </div>
 </template>
@@ -208,13 +208,11 @@ export default {
       return this.username.replace(/ \(.+\)/g, '')
     },
     dynamicFontSize() {
-      const len = this.cleanUsername.length
-      if (len <= 10) return '13cqw'
-      if (len <= 12) return '11cqw'
-      if (len <= 14) return '9cqw'
-      if (len <= 16) return '8cqw'
-      if (len <= 18) return '7cqw'
-      return '6cqw'
+      // Calculate font size based on name length with clamp to prevent mobile blowout
+      const len = this.cleanUsername.length;
+      if (len <= 10) return 'clamp(1.4rem, 11cqw, 44px)';
+      if (len <= 14) return 'clamp(1.15rem, 9cqw, 36px)';
+      return 'clamp(0.95rem, 7.5cqw, 30px)';
     },
     displayAvatarUrl() {
       return this.avatarUrl || ''
