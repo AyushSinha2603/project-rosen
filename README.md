@@ -11,11 +11,12 @@
 <br/><br/>
 
 <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-  <img src="public/sampleCards/short-icon.png" width="165" alt="Icon Card">
-  <img src="public/sampleCards/short-gold.png" width="165" alt="Gold Card">
-  <img src="public/sampleCards/short-silver-1.png" width="165" alt="Silver Card 1">
-  <img src="public/sampleCards/short-silver-2.png" width="165" alt="Silver Card 2">
-  <img src="public/sampleCards/short-bronze.png" width="165" alt="Bronze Card">
+  <img src="public/sampleCards/short-icon.png" width="140" alt="Icon Card">
+  <img src="public/sampleCards/short-gold.png" width="140" alt="Gold Card 1">
+  <img src="public/sampleCards/short-gold-2.png" width="140" alt="Gold Card 2">
+  <img src="public/sampleCards/short-silver-1.png" width="140" alt="Silver Card 1">
+  <img src="public/sampleCards/short-silver-2.png" width="140" alt="Silver Card 2">
+  <img src="public/sampleCards/short-bronze.png" width="140" alt="Bronze Card">
 </div>
 
 <br/>
@@ -77,7 +78,9 @@ Your card visually evolves as your overall rating climbs. Every single tier feat
 <div align="center">
   <img src="public/sampleCards/icon.png" width="800" alt="Icon Tier Detailed Report">
   <br/><br/>
-  <img src="public/sampleCards/gold.png" width="800" alt="Gold Tier Detailed Report">
+  <img src="public/sampleCards/gold.png" width="800" alt="Gold Tier 1 Detailed Report">
+  <br/><br/>
+  <img src="public/sampleCards/gold-2.png" width="800" alt="Gold Tier 2 Detailed Report">
   <br/><br/>
   <img src="public/sampleCards/silver-1.png" width="800" alt="Silver Tier 1 Detailed Report">
   <br/><br/>
