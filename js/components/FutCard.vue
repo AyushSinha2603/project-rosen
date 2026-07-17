@@ -55,51 +55,63 @@
     <div class="absolute left-[50%] top-[66.46%] w-[0.3cqw] h-[20.12%] bg-current opacity-50"></div>
 
     <!-- overall -->
-    <div class="absolute left-[16.3%] top-[9.76%] font-condensed text-[22.2cqw] font-medium leading-none">
+    <div class="absolute left-[12%] top-[10%] w-[26%] text-center font-condensed text-[22cqw] font-medium leading-none">
       {{ overallRating || 99 }}
     </div>
 
     <!-- position -->
-    <div class="absolute left-[25%] top-[23.78%] -translate-x-1/2 font-condensed text-[9.3cqw] font-medium tracking-[.02em]">
+    <div class="absolute left-[12%] top-[24%] w-[26%] text-center font-condensed text-[9cqw] font-medium tracking-[.02em]">
       {{ position }}
     </div>
 
     <!-- country flag -->
-    <img
-      v-if="countryCode && !flagError"
-      :src="`/badges/flags/${countryCode}.png`"
-      class="absolute left-[17.59%] top-[33.17%] w-[14.81%] h-[5.73%] object-contain"
-      @error="flagError = true"
-    />
-
-
+    <div class="absolute left-[12%] top-[33%] w-[26%] flex justify-center">
+      <img
+        v-if="countryCode && !flagError"
+        :src="`/badges/flags/${countryCode}.png`"
+        class="w-[60%] h-auto object-contain"
+        @error="flagError = true"
+      />
+    </div>
 
     <!-- name -->
     <div 
-      class="absolute left-[50%] top-[53.66%] -translate-x-1/2 font-condensed font-bold whitespace-nowrap uppercase"
+      class="absolute left-0 top-[53.6%] w-full text-center font-condensed font-bold whitespace-nowrap uppercase px-4"
       :style="{ fontSize: dynamicFontSize }"
     >
       {{ cleanUsername }}
     </div>
 
     <!-- stats grid -->
-    <span class="absolute left-[21.3%] top-[64.63%] font-condensed text-[10.2cqw] font-bold">{{ statPac }}</span>
-    <span class="absolute left-[32.41%] top-[65.24%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">PAC</span>
+    <div class="absolute left-[15%] top-[64.5%] w-[33%] flex items-end justify-center gap-1.5">
+      <span class="font-condensed text-[10cqw] font-bold leading-none">{{ statPac }}</span>
+      <span class="font-condensed text-[8.5cqw] font-medium tracking-[.02em] leading-none">PAC</span>
+    </div>
     
-    <span class="absolute left-[56.48%] top-[64.63%] font-condensed text-[10.2cqw] font-bold">{{ statDri }}</span>
-    <span class="absolute left-[67.59%] top-[65.24%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">DRI</span>
+    <div class="absolute left-[52%] top-[64.5%] w-[33%] flex items-end justify-center gap-1.5">
+      <span class="font-condensed text-[10cqw] font-bold leading-none">{{ statDri }}</span>
+      <span class="font-condensed text-[8.5cqw] font-medium tracking-[.02em] leading-none">DRI</span>
+    </div>
 
-    <span class="absolute left-[21.3%] top-[72.2%] font-condensed text-[10.2cqw] font-bold">{{ statSho }}</span>
-    <span class="absolute left-[32.41%] top-[72.8%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">SHO</span>
+    <div class="absolute left-[15%] top-[72%] w-[33%] flex items-end justify-center gap-1.5">
+      <span class="font-condensed text-[10cqw] font-bold leading-none">{{ statSho }}</span>
+      <span class="font-condensed text-[8.5cqw] font-medium tracking-[.02em] leading-none">SHO</span>
+    </div>
 
-    <span class="absolute left-[56.48%] top-[72.2%] font-condensed text-[10.2cqw] font-bold">{{ statDef }}</span>
-    <span class="absolute left-[67.59%] top-[72.8%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">DEF</span>
+    <div class="absolute left-[52%] top-[72%] w-[33%] flex items-end justify-center gap-1.5">
+      <span class="font-condensed text-[10cqw] font-bold leading-none">{{ statDef }}</span>
+      <span class="font-condensed text-[8.5cqw] font-medium tracking-[.02em] leading-none">DEF</span>
+    </div>
 
-    <span class="absolute left-[21.3%] top-[79.76%] font-condensed text-[10.2cqw] font-bold">{{ statPas }}</span>
-    <span class="absolute left-[32.41%] top-[80.37%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">PAS</span>
+    <div class="absolute left-[15%] top-[79.5%] w-[33%] flex items-end justify-center gap-1.5">
+      <span class="font-condensed text-[10cqw] font-bold leading-none">{{ statPas }}</span>
+      <span class="font-condensed text-[8.5cqw] font-medium tracking-[.02em] leading-none">PAS</span>
+    </div>
 
-    <span class="absolute left-[56.48%] top-[79.76%] font-condensed text-[10.2cqw] font-bold">{{ statPhy }}</span>
-    <span class="absolute left-[67.59%] top-[80.37%] font-condensed text-[9.3cqw] font-medium tracking-[.02em]">PHY</span>
+    <div class="absolute left-[52%] top-[79.5%] w-[33%] flex items-end justify-center gap-1.5">
+      <span class="font-condensed text-[10cqw] font-bold leading-none">{{ statPhy }}</span>
+      <span class="font-condensed text-[8.5cqw] font-medium tracking-[.02em] leading-none">PHY</span>
+    </div>
   </div>
 </template>
 
