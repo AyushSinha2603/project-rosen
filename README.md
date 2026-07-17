@@ -1,66 +1,70 @@
 <div align="center">
 
-# Project Rosen
+<img src="public/sampleCards/card-gold.png" width="120" alt="Project Rosen Mascot">
 
-**your Chess career, rated out of 99** ♟️
+# 👑 Project Rosen
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=2600&pause=800&color=39D353&center=true&vCenter=true&width=660&height=42&lines=Turn+any+chess+profile+into+a+FUT-style+card;Scored+live+from+real+games%2C+tactics+%26+trophies;Embed+it+anywhere+%E2%80%94+it+updates+itself" alt="Turn any chess profile into a player card, scored live, embeddable anywhere">
+**your entire chess legacy, condensed into a single 99-rated card** ♟️
 
-<br/><br/>
-
-<img src="public/sampleCards/card-gold.png" width="240" alt="Gold Card">
-<img src="public/sampleCards/card-silver.png" width="240" alt="Silver Card">
-<img src="public/sampleCards/card-bronze.png" width="240" alt="Bronze Card">
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=2600&pause=800&color=39D353&center=true&vCenter=true&width=660&height=42&lines=Connect+your+Lichess+or+Chess.com+account;Generate+a+stunning+FUT-style+stat+card;Evolve+through+6+legendary+tiers" alt="Connect your Lichess or Chess.com account, Generate a stunning FUT-style stat card">
 
 <br/><br/>
+
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <img src="public/sampleCards/card-gold.png" width="260" alt="Gold Card">
+  <img src="public/sampleCards/card-silver.png" width="260" alt="Silver Card">
+  <img src="public/sampleCards/card-bronze.png" width="260" alt="Bronze Card">
+</div>
+
+<br/>
+
+*Track your progress from a beginner (Bronze) all the way to a legendary Grandmaster (Icon).*
 
 </div>
 
 <br/>
 
-## 🃏 &nbsp;Embed your card
+## ⚡ What is Project Rosen?
 
-Your card lives at a URL. Drop it in your profile README, your portfolio, anywhere — and it **re-scouts itself** as your stats change.
+Forget standard Elo charts. **Project Rosen** is a specialized scouting engine that analyzes your raw games from **Chess.com** and **Lichess** to scout your true playing style. We crunch the numbers behind your tactics, game volume, endurance, and completion rates to generate a highly detailed, premium FUT-style player card. 
 
-```md
-[![My Project Rosen card](https://project-rosen.vercel.app/username.png)](https://project-rosen.vercel.app/username)
-```
-
-| | |
-|---|---|
-| **`project-rosen.vercel.app/<username>.png`** | your card, as a live image |
-| **`project-rosen.vercel.app/<username>`** | the full scout report |
-| **`?platform=chess.com`** | specify the platform |
+The ultimate flex? It re-scouts itself dynamically as you play more games!
 
 <br/>
 
-## ⚙️ &nbsp;How the scouting works
+## 🧠 The Scouting Engine
 
-Six signals from a live chess profile, each mapped to a football stat — read straight from Lichess and Chess.com APIs. No surveys, no self-reporting. Just the games.
+We map real chess metrics directly onto six core football attributes. There is no self-reporting—everything is strictly calculated from the raw API data of your historic chess matches.
 
-| | Stat | Scouted from |
-|:--:|:--|:--|
-| **PAC** | Pace | Games Volume |
-| **SHO** | Shooting | Trophies |
-| **PAS** | Passing | Completion |
-| **DRI** | Dribbling | Tactics |
-| **DEF** | Defending | Total Moves |
-| **PHY** | Physical | Endurance |
+| Attribute | Meaning | Scouted From |
+| :---: | :--- | :--- |
+| **PAC** | Pace | Game Volume & Lightning Grinds |
+| **SHO** | Shooting | Trophies & Tournaments Won |
+| **PAS** | Passing | Move Accuracy & Game Completion |
+| **DRI** | Dribbling | Tactical Diversity & Complexity |
+| **DEF** | Defending | Total Moves Survived |
+| **PHY** | Physical | Lifetime Match Endurance |
 
-Your **overall** is the headline. Raw stats cap at **88** — the 90s are a legacy gate, earned with years and influence, so one heroic year won't crown you an Icon. 
+Your **Overall (OVR)** is the headline stat. Hitting 99 isn't a walk in the park—our advanced scaling ensures the highest tiers are reserved for players who dedicate years to the game.
 
-Every card walks out in a finish:
+<br/>
+
+## 🃏 The 6 Legendary Tiers
+
+Your card visually evolves as your overall rating climbs. Every single tier features distinct background art, dynamic inner glows, and a shiny metallic gradient border that traces the card's exact shape.
 
 <div align="center">
 
 ![Bronze](https://img.shields.io/badge/BRONZE-%E2%89%A464-CD7F32?style=flat-square&labelColor=2A1A0C)
 ![Silver](https://img.shields.io/badge/SILVER-65--74-AAB2BD?style=flat-square&labelColor=262B33)
 ![Gold](https://img.shields.io/badge/GOLD-75--84-E6B422?style=flat-square&labelColor=3A2806)
-![In-Form](https://img.shields.io/badge/IN--FORM-spike-E03E52?style=flat-square&labelColor=4A0A14)
 ![TOTY](https://img.shields.io/badge/TOTY-85--89-3B7AFF?style=flat-square&labelColor=10254F)
 ![Icon](https://img.shields.io/badge/ICON-90%2B-F3D688?style=flat-square&labelColor=2A1A45)
+![In-Form](https://img.shields.io/badge/IN--FORM-Spike-E03E52?style=flat-square&labelColor=4A0A14)
 
 </div>
+
+*Notice a stat spike? If one of your attributes is 15+ points higher than your overall rating, you'll unlock the ultra-rare **In-Form** card!*
 
 <br/>
 
@@ -68,7 +72,7 @@ Every card walks out in a finish:
 
 **Built with** Vue 3 · TypeScript · Tailwind · Vite
 
-scout someone today
+*Originally inspired by the amazing [rosen-score](https://github.com/fitztrev/rosen-score) by fitztrev.*
 
 <img src="https://capsule-render.vercel.app/api?type=waving&height=90&color=0:39d353,100:006d32&section=footer" alt="" width="100%">
 
