@@ -1355,7 +1355,7 @@ export default {
             // At least one platform succeeded.
             this.isDownloadComplete = true
             this.counts.downloaded = this.counts.totalGames
-            this.errors.api = '' // clear the error so the UI shows the card
+            this.errors.api = {} as DOMException // clear the error so the UI shows the card
           } else {
             // All platforms failed.
             this.isDownloading = false
