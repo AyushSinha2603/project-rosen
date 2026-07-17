@@ -952,35 +952,35 @@
               <div class="text-brand text-xs font-bold tracking-[0.2em] uppercase">The road to 90+</div>
             </div>
             <h3 class="font-display text-2xl text-ink uppercase mb-3 tracking-wide">Consistency is king.</h3>
-            <p class="text-ink-soft font-sans text-sm leading-relaxed pb-8 border-b border-[#262358]">Reaching the elite 90+ overall tiers requires thousands of games and the mastery of multiple unique accomplishments. A legend rating is built on a massive track record, not just a weekend winning streak.</p>
+            <p class="text-ink-soft font-sans text-sm leading-relaxed pb-8 border-b border-line">Reaching the elite 90+ overall tiers requires thousands of games and the mastery of multiple unique accomplishments. A legend rating is built on a massive track record, not just a weekend winning streak.</p>
           </div>
 
           <!-- Grid Section -->
           <div>
             <div class="text-ink-soft text-xs font-bold tracking-[0.2em] mb-6 uppercase">What feeds the six</div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-8 border-b border-[#262358]">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-8 border-b border-line">
               <div class="flex gap-4">
-                <div class="bg-[#131d20] border border-[#1b2b2b] text-[#39d353] font-display text-sm px-2 py-1 h-fit rounded font-bold">PAC</div>
+                <div class="bg-brand/10 border border-brand/20 text-brand font-display text-sm px-2 py-1 h-fit rounded font-bold">PAC</div>
                 <div class="text-ink-dim text-sm font-sans leading-snug">The sheer volume of games played at lightning speed.</div>
               </div>
               <div class="flex gap-4">
-                <div class="bg-[#131d20] border border-[#1b2b2b] text-[#39d353] font-display text-sm px-2 py-1 h-fit rounded font-bold">SHO</div>
+                <div class="bg-brand/10 border border-brand/20 text-brand font-display text-sm px-2 py-1 h-fit rounded font-bold">SHO</div>
                 <div class="text-ink-dim text-sm font-sans leading-snug">Rare trophies earned and your biggest tactical hits.</div>
               </div>
               <div class="flex gap-4">
-                <div class="bg-[#131d20] border border-[#1b2b2b] text-[#39d353] font-display text-sm px-2 py-1 h-fit rounded font-bold">PAS</div>
+                <div class="bg-brand/10 border border-brand/20 text-brand font-display text-sm px-2 py-1 h-fit rounded font-bold">PAS</div>
                 <div class="text-ink-dim text-sm font-sans leading-snug">Overall accomplishment completion percentage.</div>
               </div>
               <div class="flex gap-4">
-                <div class="bg-[#131d20] border border-[#1b2b2b] text-[#39d353] font-display text-sm px-2 py-1 h-fit rounded font-bold">DRI</div>
+                <div class="bg-brand/10 border border-brand/20 text-brand font-display text-sm px-2 py-1 h-fit rounded font-bold">DRI</div>
                 <div class="text-ink-dim text-sm font-sans leading-snug">Average moves per game — deep tactical maneuvering.</div>
               </div>
               <div class="flex gap-4">
-                <div class="bg-[#131d20] border border-[#1b2b2b] text-[#39d353] font-display text-sm px-2 py-1 h-fit rounded font-bold">DEF</div>
+                <div class="bg-brand/10 border border-brand/20 text-brand font-display text-sm px-2 py-1 h-fit rounded font-bold">DEF</div>
                 <div class="text-ink-dim text-sm font-sans leading-snug">Total volume of moves across all your games.</div>
               </div>
               <div class="flex gap-4">
-                <div class="bg-[#131d20] border border-[#1b2b2b] text-[#39d353] font-display text-sm px-2 py-1 h-fit rounded font-bold">PHY</div>
+                <div class="bg-brand/10 border border-brand/20 text-brand font-display text-sm px-2 py-1 h-fit rounded font-bold">PHY</div>
                 <div class="text-ink-dim text-sm font-sans leading-snug">A lifetime of endurance across thousands of matches.</div>
               </div>
             </div>
