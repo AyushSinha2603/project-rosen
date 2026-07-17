@@ -7,8 +7,8 @@
       <div class="absolute -bottom-[20%] left-[10%] w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] rounded-full bg-brand/10 blur-[150px] mix-blend-screen opacity-50"></div>
     </div>
 
-    <!-- Top Right Nav -->
-    <div class="absolute top-3 right-3 md:top-4 md:right-6 z-50 flex items-center gap-4 md:gap-6">
+    <!-- Top Nav -->
+    <div class="absolute top-3 left-0 w-full px-4 md:px-0 md:left-auto md:w-auto md:top-4 md:right-6 z-50 flex justify-between md:justify-end items-center gap-4 md:gap-6">
       <button @click="showHowItWorks = true" class="text-ink-soft hover:text-ink border-b border-ink-soft/40 hover:border-ink/60 transition-colors font-sans text-xs md:text-sm font-medium flex items-center gap-1 pb-0.5 cursor-pointer bg-transparent">
         how it works <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
       </button>
@@ -41,8 +41,8 @@
       'is-download-complete': isDownloadComplete,
     }"
   >
-    <div class="text-center">
-      <h1 class="text-6xl md:text-8xl mb-2 text-ink font-display tracking-widest uppercase inline-block text-shadow-sm">
+    <div class="text-center pt-12 md:pt-0">
+      <h1 class="text-5xl md:text-8xl mb-2 text-ink font-display tracking-widest uppercase inline-block text-shadow-sm mt-4 md:mt-0">
         <a href="/" class="hover:text-brand transition-colors">Project rosen</a>
       </h1>
       
@@ -66,16 +66,16 @@
             <div class="text-xl">
               Select which site:
 
-              <div class="text-ink mt-2 font-black text-2xl flex gap-4 flex-wrap">
-                <label class="cursor-pointer bg-surface-2 px-6 py-3 rounded-xl border border-line hover:border-brand hover:text-brand transition-colors flex items-center gap-2">
+              <div class="text-ink mt-2 font-black text-lg md:text-2xl flex gap-3 md:gap-4 flex-wrap">
+                <label class="cursor-pointer bg-surface-2 px-4 md:px-6 py-2 md:py-3 rounded-xl border border-line hover:border-brand hover:text-brand transition-colors flex items-center gap-2">
                   <input type="radio" name="site" value="lichess" v-model="inputs.type" class="accent-brand" />
                   Lichess
                 </label>
-                <label class="cursor-pointer bg-surface-2 px-6 py-3 rounded-xl border border-line hover:border-brand hover:text-brand transition-colors ml-0 md:ml-4 flex items-center gap-2">
+                <label class="cursor-pointer bg-surface-2 px-4 md:px-6 py-2 md:py-3 rounded-xl border border-line hover:border-brand hover:text-brand transition-colors flex items-center gap-2">
                   <input type="radio" name="site" value="chesscom" v-model="inputs.type" class="accent-brand" />
                   Chess.com
                 </label>
-                <label class="cursor-pointer bg-surface-2 px-6 py-3 rounded-xl border border-line hover:border-brand hover:text-brand transition-colors ml-0 md:ml-4 flex items-center gap-2">
+                <label class="cursor-pointer bg-surface-2 px-4 md:px-6 py-2 md:py-3 rounded-xl border border-line hover:border-brand hover:text-brand transition-colors flex items-center gap-2">
                   <input type="radio" name="site" value="both" v-model="inputs.type" class="accent-brand" />
                   Both
                 </label>
