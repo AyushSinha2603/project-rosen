@@ -56,12 +56,13 @@
       v-if="!isDownloading && !isDownloadComplete"
     >
       <form @submit.prevent="startDownload">
-        <div class="flex flex-row mb-4">
-          <div class="basis-1/4 text-2xl md:text-5xl text-center font-bold italic">
-            1
-            <ArrowIcon />
+        <div class="flex flex-row mb-12">
+          <div class="mr-6 md:mr-10 flex-shrink-0 pt-1">
+            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-brand/10 border-2 border-brand text-brand flex items-center justify-center font-display font-bold text-2xl md:text-3xl shadow-[0_0_15px_rgba(57,211,83,0.2)]">
+              1
+            </div>
           </div>
-          <div class="basis-3/4">
+          <div class="flex-1">
             <div class="text-xl">
               Select which site:
 
@@ -134,22 +135,24 @@
           </div>
         </div>
 
-        <div class="flex flex-row mb-4">
-          <div class="basis-1/4 text-2xl md:text-5xl text-center font-bold italic">
-            2
-            <ArrowIcon />
+        <div class="flex flex-row mb-12">
+          <div class="mr-6 md:mr-10 flex-shrink-0 pt-1">
+            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-brand/10 border-2 border-brand text-brand flex items-center justify-center font-display font-bold text-2xl md:text-3xl shadow-[0_0_15px_rgba(57,211,83,0.2)]">
+              2
+            </div>
           </div>
-          <div class="basis-3/4">
+          <div class="flex-1">
             <lichess-login v-on:set-lichess-oauth-token="setLichessOauthToken"></lichess-login>
           </div>
         </div>
 
-        <div class="flex flex-row">
-          <div class="basis-1/4 text-2xl md:text-5xl text-center font-bold italic">
-            3
-            <ArrowIcon />
+        <div class="flex flex-row mb-12">
+          <div class="mr-6 md:mr-10 flex-shrink-0 pt-1">
+            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-brand/10 border-2 border-brand text-brand flex items-center justify-center font-display font-bold text-2xl md:text-3xl shadow-[0_0_15px_rgba(57,211,83,0.2)]">
+              3
+            </div>
           </div>
-          <div class="basis-3/4">
+          <div class="flex-1">
             <div class="text-xl mt-1 mb-8 bg-surface-2 border border-line rounded-xl p-4 inline-block">
               Check games since
               <select
@@ -211,7 +214,7 @@
     ></download-progress>
 
     <div v-if="errors.api.message" class="text-center bg-red-900/50 border border-red-500 text-red-200 text-xl rounded-2xl p-8 mt-12">
-      There was an error from the {{ inputs.type === 'lichess' ? 'Lichess' : 'Chess.com' }} API:
+      There was an error fetching the games. You might not have an account on this platform:
       <strong class="bg-black text-white px-2 py-1 ml-2">{{ errors.api }}</strong>
 
       <p class="mt-4 text-red-100 bg-red-950 border border-red-800 rounded-xl p-4 inline-block">Try only running 1 Rosen Score report at a time. You may have to wait before trying again.</p>
@@ -1344,6 +1347,21 @@ export default {
       }
 
       let completedFetches = 0
+      let failedFetches = 0
+
+      const checkCompletion = () => {
+        if (completedFetches + failedFetches === urls.length) {
+          if (completedFetches > 0) {
+            // At least one platform succeeded.
+            this.isDownloadComplete = true
+            this.counts.downloaded = this.counts.totalGames
+            this.errors.api = '' // clear the error so the UI shows the card
+          } else {
+            // All platforms failed.
+            this.isDownloading = false
+          }
+        }
+      }
 
       // 2. Loop through our URLs and fetch them
       urls.forEach((url) => {
@@ -1392,21 +1410,21 @@ export default {
             })
               .then(() => {
                 completedFetches++
-                // 3. Only finish the download when ALL urls are done
-                if (completedFetches === urls.length) {
-                  this.isDownloadComplete = true
-                  this.counts.downloaded = this.counts.totalGames
-                }
+                checkCompletion()
               })
               .catch((e: DOMException) => {
                 if (e.message.includes('aborted')) {
                   return
                 }
+                failedFetches++
                 this.errors.api = e
+                checkCompletion()
               })
           })
           .catch((e: DOMException) => {
+            failedFetches++
             this.errors.api = e
+            checkCompletion()
           })
       })
     },
