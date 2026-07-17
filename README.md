@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="public/sampleCards/short-icon.png" width="120" alt="Project Rosen Mascot">
-
 # 👑 Project Rosen
 
 **your entire chess legacy, condensed into a single 99-rated card** ♟️
