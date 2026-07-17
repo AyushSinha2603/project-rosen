@@ -138,7 +138,8 @@ export default {
   computed: {
     cardTheme() {
       const maxStat = Math.max(this.statPac, this.statSho, this.statPas, this.statDri, this.statDef, this.statPhy);
-      const isSpike = (maxStat - this.overallRating) >= 15;
+      // Require at least 75 OVR and a massive 20+ point stat spike for In-Form
+      const isSpike = (maxStat - this.overallRating) >= 20 && this.overallRating >= 75;
 
       if (this.overallRating >= 90) {
         return { // Icon
