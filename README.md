@@ -2,7 +2,7 @@
 
 # 👑 Project Rosen: Ultimate Team
 
-> **Transform your actual chess matches into glorious, highly-detailed FIFA Ultimate Team stat cards!**
+**Transform your actual chess matches into glorious, highly-detailed FIFA Ultimate Team stat cards!**
 
 </div>
 
