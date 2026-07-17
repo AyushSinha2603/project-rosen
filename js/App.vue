@@ -103,7 +103,15 @@
                   v-model="inputs.valueChesscom"
                 />
               </div>
-              <div class="mt-8">
+              <div class="text-lg mt-6 mb-6 bg-surface-2 border border-line rounded-xl p-4 inline-block text-ink-soft">
+                Or
+                <span class="text-brand hover:text-brand-hi cursor-pointer transition-colors font-medium" @click.prevent="formFill('lichess', 'EricRosen')">
+                  click here to see EricRosen's on Lichess
+                </span>
+                or
+                <span class="text-brand hover:text-brand-hi cursor-pointer transition-colors font-medium" @click.prevent="formFill('chesscom', 'IMRosen')"> his Chess.com </span>
+              </div>
+              <div>
                 Choose Nationality (Optional):
                 <select v-model="inputs.countryCode" class="block w-full px-6 py-4 text-xl text-ink bg-surface-2 border border-line focus:border-brand focus:ring-1 focus:ring-brand focus:outline-none mt-4 rounded-xl shadow-inner transition-all">
                   <option value="">None</option>
@@ -122,14 +130,6 @@
                   <option value="pt">Portugal</option>
                   <option value="us">United States</option>
                 </select>
-              </div>
-              <div class="text-lg mt-6 bg-surface-2 border border-line rounded-xl p-4 inline-block text-ink-soft">
-                Or
-                <span class="text-brand hover:text-brand-hi cursor-pointer transition-colors font-medium" @click.prevent="formFill('lichess', 'EricRosen')">
-                  click here to see EricRosen's on Lichess
-                </span>
-                or
-                <span class="text-brand hover:text-brand-hi cursor-pointer transition-colors font-medium" @click.prevent="formFill('chesscom', 'IMRosen')"> his Chess.com </span>
               </div>
             </div>
           </div>
@@ -907,10 +907,10 @@
 
     <!-- How it works modal -->
     <div v-if="showHowItWorks" class="fixed inset-0 z-[100] flex items-center justify-center p-4" v-cloak>
-      <div @click="showHowItWorks = false" class="absolute inset-0 bg-[#02001e]/80 backdrop-blur-sm"></div>
+      <div @click="showHowItWorks = false" class="absolute inset-0 bg-bg/80 backdrop-blur-sm"></div>
       
-      <div class="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto scrollbar-thin bg-[#0b0930] border border-[#262358] rounded-2xl shadow-2xl p-8 md:p-10">
-        <button @click="showHowItWorks = false" class="absolute top-4 right-4 bg-[#130f3d] border border-[#262358] text-ink-soft hover:text-ink w-8 h-8 flex items-center justify-center rounded-lg transition-colors cursor-pointer z-10">
+      <div class="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto scrollbar-thin bg-panel border border-line rounded-2xl shadow-2xl p-8 md:p-10">
+        <button @click="showHowItWorks = false" class="absolute top-4 right-4 bg-surface-2 border border-line text-ink-soft hover:text-ink w-8 h-8 flex items-center justify-center rounded-lg transition-colors cursor-pointer z-10">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
         
@@ -929,7 +929,7 @@
               <div class="text-brand text-xs font-bold tracking-[0.2em] uppercase">Dynamic Scaling</div>
             </div>
             <h3 class="font-display text-2xl text-ink uppercase mb-3 tracking-wide">Graded on your own curve.</h3>
-            <p class="text-ink-soft font-sans text-sm leading-relaxed pb-6 border-b border-[#262358]">Every attribute is weighed against the context of your overall profile. Your highest stats emphasize where you truly excel, creating a balanced and realistic card that reflects your personal journey on the board.</p>
+            <p class="text-ink-soft font-sans text-sm leading-relaxed pb-6 border-b border-line">Every attribute is weighed against the context of your overall profile. Your highest stats emphasize where you truly excel, creating a balanced and realistic card that reflects your personal journey on the board.</p>
           </div>
 
           <!-- Section 2 -->
@@ -939,7 +939,7 @@
               <div class="text-brand text-xs font-bold tracking-[0.2em] uppercase">Playstyle Archetypes</div>
             </div>
             <h3 class="font-display text-2xl text-ink uppercase mb-3 tracking-wide">Everyone leans somewhere.</h3>
-            <p class="text-ink-soft font-sans text-sm leading-relaxed pb-6 border-b border-[#262358]">Whether you are a relentless Speed Demon or a tactical Maestro, your dominant stats dictate your position on the pitch and your assigned archetype. The system reads your tendencies, you don't pick them.</p>
+            <p class="text-ink-soft font-sans text-sm leading-relaxed pb-6 border-b border-line">Whether you are a relentless Speed Demon or a tactical Maestro, your dominant stats dictate your position on the pitch and your assigned archetype. The system reads your tendencies, you don't pick them.</p>
           </div>
 
           <!-- Section 3 -->
