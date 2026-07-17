@@ -1,55 +1,75 @@
 <div align="center">
 
-# 👑 Project Rosen: Ultimate Team
+# Project Rosen
 
-**Transform your actual chess matches into glorious, highly-detailed FIFA Ultimate Team stat cards!**
+**your Chess career, rated out of 99** ♟️
+
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=2600&pause=800&color=39D353&center=true&vCenter=true&width=660&height=42&lines=Turn+any+chess+profile+into+a+FUT-style+card;Scored+live+from+real+games%2C+tactics+%26+trophies;Embed+it+anywhere+%E2%80%94+it+updates+itself" alt="Turn any chess profile into a player card, scored live, embeddable anywhere">
+
+<br/><br/>
+
+<img src="public/sampleCards/card-gold.png" width="240" alt="Gold Card">
+<img src="public/sampleCards/card-silver.png" width="240" alt="Silver Card">
+<img src="public/sampleCards/card-bronze.png" width="240" alt="Bronze Card">
+
+<br/><br/>
 
 </div>
 
----
+<br/>
 
-## ♟️ Level Up Your Chess Career
+## 🃏 &nbsp;Embed your card
 
-Tired of staring at the same old Elo graphs? **Project Rosen** is a specialized statistics engine that scans your entire chess history looking for the rarest, most creative achievements you've pulled off on the board.
+Your card lives at a URL. Drop it in your profile README, your portfolio, anywhere — and it **re-scouts itself** as your stats change.
 
-Inspired by the legendary IM Eric Rosen, this tool doesn't just look at wins and losses. We analyze your playstyle, calculate your unique attributes, and generate a **downloadable, personalized FUT (FIFA Ultimate Team) card** that visually evolves as you improve!
+```md
+[![My Project Rosen card](https://project-rosen.vercel.app/username.png)](https://project-rosen.vercel.app/username)
+```
 
-### 🔥 Why It's Awesome
+| | |
+|---|---|
+| **`project-rosen.vercel.app/<username>.png`** | your card, as a live image |
+| **`project-rosen.vercel.app/<username>`** | the full scout report |
+| **`?platform=chess.com`** | specify the platform |
 
-* **⚔️ Dual-Platform Mastery:** We seamlessly pull and aggregate match data from both **Lichess** and **Chess.com** simultaneously. No game goes uncounted.
-* **📈 Brutally Realistic Scaling:** Maxing out your card to a 99 OVR isn't handed to you. Our advanced mathematical curves mean true mastery requires dedication, countless matches, and raw tactical skill.
-* **✨ Stunning Visuals:** A premium, ultra-modern dark UI wrapped in glassmorphism, glowing micro-animations, and striking visual feedback.
+<br/>
 
----
+## ⚙️ &nbsp;How the scouting works
 
-## 🏆 The Tiered Card System
+Six signals from a live chess profile, each mapped to a football stat — read straight from Lichess and Chess.com APIs. No surveys, no self-reporting. Just the games.
 
-Your chess DNA is converted into six core attributes: **Pace (PAC), Shooting (SHO), Passing (PAS), Dribbling (DRI), Defending (DEF), and Physical (PHY)**. 
+| | Stat | Scouted from |
+|:--:|:--|:--|
+| **PAC** | Pace | Games Volume |
+| **SHO** | Shooting | Trophies |
+| **PAS** | Passing | Completion |
+| **DRI** | Dribbling | Tactics |
+| **DEF** | Defending | Total Moves |
+| **PHY** | Physical | Endurance |
 
-Based on your performance, your dynamic card will upgrade through three legendary tiers. Each tier features distinct background art, premium foil textures, and unique glowing auras.
+Your **overall** is the headline. Raw stats cap at **88** — the 90s are a legacy gate, earned with years and influence, so one heroic year won't crown you an Icon. 
+
+Every card walks out in a finish:
 
 <div align="center">
-  
-### 🥇 Gold Tier
-***For the true elite. Unlocked at 85+ OVR.***<br><br>
-<img src="public/sampleCards/card-gold.png" width="60%" alt="Gold Card" />
 
-<br><br>
-
-### 🥈 Silver Tier
-***For the dedicated tacticians. Unlocked at 65-84 OVR.***<br><br>
-<img src="public/sampleCards/card-silver.png" width="60%" alt="Silver Card" />
-
-<br><br>
-
-### 🥉 Bronze Tier
-***Where every grandmaster starts. Under 65 OVR.***<br><br>
-<img src="public/sampleCards/card-bronze.png" width="60%" alt="Bronze Card" />
+![Bronze](https://img.shields.io/badge/BRONZE-%E2%89%A464-CD7F32?style=flat-square&labelColor=2A1A0C)
+![Silver](https://img.shields.io/badge/SILVER-65--74-AAB2BD?style=flat-square&labelColor=262B33)
+![Gold](https://img.shields.io/badge/GOLD-75--84-E6B422?style=flat-square&labelColor=3A2806)
+![In-Form](https://img.shields.io/badge/IN--FORM-spike-E03E52?style=flat-square&labelColor=4A0A14)
+![TOTY](https://img.shields.io/badge/TOTY-85--89-3B7AFF?style=flat-square&labelColor=10254F)
+![Icon](https://img.shields.io/badge/ICON-90%2B-F3D688?style=flat-square&labelColor=2A1A45)
 
 </div>
 
----
+<br/>
 
-## 🤝 Acknowledgements
+<div align="center">
 
-This project wouldn't be possible without the incredible foundation laid by [rosen-score](https://github.com/fitztrev/rosen-score) and its creator, **[fitztrev](https://github.com/fitztrev)**. While fitztrev built the brilliant core achievement detection logic, this custom fork expands on that legacy by introducing dual-platform integration, the FUT card generation engine, and a complete UI overhaul.
+**Built with** Vue 3 · TypeScript · Tailwind · Vite
+
+scout someone today
+
+<img src="https://capsule-render.vercel.app/api?type=waving&height=90&color=0:39d353,100:006d32&section=footer" alt="" width="100%">
+
+</div>
