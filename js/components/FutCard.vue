@@ -5,12 +5,6 @@
     ref="futCardElement" 
     id="fut-card-element"
   >
-    <!-- border layer (shiny metallic border) -->
-    <div
-      class="absolute inset-0 scale-[1.018]"
-      :style="`background: ${cardTheme.borderGradient}; -webkit-mask-image: url('${cardTheme.bg}'); mask-image: url('${cardTheme.bg}'); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; z-index: -1;`"
-    ></div>
-
     <!-- tier background art -->
     <img
       :src="cardTheme.bg"
@@ -143,29 +137,50 @@ export default {
   },
   computed: {
     cardTheme() {
-      if (this.overallRating >= 85) {
-        return {
+      const maxStat = Math.max(this.statPac, this.statSho, this.statPas, this.statDri, this.statDef, this.statPhy);
+      const isSpike = (maxStat - this.overallRating) >= 15;
+
+      if (this.overallRating >= 90) {
+        return { // Icon
+          bg: '/cards/legend.png',
+          color: '#3e3012', 
+          outerGlow: 'rgba(243, 214, 136, 0.6)', 
+          innerGlow: 'rgba(255, 255, 255, 0.6)'
+        }
+      } else if (this.overallRating >= 85) {
+        return { // TOTY
+          bg: '/cards/toty.png',
+          color: '#e4cd91', 
+          outerGlow: 'rgba(59, 122, 255, 0.6)', 
+          innerGlow: 'rgba(59, 122, 255, 0.5)'
+        }
+      } else if (isSpike) {
+        return { // In-Form
+          bg: '/cards/founder-red.png',
+          color: '#ffffff', 
+          outerGlow: 'rgba(224, 62, 82, 0.6)', 
+          innerGlow: 'rgba(224, 62, 82, 0.5)'
+        }
+      } else if (this.overallRating >= 75) {
+        return { // Gold
           bg: '/cards/gold.png',
-          color: '#3e3012', // Dark gold text
-          outerGlow: 'rgba(255, 215, 0, 0.4)', // Golden aura
-          innerGlow: 'rgba(255, 215, 0, 0.6)',
-          borderGradient: 'linear-gradient(135deg, #f9df9f, #d4af37, #f9df9f, #aa7c11, #f9df9f)'
+          color: '#3e3012', 
+          outerGlow: 'rgba(255, 215, 0, 0.4)', 
+          innerGlow: 'rgba(255, 215, 0, 0.6)'
         }
       } else if (this.overallRating >= 65) {
-        return {
+        return { // Silver
           bg: '/cards/silver.png',
-          color: '#1a1a1a', // Black text
-          outerGlow: 'rgba(255, 255, 255, 0.3)', // Silver/white aura
-          innerGlow: 'rgba(255, 255, 255, 0.5)',
-          borderGradient: 'linear-gradient(135deg, #ffffff, #c0c0c0, #ffffff, #808080, #ffffff)'
+          color: '#1a1a1a', 
+          outerGlow: 'rgba(255, 255, 255, 0.3)', 
+          innerGlow: 'rgba(255, 255, 255, 0.5)'
         }
       } else {
-        return {
+        return { // Bronze
           bg: '/cards/bronze.png',
-          color: '#2a1a10', // Dark brown text
-          outerGlow: 'rgba(205, 127, 50, 0.4)', // Bronze aura
-          innerGlow: 'rgba(205, 127, 50, 0.5)',
-          borderGradient: 'linear-gradient(135deg, #ffb370, #cd7f32, #ffb370, #8b5a2b, #ffb370)'
+          color: '#2a1a10', 
+          outerGlow: 'rgba(205, 127, 50, 0.4)', 
+          innerGlow: 'rgba(205, 127, 50, 0.5)'
         }
       }
     },
