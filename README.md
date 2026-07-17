@@ -32,19 +32,19 @@ As your score increases, your card visually upgrades through three distinct tier
   
 ### Gold Tier
 *For the elite. Achieved at 85+ OVR.*<br><br>
-<img src="public/sampleCards/sample-gold.png" width="60%" alt="Gold Card" />
+<img src="public/sampleCards/card-gold.png" width="60%" alt="Gold Card" />
 
 <br><br>
 
 ### Silver Tier
 *For dedicated players. Achieved at 65-84 OVR.*<br><br>
-<img src="public/sampleCards/sample-silver.png" width="60%" alt="Silver Card" />
+<img src="public/sampleCards/card-silver.png" width="60%" alt="Silver Card" />
 
 <br><br>
 
 ### Bronze Tier
 *The starting point. Under 65 OVR.*<br><br>
-<img src="public/sampleCards/sample-bronze.png" width="60%" alt="Bronze Card" />
+<img src="public/sampleCards/card-bronze.png" width="60%" alt="Bronze Card" />
 
 </div>
 
