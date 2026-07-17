@@ -67,7 +67,16 @@ Your card visually evolves as your overall rating climbs. Every single tier feat
 
 </div>
 
-*Notice a stat spike? If one of your attributes is 20+ points higher than your overall rating, you'll unlock the ultra-rare **In-Form** card!*
+### 🩸 The Elusive In-Form Card
+
+*Notice a massive stat spike? If one of your attributes is 20+ points higher than your overall rating, you'll unlock the ultra-rare **In-Form** card!*
+
+<div align="center">
+  <br/>
+  <img src="public/cards/founder-red.png" width="300" alt="Ultra Rare In-Form Card">
+  <br/><br/>
+  <em>We haven't found a single player who has unlocked this yet... Can you be the first?</em>
+</div>
 
 <br/>
 
