@@ -824,12 +824,20 @@
               :total-positions="counts.totalMoves"
             ></fut-card>
           </div>
-          <button
-            @click.prevent="downloadFutCard"
-            class="mt-8 px-6 py-3 w-full bg-brand text-bg font-display tracking-widest text-xl uppercase rounded-xl hover:bg-brand-hi hover:shadow-[0_0_20px_rgba(227,179,65,0.4)] active:scale-95 transition-all"
-          >
-            Download Card
-          </button>
+          <div class="mt-8 flex flex-col sm:flex-row gap-4 w-full">
+            <button
+              @click.prevent="downloadFutCard"
+              class="px-6 py-3 flex-1 bg-brand text-bg font-display tracking-widest text-xl uppercase rounded-xl hover:bg-brand-hi hover:shadow-[0_0_20px_rgba(227,179,65,0.4)] active:scale-95 transition-all"
+            >
+              Download Card
+            </button>
+            <button
+              @click.prevent="resetAnalysis"
+              class="px-6 py-3 flex-1 bg-surface-2 border border-line text-ink font-display tracking-widest text-xl uppercase rounded-xl hover:bg-line hover:text-white active:scale-95 transition-all"
+            >
+              New Analysis
+            </button>
+          </div>
         </div>
 
         <!-- Right Column: Metrics -->
@@ -1259,6 +1267,9 @@ export default {
   },
 
   methods: {
+    resetAnalysis() {
+      window.location.reload()
+    },
     async downloadFutCard() {
       const container = this.$refs.futCardContainer as any
       if (container) {
