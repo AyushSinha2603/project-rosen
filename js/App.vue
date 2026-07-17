@@ -1268,7 +1268,10 @@ export default {
 
   methods: {
     resetAnalysis() {
-      window.location.reload()
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+      setTimeout(() => {
+        window.location.reload()
+      }, 500)
     },
     async downloadFutCard() {
       const container = this.$refs.futCardContainer as any
