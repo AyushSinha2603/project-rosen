@@ -170,32 +170,35 @@
               </select>
             </div>
 
-            <button
-              type="submit"
-              class="px-8 py-6 bg-brand text-bg font-display tracking-wider text-2xl uppercase rounded-xl hover:bg-brand-hi hover:shadow-[0_0_20px_rgba(227,179,65,0.4)] active:scale-95 transition-all w-full md:w-auto flex items-center justify-center gap-4"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="4"
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                />
-              </svg>
-              Click here to analyze
-            </button>
+          </div>
+        </div>
 
-            <div v-if="errors.form" class="mt-2 font-bold text-red-500">
-              <svg xmlns="http://www.w3.org/2000/svg" class="inline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                />
-              </svg>
-              {{ errors.form }}
-            </div>
+        <div class="flex flex-col items-center mt-8">
+          <button
+            type="submit"
+            class="px-10 py-6 bg-brand text-bg font-display tracking-wider text-2xl uppercase rounded-xl hover:bg-brand-hi hover:shadow-[0_0_20px_rgba(227,179,65,0.4)] active:scale-95 transition-all w-full md:w-auto flex items-center justify-center gap-4"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="4"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+              />
+            </svg>
+            Click here to analyze
+          </button>
+
+          <div v-if="errors.form" class="mt-4 font-bold text-red-500 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+              />
+            </svg>
+            {{ errors.form }}
           </div>
         </div>
       </form>
