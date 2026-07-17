@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/sampleCards/card-gold.png" width="120" alt="Project Rosen Mascot">
+<img src="public/sampleCards/short-icon.png" width="120" alt="Project Rosen Mascot">
 
 # 👑 Project Rosen
 
@@ -10,10 +10,11 @@
 
 <br/><br/>
 
-<div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="public/sampleCards/card-gold.png" width="260" alt="Gold Card">
-  <img src="public/sampleCards/card-silver.png" width="260" alt="Silver Card">
-  <img src="public/sampleCards/card-bronze.png" width="260" alt="Bronze Card">
+<div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+  <img src="public/sampleCards/short-icon.png" width="210" alt="Icon Card">
+  <img src="public/sampleCards/short-gold.png" width="210" alt="Gold Card">
+  <img src="public/sampleCards/short-silver-1.png" width="210" alt="Silver Card">
+  <img src="public/sampleCards/short-bronze.png" width="210" alt="Bronze Card">
 </div>
 
 <br/>
@@ -64,7 +65,23 @@ Your card visually evolves as your overall rating climbs. Every single tier feat
 
 </div>
 
-*Notice a stat spike? If one of your attributes is 15+ points higher than your overall rating, you'll unlock the ultra-rare **In-Form** card!*
+*Notice a stat spike? If one of your attributes is 20+ points higher than your overall rating, you'll unlock the ultra-rare **In-Form** card!*
+
+<br/>
+
+### Full Scout Reports
+
+*Every generated card comes paired with a full, detailed breakdown of exactly how each stat was calculated based on your historic chess data.*
+
+<div align="center">
+  <img src="public/sampleCards/icon.png" width="800" alt="Icon Tier Detailed Report">
+  <br/><br/>
+  <img src="public/sampleCards/gold.png" width="800" alt="Gold Tier Detailed Report">
+  <br/><br/>
+  <img src="public/sampleCards/silver-1.png" width="800" alt="Silver Tier Detailed Report">
+  <br/><br/>
+  <img src="public/sampleCards/bronze.png" width="800" alt="Bronze Tier Detailed Report">
+</div>
 
 <br/>
 
