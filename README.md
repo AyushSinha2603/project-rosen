@@ -8,15 +8,16 @@
 
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=2600&pause=800&color=39D353&center=true&vCenter=true&width=660&height=42&lines=Connect+your+Lichess+or+Chess.com+account;Generate+a+stunning+FUT-style+stat+card;Evolve+through+6+legendary+tiers" alt="Connect your Lichess or Chess.com account, Generate a stunning FUT-style stat card">
 
-<br/><br/>
-
-<div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-  <img src="public/sampleCards/short-icon.png" width="140" alt="Icon Card">
-  <img src="public/sampleCards/short-gold.png" width="140" alt="Gold Card 1">
-  <img src="public/sampleCards/short-gold-2.png" width="140" alt="Gold Card 2">
-  <img src="public/sampleCards/short-silver-1.png" width="140" alt="Silver Card 1">
-  <img src="public/sampleCards/short-silver-2.png" width="140" alt="Silver Card 2">
-  <img src="public/sampleCards/short-bronze.png" width="140" alt="Bronze Card">
+<div style="display: flex; justify-content: center; gap: 15px;">
+  <img src="public/sampleCards/short-icon.png" width="220" alt="Icon Card">
+  <img src="public/sampleCards/short-gold.png" width="220" alt="Gold Card 1">
+  <img src="public/sampleCards/short-gold-2.png" width="220" alt="Gold Card 2">
+</div>
+<br/>
+<div style="display: flex; justify-content: center; gap: 15px;">
+  <img src="public/sampleCards/short-silver-1.png" width="220" alt="Silver Card 1">
+  <img src="public/sampleCards/short-silver-2.png" width="220" alt="Silver Card 2">
+  <img src="public/sampleCards/short-bronze.png" width="220" alt="Bronze Card">
 </div>
 
 <br/>
