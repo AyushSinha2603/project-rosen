@@ -5,6 +5,12 @@
     ref="futCardElement" 
     id="fut-card-element"
   >
+    <!-- border layer (shiny metallic border) -->
+    <div
+      class="absolute inset-0 scale-[1.018]"
+      :style="`background: ${cardTheme.borderGradient}; -webkit-mask-image: url('${cardTheme.bg}'); mask-image: url('${cardTheme.bg}'); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; z-index: -1;`"
+    ></div>
+
     <!-- tier background art -->
     <img
       :src="cardTheme.bg"
@@ -142,21 +148,24 @@ export default {
           bg: '/cards/gold.png',
           color: '#3e3012', // Dark gold text
           outerGlow: 'rgba(255, 215, 0, 0.4)', // Golden aura
-          innerGlow: 'rgba(255, 215, 0, 0.6)'
+          innerGlow: 'rgba(255, 215, 0, 0.6)',
+          borderGradient: 'linear-gradient(135deg, #f9df9f, #d4af37, #f9df9f, #aa7c11, #f9df9f)'
         }
       } else if (this.overallRating >= 65) {
         return {
           bg: '/cards/silver.png',
           color: '#1a1a1a', // Black text
           outerGlow: 'rgba(255, 255, 255, 0.3)', // Silver/white aura
-          innerGlow: 'rgba(255, 255, 255, 0.5)'
+          innerGlow: 'rgba(255, 255, 255, 0.5)',
+          borderGradient: 'linear-gradient(135deg, #ffffff, #c0c0c0, #ffffff, #808080, #ffffff)'
         }
       } else {
         return {
           bg: '/cards/bronze.png',
           color: '#2a1a10', // Dark brown text
           outerGlow: 'rgba(205, 127, 50, 0.4)', // Bronze aura
-          innerGlow: 'rgba(205, 127, 50, 0.5)'
+          innerGlow: 'rgba(205, 127, 50, 0.5)',
+          borderGradient: 'linear-gradient(135deg, #ffb370, #cd7f32, #ffb370, #8b5a2b, #ffb370)'
         }
       }
     },
