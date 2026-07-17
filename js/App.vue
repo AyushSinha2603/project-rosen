@@ -995,6 +995,12 @@
               <div class="bg-[#242b32] text-[#c9d1d9] px-3 py-1 rounded">SILVER</div>
               <div class="text-ink-mute">→</div>
               <div class="bg-[#332709] text-[#e3b341] px-3 py-1 rounded">GOLD</div>
+              <div class="text-ink-mute">→</div>
+              <div class="bg-[#0e1d35] text-[#4db8ff] px-3 py-1 rounded">TOTY</div>
+              <div class="text-ink-mute">→</div>
+              <div class="bg-[#1a1a1a] text-white px-3 py-1 rounded border border-white/20">ICON</div>
+              <div class="text-ink-mute">→</div>
+              <div class="bg-black text-[#e3b341] px-3 py-1 rounded border border-[#e3b341]/30">IN-FORM</div>
             </div>
             <div class="mt-8 p-5 bg-brand/5 border border-brand/20 rounded-xl">
               <div class="flex items-center gap-2 mb-2">
