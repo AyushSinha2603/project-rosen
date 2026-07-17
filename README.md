@@ -33,6 +33,18 @@ The highlight? We calculate your unique stats and generate a **downloadable, FIF
 
 ---
 
+## 🏆 Dynamic FUT Cards
+
+Your chess statistics are converted into a downloadable **FUT Card**. As your score increases, your card evolves from Bronze, to Silver, and finally to Gold!
+
+<div align="center">
+  <img src="public/sampleCards/sample-gold.png" width="30%" alt="Gold Card" />
+  <img src="public/sampleCards/sample-silver.png" width="30%" alt="Silver Card" />
+  <img src="public/sampleCards/sample-bronze.png" width="30%" alt="Bronze Card" />
+</div>
+
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
