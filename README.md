@@ -8,14 +8,13 @@
 
 <div style="display: flex; justify-content: center; gap: 15px;">
   <img src="public/sampleCards/short-icon.png" width="200" alt="Icon Card">
+  <img src="public/sampleCards/short-in-form.png" width="200" alt="In-Form Card">
   <img src="public/sampleCards/short-toty.png" width="200" alt="TOTY Card">
-  <img src="public/sampleCards/short-gold.png" width="200" alt="Gold Card 1">
-  <img src="public/sampleCards/short-gold-2.png" width="200" alt="Gold Card 2">
 </div>
 <br/>
 <div style="display: flex; justify-content: center; gap: 15px;">
-  <img src="public/sampleCards/short-silver-1.png" width="200" alt="Silver Card 1">
-  <img src="public/sampleCards/short-silver-2.png" width="200" alt="Silver Card 2">
+  <img src="public/sampleCards/short-gold.png" width="200" alt="Gold Card">
+  <img src="public/sampleCards/short-silver-1.png" width="200" alt="Silver Card">
   <img src="public/sampleCards/short-bronze.png" width="200" alt="Bronze Card">
 </div>
 
