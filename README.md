@@ -13,7 +13,7 @@
 </div>
 <br/>
 <div style="display: flex; justify-content: center; gap: 15px;">
-  <img src="public/sampleCards/short-gold.png" width="200" alt="Gold Card">
+  <img src="public/sampleCards/short-gold-2.png" width="200" alt="Gold Card">
   <img src="public/sampleCards/short-silver-1.png" width="200" alt="Silver Card">
   <img src="public/sampleCards/short-bronze.png" width="200" alt="Bronze Card">
 </div>
@@ -66,20 +66,9 @@ Your card visually evolves as your overall rating climbs. Every single tier feat
 
 </div>
 
-### 🩸 The Elusive In-Form Card
-
-*Notice a massive stat spike? If one of your attributes is 20+ points higher than your overall rating, you'll unlock the ultra-rare **In-Form** card!*
-
-<div align="center">
-  <br/>
-  <img src="public/cards/founder-red.png" width="300" alt="Ultra Rare In-Form Card">
-  <br/><br/>
-  <em>We haven't found a single player who has unlocked this yet... Can you be the first?</em>
-</div>
-
 <br/>
 
-### Full Scout Reports
+## ⚡ Full Scout Reports
 
 *Every generated card comes paired with a full, detailed breakdown of exactly how each stat was calculated based on your historic chess data.*
 
@@ -89,10 +78,6 @@ Your card visually evolves as your overall rating climbs. Every single tier feat
   <img src="public/sampleCards/toty.png" width="800" alt="TOTY Tier Detailed Report">
   <br/><br/>
   <img src="public/sampleCards/gold.png" width="800" alt="Gold Tier 1 Detailed Report">
-  <br/><br/>
-  <img src="public/sampleCards/gold-2.png" width="800" alt="Gold Tier 2 Detailed Report">
-  <br/><br/>
-  <img src="public/sampleCards/silver-1.png" width="800" alt="Silver Tier 1 Detailed Report">
   <br/><br/>
   <img src="public/sampleCards/silver-2.png" width="800" alt="Silver Tier 2 Detailed Report">
   <br/><br/>
