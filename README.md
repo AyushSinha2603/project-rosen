@@ -68,7 +68,7 @@ Your card visually evolves as your overall rating climbs. Every single tier feat
 
 <br/>
 
-## ⚡ Full Scout Reports
+## 📜 Full Scout Reports
 
 *Every generated card comes paired with a full, detailed breakdown of exactly how each stat was calculated based on your historic chess data.*
 
