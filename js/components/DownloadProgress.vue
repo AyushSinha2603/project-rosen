@@ -1,12 +1,13 @@
 <template>
-  <div class="my-8 bg-purple-400 border-8 border-black shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] p-8 text-black font-black mx-auto rounded-none transition-all">
-    <div class="text-lg font-medium text-center">
+  <div class="my-8 bg-panel border border-line p-8 mx-auto rounded-2xl shadow-2xl transition-all relative overflow-hidden">
+    <div class="absolute inset-0 bg-brand/5 blur-3xl pointer-events-none"></div>
+    <div class="text-lg font-display tracking-widest text-ink-soft text-center uppercase relative z-10">
       Downloading and analyzing
-      {{ title }}&rsquo;s games
+      <span class="text-ink font-bold">{{ title }}&rsquo;s</span> games
     </div>
 
     <template v-if="hideProgressBar">
-      <svg class="animate-spin my-4 mx-auto h-16 w-16 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <svg class="animate-spin my-8 mx-auto h-12 w-12 text-brand relative z-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
         <path
           class="opacity-75"
@@ -16,36 +17,34 @@
       </svg>
     </template>
     <template v-else>
-      <div class="w-full my-6 h-8 bg-white border-4 border-black overflow-hidden rounded-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
-        <div class="h-8 bg-green-400 border-r-4 border-black transition-all duration-300 relative z-10" :style="`width: ${percentDownloaded}%`"></div>
+      <div class="w-full my-8 h-2 bg-surface-2 rounded-full overflow-hidden relative z-10">
+        <div class="h-full bg-gradient-to-r from-brand/50 to-brand transition-all duration-300 rounded-full" :style="`width: ${percentDownloaded}%`"></div>
       </div>
 
-      <div class="flex flex-row">
-        <div class="basis-1/4 text-center">
-          <h4 class="text-2xl md:text-5xl text-black bg-white border-4 border-black px-2 py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-10">
+        <div class="text-center p-4 bg-surface-2 border border-line rounded-xl shadow-inner">
+          <h4 class="text-2xl md:text-3xl font-display font-bold text-ink mb-1">
             {{ positions.toLocaleString() }}
           </h4>
-          <span class="text-sm font-black uppercase text-white bg-black mt-4 block p-1 border-2 border-black">Positions Analyzed</span>
+          <span class="text-xs font-bold tracking-widest uppercase text-ink-mute">Positions</span>
         </div>
-        <div class="basis-1/4 text-center">
-          <h4 class="text-2xl md:text-5xl text-black bg-white border-4 border-black px-2 py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block">
+        <div class="text-center p-4 bg-surface-2 border border-line rounded-xl shadow-inner">
+          <h4 class="text-2xl md:text-3xl font-display font-bold text-ink mb-1">
             {{ downloaded.toLocaleString() }}
           </h4>
-          <span class="text-sm font-black uppercase text-white bg-black mt-4 block p-1 border-2 border-black">Games Analyzed</span>
+          <span class="text-xs font-bold tracking-widest uppercase text-ink-mute">Games</span>
         </div>
-        <div class="basis-1/4 text-center">
-          <h4 class="text-2xl md:text-5xl text-black bg-white border-4 border-black px-2 py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block">
+        <div class="text-center p-4 bg-surface-2 border border-line rounded-xl shadow-inner">
+          <h4 class="text-2xl md:text-3xl font-display font-bold text-ink mb-1">
             {{ total.toLocaleString() }}
           </h4>
-          <span class="text-sm font-black uppercase text-white bg-black mt-4 block p-1 border-2 border-black">Total Games</span>
+          <span class="text-xs font-bold tracking-widest uppercase text-ink-mute">Total</span>
         </div>
-        <div class="basis-1/4 text-center">
-          <h4 class="text-2xl md:text-5xl text-black bg-yellow-300 border-4 border-black px-2 py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block">{{ percentDownloadedDisplay }}%</h4>
-          <span class="text-sm font-black uppercase text-white bg-black mt-4 block p-1 border-2 border-black">Complete</span>
+        <div class="text-center p-4 bg-surface-2 border border-brand/30 bg-brand/5 rounded-xl shadow-inner">
+          <h4 class="text-2xl md:text-3xl font-display font-bold text-brand mb-1">{{ percentDownloadedDisplay }}%</h4>
+          <span class="text-xs font-bold tracking-widest uppercase text-brand/70">Complete</span>
         </div>
       </div>
-
-
     </template>
   </div>
 </template>

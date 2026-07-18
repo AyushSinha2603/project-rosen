@@ -1268,10 +1268,13 @@ export default {
 
   methods: {
     resetAnalysis() {
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual'
+      }
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
       setTimeout(() => {
         window.location.reload()
-      }, 500)
+      }, 50)
     },
     async downloadFutCard() {
       const container = this.$refs.futCardContainer as any
