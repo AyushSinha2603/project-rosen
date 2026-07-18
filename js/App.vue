@@ -201,7 +201,7 @@
       </form>
 
       <!-- <RecentUpdates @form-fill="formFill" /> -->
-    </div>
+    </main>
 
     <download-progress
       v-if="isDownloading && !isDownloadComplete"
