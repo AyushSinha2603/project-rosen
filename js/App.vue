@@ -1,11 +1,9 @@
 <template>
   <div class="relative min-h-screen">
-    <!-- Premium Dynamic Background -->
-    <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[#050505]">
-      <div class="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] max-w-[1000px] rounded-full bg-brand/15 blur-[120px] animate-blob"></div>
-      <div class="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] max-w-[800px] rounded-full bg-brand-hi/15 blur-[100px] animate-blob-slow"></div>
-      <div class="absolute bottom-[-20%] left-[15%] w-[70vw] h-[70vw] max-w-[1200px] rounded-full bg-brand-deep/15 blur-[150px] animate-blob" style="animation-delay: 2s"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(0,0,0,0.85)_100%)]"></div>
+    <!-- Classic Chess Background -->
+    <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-bg">
+      <div class="absolute inset-0 bg-[url('/chess_bg.png')] bg-cover bg-center opacity-30 mix-blend-luminosity"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(10,8,7,0.95)_100%)]"></div>
     </div>
 
     <!-- Top Nav -->
@@ -43,16 +41,16 @@
     }"
   >
     <div class="text-center mb-10 pt-4">
-      <h1 class="text-5xl md:text-7xl font-display font-bold tracking-[0.15em] bg-clip-text text-transparent bg-gradient-to-br from-brand via-brand-hi to-white inline-block drop-shadow-sm">PROJECT ROSEN</h1>
+      <h1 class="text-5xl md:text-7xl font-display font-bold tracking-[0.15em] text-brand inline-block drop-shadow-md">PROJECT ROSEN</h1>
       
       <div class="mt-8 mb-4">
         <p id="about" class="md:text-2xl mt-4 text-ink-soft inline-block font-light">How many of these chess accomplishments have you completed?</p>
       </div>
     </div>
 
-    <div
-      class="my-12 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl mx-auto p-6 md:p-10 shadow-2xl text-ink font-light md:w-3/4"
+    <main
       v-if="!isDownloading && !isDownloadComplete"
+      class="my-12 bg-surface border border-line rounded-3xl mx-auto p-6 md:p-12 shadow-[0_16px_40px_rgba(0,0,0,0.6)] text-ink font-light md:w-3/4 relative z-10"
     >
       <form @submit.prevent="startDownload">
         <div class="flex flex-row mb-12">
@@ -222,7 +220,7 @@
       <p class="mt-4 text-red-100 bg-red-950 border border-red-800 rounded-xl p-4 inline-block">Try only running 1 Rosen Score report at a time. You may have to wait before trying again.</p>
     </div>
 
-    <div v-if="player.username" class="mt-16 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-10 text-center shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] mb-12 text-ink relative z-10">
+    <div v-if="player.username" class="mt-16 bg-surface border border-line rounded-3xl p-10 text-center shadow-[0_16px_40px_rgba(0,0,0,0.6)] mb-12 text-ink relative z-10">
       <h2 class="text-2xl">
         <username-formatter :title="player.title" :username="player.username"></username-formatter>
         has
@@ -919,7 +917,7 @@
     <div v-if="showHowItWorks" class="fixed inset-0 z-[100] flex items-center justify-center p-4" v-cloak>
       <div @click="showHowItWorks = false" class="absolute inset-0 bg-bg/80 backdrop-blur-sm"></div>
       
-      <div class="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto scrollbar-thin bg-panel backdrop-blur-2xl border border-line rounded-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] p-8 md:p-10">
+      <div class="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto scrollbar-thin bg-panel border border-line rounded-3xl shadow-[0_16px_40px_rgba(0,0,0,0.6)] p-8 md:p-10">
         <button @click="showHowItWorks = false" class="absolute top-4 right-4 bg-surface-2 border border-line text-ink-soft hover:text-ink w-8 h-8 flex items-center justify-center rounded-lg transition-colors cursor-pointer z-10">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>

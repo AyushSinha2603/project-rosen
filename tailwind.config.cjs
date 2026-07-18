@@ -4,12 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bg: '#050505',
-        'bg-deep': '#000000',
-        panel: 'rgba(255, 255, 255, 0.05)',
-        surface: 'rgba(255, 255, 255, 0.03)',
-        'surface-2': 'rgba(255, 255, 255, 0.08)',
-        line: 'rgba(255, 255, 255, 0.1)',
+        bg: '#0a0807',
+        'bg-deep': '#050403',
+        panel: '#161311',
+        surface: '#1c1815',
+        'surface-2': '#26201c',
+        line: '#3d332d',
         ink: '#f4f4f5',
         'ink-dim': '#e4e4e7',
         'ink-soft': '#a1a1aa',
