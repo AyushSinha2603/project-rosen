@@ -4,12 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bg: '#121212',
-        'bg-deep': '#0a0a0a',
-        panel: '#1e1e1e',
-        surface: '#18181b',
-        'surface-2': '#27272a',
-        line: '#3f3f46',
+        bg: '#050505',
+        'bg-deep': '#000000',
+        panel: 'rgba(255, 255, 255, 0.05)',
+        surface: 'rgba(255, 255, 255, 0.03)',
+        'surface-2': 'rgba(255, 255, 255, 0.08)',
+        line: 'rgba(255, 255, 255, 0.1)',
         ink: '#f4f4f5',
         'ink-dim': '#e4e4e7',
         'ink-soft': '#a1a1aa',
@@ -28,6 +28,23 @@ module.exports = {
         sans: ['Inter', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
         condensed: ['"Saira Condensed"', 'sans-serif'],
+      },
+      animation: {
+        'blob': 'blob 12s infinite',
+        'blob-slow': 'blob 18s infinite reverse',
+        'float': 'float 6s ease-in-out infinite',
+      },
+      keyframes: {
+        blob: {
+          '0%': { transform: 'translate(0px, 0px) scale(1)' },
+          '33%': { transform: 'translate(40px, -50px) scale(1.2)' },
+          '66%': { transform: 'translate(-30px, 30px) scale(0.8)' },
+          '100%': { transform: 'translate(0px, 0px) scale(1)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        }
       }
     },
   },
