@@ -2,7 +2,7 @@
   <div class="relative min-h-screen">
     <!-- Classic Chess Background -->
     <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-bg">
-      <div class="absolute inset-0 bg-[url('/chess_bg.png')] bg-cover bg-center opacity-30 mix-blend-luminosity"></div>
+      <div class="absolute inset-0 bg-[url('/chess_bg.png')] bg-cover bg-center opacity-50 mix-blend-luminosity"></div>
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(10,8,7,0.95)_100%)]"></div>
     </div>
 
