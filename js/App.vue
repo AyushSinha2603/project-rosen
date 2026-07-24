@@ -40,7 +40,7 @@
       'is-download-complete': isDownloadComplete,
     }"
   >
-    <div class="text-center mb-10 pt-4">
+    <div class="text-center mb-10 pt-14 md:pt-4">
       <h1 class="text-5xl md:text-7xl font-display font-bold tracking-[0.15em] text-brand inline-block drop-shadow-md">PROJECT ROSEN</h1>
       
       <div class="mt-8 mb-4">
@@ -1190,7 +1190,14 @@ export default {
       return Math.min(99, Math.max(40, Math.floor(average + boost)))
     },
     cardTier(): string {
-      if (this.futCardRating >= 85) return 'GOLD'
+      const { pac, sho, pas, dri, def, phy } = this.computedStats
+      const maxStat = Math.max(pac, sho, pas, dri, def, phy)
+      const isSpike = (maxStat - this.futCardRating) >= 20 && this.futCardRating >= 75
+
+      if (this.futCardRating >= 90) return 'ICON'
+      if (this.futCardRating >= 85) return 'TOTY'
+      if (isSpike) return 'IN-FORM'
+      if (this.futCardRating >= 75) return 'GOLD'
       if (this.futCardRating >= 65) return 'SILVER'
       return 'BRONZE'
     },
